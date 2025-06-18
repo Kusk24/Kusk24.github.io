@@ -2,41 +2,79 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pet Store</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Store</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <header>
-    <h1>Welcome to Our Pet Store</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="pets.html">Pets</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-  <main>
-    <section>
-      <h2>Adopt a pet</h2>
-      <div id="pet-list" class="pet-list">
-        <!-- Pets will load here -->
-      </div>
-    </section>
-  </main>
-  <footer id=contact>
-    <div style=" margin: 10px;">
-      <p> Address <strong>88 หมู่ที่ 8 ถนน บางนา-ตราด Bang Sao Thong, Bang Sao Thong District, Samut Prakan
-          10540</strong></p>
-      <p>Contact us at: <strong> info@petstore.com</strong></p>
-    </div>
-    <div> <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.7574928636777!2d100.83533621131393!3d13.611617900467191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d430e775155f9%3A0xf01923824353260!2sAssumption%20University%20Suvarnabhumi%20Campus!5e0!3m2!1sen!2sth!4v1749612550055!5m2!1sen!2sth"
-        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
-  </footer>
-  <script src="loadpets.js"></script>
+    <header style="background: url('jumbotron.jpg') center/cover no-repeat;">
+        <h1>Welcome to Our Pet Store</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="pets.html">Pets</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="featured">
+            <h2>Featured Pets</h2>
+            <div>
+                Type:
+                <input type="checkbox" id="dog" name="pet-type" value="Dog" checked>
+                <label for="dog">Dog</label>
+
+                <input type="checkbox" id="cat" name="pet-type" value="Cat" checked>
+                <label for="cat">Cat</label>
+
+                <input type="checkbox" id="capybara" name="pet-type" value="Capybara" checked>
+                <label for="capybara">Capybara</label>
+
+
+                <input type="checkbox" id="bird" name="pet-type" value="Bird" checked>
+                <label for="bird">Bird</label>
+            </div>
+            <div class="pet-list" id="pet-list">
+                <!-- <div class="pet">
+                    <img src="img/dog.jpg" alt="Cute Dog">
+                    <p>Charlie - Golden Retriever</p>
+                    <button onclick="adoptPet()">Adopt Now</button>
+                </div>
+                <div class="pet">
+                    <img src="img/cat.webp" alt="Cute Cat">
+                    <p>Milo - British Shorthair</p>
+                    <button onclick="adoptPet()">Adopt Now</button>
+                </div> -->
+            </div>
+        </section>
+        <section class="contact">
+            <!-- <a id="contact"/> -->
+        </section>
+    </main>
+
+    <footer id="contact" style="background-color: rgba(42, 135, 234, 0.513);">
+        <div id="contact" style="display: flex; gap: 24px; align-items: flex-start; width: 60%; margin: 0 auto;">
+            <div id="address" style="flex: 1;">
+                <h2>Our Pet Shop</h2>
+                <p>88 หมู่ที่ 8 ถนน บางนา-ตราด Bang Sao Thong, Bang Sao Thong District, Samut Prakan 10540</p>
+                <p>Email: <strong>info@petstore.com</strong></p>
+            </div>
+            <div id="map" style="flex: 2; margin: 10px 0;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.757578305562!2d100.83534157410966!3d13.611612686765792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d430e775155f9%3A0xf01923824353260!2sAssumption%20University%20Suvarnabhumi%20Campus!5e0!3m2!1sen!2sth!4v1749542866348!5m2!1sen!2sth"
+                    width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="loadpets.js"></script>
+    <script src="script.js"></script>
+
 </body>
 
 </html>
