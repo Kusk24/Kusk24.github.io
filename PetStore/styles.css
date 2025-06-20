@@ -6,13 +6,13 @@ body {
 } 
  
 header { 
-    background-color: #4CAF50; 
+    background-color: rgba(42, 135, 234, 0.513); 
     padding: 20px; 
     color: white; 
 } 
 
 footer { 
-    background-color: #4CAF50; 
+    background-color: rgba(42, 135, 234, 0.513); 
     padding: 20px; 
     color: white; 
     display: flex;
