@@ -1,3 +1,21 @@
+/* =========================================
+   ACCESSORY SHOP QUOTATION STYLES
+   ========================================= */
+
+/* ===== BASE STYLES ===== */
+body {
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+.container-fluid {
+    padding: 10px;
+}
+
+/* ===== TABLE STYLES ===== */
 table {
     border-spacing: 0px;
     border-collapse: collapse;
@@ -8,12 +26,100 @@ th {
     background-color: rgb(184, 212, 231);
     color: darkblue;
     border: solid #000000 1px;
+    padding: 8px;
+    font-weight: bold;
 }
 
 td {
     vertical-align: top;
+    padding: 4px 8px;
 }
 
+/* ===== QUOTATION TABLE SPECIFIC STYLES ===== */
+#quotationTable {
+    table-layout: fixed;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+#quotationTable th,
+#quotationTable td {
+    padding: 4px 8px;
+    vertical-align: middle;
+}
+
+#quotationTable th:nth-child(1),
+#quotationTable td:nth-child(1) {
+    width: 8%;
+    text-align: center;
+}
+
+#quotationTable th:nth-child(2),
+#quotationTable td:nth-child(2) {
+    width: 54%;
+    word-wrap: break-word;
+}
+
+#quotationTable th:nth-child(3),
+#quotationTable td:nth-child(3) {
+    width: 19%;
+    text-align: right;
+}
+
+#quotationTable th:nth-child(4),
+#quotationTable td:nth-child(4) {
+    width: 19%;
+    text-align: right;
+}
+
+/* ===== BUTTON STYLES ===== */
+.btn-delete {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 10px;
+    margin-right: 3px;
+}
+
+/* ===== TABLE CONDENSED STYLES ===== */
+.table-condensed>thead>tr>th,
+.table-condensed>tbody>tr>th,
+.table-condensed>tfoot>tr>th,
+.table-condensed>thead>tr>td,
+.table-condensed>tbody>tr>td,
+.table-condensed>tfoot>tr>td {
+    padding: 3px;
+}
+
+/* Column widths */
+#quotationTable th:nth-child(1),
+#quotationTable td:nth-child(1) {
+    width: 8%;
+    text-align: center;
+}
+
+#quotationTable th:nth-child(2),
+#quotationTable td:nth-child(2) {
+    width: 54%;
+    word-wrap: break-word;
+}
+
+#quotationTable th:nth-child(3),
+#quotationTable td:nth-child(3) {
+    width: 19%;
+    text-align: right;
+}
+
+#quotationTable th:nth-child(4),
+#quotationTable td:nth-child(4) {
+    width: 19%;
+    text-align: right;
+}
+
+/* ===== TABLE BORDERS AND LINES ===== */
 #sub-total {
     border-top: solid #000 1px;
 }
@@ -31,9 +137,41 @@ td {
     border-right: solid #000000 1px;
 }
 
+/* ===== BUTTON STYLES ===== */
+.btn-delete {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-delete:hover {
+    background: #c82333;
+}
+
+.btn-delete:active {
+    background: #bd2130;
+}
+
+/* ===== BOOTSTRAP TABLE OVERRIDES ===== */
+.table-condensed>thead>tr>th,
+.table-condensed>tbody>tr>th,
+.table-condensed>tfoot>tr>th,
+.table-condensed>thead>tr>td,
+.table-condensed>tbody>tr>td,
+.table-condensed>tfoot>tr>td {
+    padding: 3px;
+}
+
+/* ===== UTILITY CLASSES ===== */
 p.i {
     font-style: italic;
-  }
+}
 
 .r {
     text-align: right;
@@ -45,7 +183,7 @@ p.i {
 
 .center {
     margin: auto;
-  }
+}
 
 .colo {
     font-weight: bold;
@@ -57,6 +195,83 @@ p.i {
 }
 
 .tab { 
-    display:inline-block; 
+    display: inline-block; 
     margin-left: 40px; 
+}
+
+/* ===== HEADER STYLES ===== */
+.company-header {
+    margin-bottom: 20px;
+}
+
+.company-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.quotation-title {
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* ===== MODAL STYLES ===== */
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-title {
+    color: #495057;
+    font-weight: 600;
+}
+
+.modal-body .table td {
+    border: none;
+    padding: 8px 12px;
+}
+
+.modal-body .table td:first-child {
+    font-weight: 600;
+    width: 30%;
+}
+
+/* ===== FORM STYLES ===== */
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    body {
+        font-size: 12px;
+    }
+    
+    #quotationTable {
+        font-size: 12px;
+    }
+    
+    .quotation-title {
+        font-size: 24px;
+    }
+    
+    .tab {
+        margin-left: 20px;
+    }
+}
+
+@media print {
+    .btn, 
+    button {
+        display: none !important;
+    }
+    
+    .modal {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12px;
+    }
 }
