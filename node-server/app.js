@@ -22,7 +22,7 @@ const server = http.createServer((req, res) => {
         });
     } 
     
-    //Classwork for Payload in POST (from line 25 to 95)
+    //*** Classwork for Payload in POST (from line 25 to 95) ***
     else if (req.method === 'POST' && pathname === '/api/add') {
         let body = '';
         req.on('data', chunk => {
@@ -88,7 +88,7 @@ const server = http.createServer((req, res) => {
                     "opt": "divide",
                     "num1": data.num1,
                     "num2": data.num2,
-                    "result": "Divided by zero"
+                    "error": "Divided by zero!"
                 }))
             }
         })
@@ -144,7 +144,7 @@ const server = http.createServer((req, res) => {
                 "opt": "divide",
                 "num1": num1,
                 "num2": num2,
-                "result": "Divided by zero"
+                "error": "Divided by zero!"
             }))
         }
     } else if (req.url === '/api/cat') {
