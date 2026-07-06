@@ -135,7 +135,20 @@ export default function Certifications() {
                             style={{ color: "var(--text2)" }}
                           >
                             {cert.org}
+                            {cert.date && ` · ${cert.date}`}
                           </span>
+                          {cert.verifyUrl && (
+                            <a
+                              href={cert.verifyUrl}
+                              target="_blank"
+                              rel="noopener"
+                              onClick={(e) => e.stopPropagation()}
+                              className="mt-[3px] inline-flex w-fit items-center gap-1 text-[12.5px] font-semibold no-underline"
+                              style={{ color: "var(--accent)" }}
+                            >
+                              {t.certVerify} ↗
+                            </a>
+                          )}
                         </div>
                         <span
                           className="inline-flex flex-none items-center gap-1.5 whitespace-nowrap rounded-full border px-[11px] py-[5px] text-[11.5px] font-semibold tracking-[0.02em]"
@@ -243,6 +256,7 @@ export default function Certifications() {
                     </span>
                     <span className="text-[12.5px]" style={{ color: "var(--text2)" }}>
                       {cert.org}
+                      {cert.date && ` · ${cert.date}`}
                     </span>
                   </span>
                   <ChevronRight
