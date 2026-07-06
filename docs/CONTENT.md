@@ -16,7 +16,7 @@ shown wherever a file is still missing):
 
 | File | Shows up as |
 |---|---|
-| `portrait.jpg` | Hero photo under your name (≈800×960+) |
+| `portrait.png` | Hero photo under your name (≈800×960+) |
 | `Win-Yu-Maung-Resume.pdf` | The résumé download buttons (nav + hero) |
 | `projects/augo.png` | AUGO — featured card + case-study modal |
 | `projects/motopedia.png` | MotoPedia — featured card + modal |

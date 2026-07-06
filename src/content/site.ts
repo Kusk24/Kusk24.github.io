@@ -17,9 +17,9 @@ export const profile = {
   /** Drop your resume PDF at public/content/Win-Yu-Maung-Resume.pdf */
   resumePath: "/content/Win-Yu-Maung-Resume.pdf",
   resumeFileName: "Win-Yu-Maung-Resume.pdf",
-  /** Drop your photo at public/content/portrait.jpg (400×480 or larger). */
-  portrait: "/content/portrait.jpg",
-  portraitHint: "portrait.jpg",
+  /** Drop your photo at public/content/portrait.png (400×480 or larger). */
+  portrait: "/content/portrait.png",
+  portraitHint: "portrait.png",
   copyrightYear: "2026",
 };
 
