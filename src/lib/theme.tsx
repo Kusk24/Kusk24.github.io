@@ -3,11 +3,39 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
-  useState,
+  useSyncExternalStore,
 } from "react";
 
 type Theme = "dark" | "light";
+
+// Module-level store: the pre-paint script in layout.tsx puts the saved theme
+// on <html data-theme> before hydration; this store reads and mutates it.
+const listeners = new Set<() => void>();
+let cached: Theme | null = null;
+
+function subscribe(fn: () => void) {
+  listeners.add(fn);
+  return () => listeners.delete(fn);
+}
+
+function getSnapshot(): Theme {
+  if (cached === null) {
+    cached =
+      document.documentElement.getAttribute("data-theme") === "light"
+        ? "light"
+        : "dark";
+  }
+  return cached;
+}
+
+function setTheme(next: Theme) {
+  cached = next;
+  document.documentElement.setAttribute("data-theme", next);
+  try {
+    localStorage.setItem("theme", next);
+  } catch {}
+  listeners.forEach((fn) => fn());
+}
 
 const ThemeContext = createContext<{ theme: Theme; toggleTheme: () => void }>({
   theme: "dark",
@@ -15,23 +43,9 @@ const ThemeContext = createContext<{ theme: Theme; toggleTheme: () => void }>({
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
-
-  // The pre-paint script in layout.tsx already set data-theme; sync state to it.
-  useEffect(() => {
-    const current = document.documentElement.getAttribute("data-theme");
-    if (current === "light") setTheme("light");
-  }, []);
-
+  const theme = useSyncExternalStore(subscribe, getSnapshot, () => "dark" as Theme);
   const toggleTheme = useCallback(() => {
-    setTheme((prev) => {
-      const next = prev === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      try {
-        localStorage.setItem("theme", next);
-      } catch {}
-      return next;
-    });
+    setTheme(getSnapshot() === "dark" ? "light" : "dark");
   }, []);
 
   return (

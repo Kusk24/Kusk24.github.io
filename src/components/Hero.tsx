@@ -16,8 +16,8 @@ function useTypewriter(phrases: string[]) {
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
-      setTyped(phrases[0] ?? "");
-      return;
+      const raf = requestAnimationFrame(() => setTyped(phrases[0] ?? ""));
+      return () => cancelAnimationFrame(raf);
     }
     let i = 0; // phrase index
     let c = 0; // char count
@@ -48,9 +48,12 @@ function useTypewriter(phrases: string[]) {
       timer.current = setTimeout(tick, deleting ? 34 : 62);
     };
 
-    setTyped("");
+    const clear = requestAnimationFrame(() => setTyped(""));
     timer.current = setTimeout(tick, 400);
-    return () => clearTimeout(timer.current);
+    return () => {
+      cancelAnimationFrame(clear);
+      clearTimeout(timer.current);
+    };
   }, [phrases]);
 
   return typed;

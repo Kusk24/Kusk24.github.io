@@ -35,8 +35,8 @@ export default function Reveal({
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
-      setShown(true);
-      return;
+      const raf = requestAnimationFrame(() => setShown(true));
+      return () => cancelAnimationFrame(raf);
     }
     const io = new IntersectionObserver(
       (entries) => {
@@ -54,9 +54,10 @@ export default function Reveal({
   }, []);
 
   return (
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     <Tag
-      ref={ref as any}
+      ref={(node: HTMLElement | null) => {
+        ref.current = node;
+      }}
       data-rv=""
       {...(shown ? { "data-rvd": "" } : {})}
       className={className}
