@@ -49,8 +49,7 @@ export default function Nav() {
           <a
             key={l.href}
             href={l.href}
-            className="text-[13.5px] no-underline transition-colors hover:text-[var(--text)]"
-            style={{ color: "var(--text2)" }}
+            className="text-[13.5px] text-[var(--text2)] no-underline transition-colors hover:text-[var(--text)]"
           >
             {l.label}
           </a>
@@ -79,8 +78,8 @@ export default function Nav() {
         <button
           onClick={toggleTheme}
           title="Toggle theme"
-          className="flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full border bg-transparent text-[15px] leading-none transition-colors hover:border-[var(--text2)]"
-          style={{ borderColor: "var(--line)", color: "var(--text)" }}
+          className="flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full border border-[var(--line)] bg-transparent text-[15px] leading-none transition-colors hover:border-[var(--text2)]"
+          style={{ color: "var(--text)" }}
         >
           {theme === "dark" ? "☀" : "☾"}
         </button>
