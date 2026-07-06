@@ -162,6 +162,56 @@ h3 {
   }
 }
 
+/* ── Neon sweep underline (contact email) ────────────────────────────────
+   Two layers under the link: ::after is the sharp gradient line, ::before is
+   a blurred glow beneath it. Both sweep left↔right via neonSweep. */
+.neon-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 26%, transparent) 34%,
+    #eaf6ff 50%,
+    color-mix(in srgb, var(--accent) 26%, transparent) 66%
+  );
+  background-size: 250% 100%;
+  animation: neonSweep 5.9s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+.neon-underline::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 12px;
+  border-radius: 12px;
+  background: linear-gradient(
+    90deg,
+    transparent 41%,
+    var(--accent) 50%,
+    transparent 59%
+  );
+  background-size: 250% 100%;
+  filter: blur(5px);
+  opacity: 0.85;
+  animation: neonSweep 5.9s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .neon-underline::after,
+  .neon-underline::before {
+    animation: none;
+  }
+}
+
 /* ── Themed icon images (mono brand icons via CSS filters) ──────────────── */
 img[data-lucide="true"] {
   filter: invert(1);

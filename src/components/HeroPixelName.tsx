@@ -91,28 +91,41 @@ export default function HeroPixelName({ name }: { name: string }) {
         return;
       }
 
-      const T_IN = 1250,
-        T_HOLD = 2600,
-        T_OUT = 600,
-        FMIN = 0.05;
-      const period = T_IN + T_HOLD + T_OUT;
+      // One full pixelate cycle every PERIOD ms: the name holds crisp, then
+      // briefly dissolves into coarse pixels (T_OUT) and resolves back in
+      // (T_IN), then stays sharp until the next cycle. Blockier start via a
+      // low FMIN. The first cycle also plays the reveal on load.
+      const PERIOD = 10000; // fire roughly every 10s
+      const T_OUT = 650, // sharp → blocky
+        T_IN = 2100, // blocky → sharp
+        FMIN = 0.022;
       const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
       const easeIn = (t: number) => t * t * t;
-      const loopStart = performance.now();
+      // Start the very first reveal immediately (offset so p begins at the
+      // dissolve), then settle into the 10s cadence.
+      const loopStart = performance.now() - (PERIOD - T_OUT - T_IN);
+
+      const paintSharp = () => {
+        ctx.clearRect(0, 0, cv.width, cv.height);
+        ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(off, 0, 0);
+      };
 
       const frame = (now: number) => {
-        const p = (now - loopStart) % period;
+        const p = (now - loopStart) % PERIOD;
         let factor: number;
-        if (p < T_IN) factor = FMIN + easeOut(p / T_IN) * (1 - FMIN);
-        else if (p < T_IN + T_HOLD) factor = 1;
-        else factor = 1 - easeIn((p - T_IN - T_HOLD) / T_OUT) * (1 - FMIN);
-        if (factor >= 0.999) {
-          ctx.clearRect(0, 0, cv.width, cv.height);
-          ctx.imageSmoothingEnabled = false;
-          ctx.drawImage(off, 0, 0);
+        if (p < T_OUT) {
+          // dissolve out to blocky
+          factor = 1 - easeIn(p / T_OUT) * (1 - FMIN);
+        } else if (p < T_OUT + T_IN) {
+          // resolve back to sharp
+          factor = FMIN + easeOut((p - T_OUT) / T_IN) * (1 - FMIN);
         } else {
-          draw(off, factor);
+          // hold crisp until the next cycle
+          factor = 1;
         }
+        if (factor >= 0.999) paintSharp();
+        else draw(off, factor);
         raf = requestAnimationFrame(frame);
       };
       raf = requestAnimationFrame(frame);
