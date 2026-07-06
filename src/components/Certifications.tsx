@@ -221,12 +221,17 @@ export default function Certifications() {
           </Reveal>
 
           {/* Cert list */}
-          <div className="flex min-w-[min(340px,100%)] flex-[1_1_340px] flex-col gap-3">
+          <div
+            onMouseEnter={() => (hold.current = true)}
+            onMouseLeave={() => (hold.current = false)}
+            className="flex min-w-[min(340px,100%)] flex-[1_1_340px] flex-col gap-3"
+          >
             {certs.map((cert, i) => (
               <Reveal key={cert.name} duration={0.7}>
                 <div
                   data-certitem=""
                   data-cur={i === cur ? "true" : "false"}
+                  onMouseEnter={() => select(i)}
                   onClick={() => select(i)}
                   className="flex cursor-pointer items-center gap-3.5 rounded-[16px] border border-[var(--line)] px-4 py-3.5 transition-colors hover:border-[var(--text2)]"
                   style={{ background: "var(--card)" }}
