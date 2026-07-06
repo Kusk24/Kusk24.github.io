@@ -243,18 +243,27 @@ export const certs: CertMeta[] = [
     org: "Amazon Web Services",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     img: "/content/certs/aws-cloud-foundations.png",
+    date: "Feb 2025",
+    verifyUrl:
+      "https://www.credly.com/badges/2aaffd4d-760b-4d2e-bb69-1ec3d07d7ee0/public_url",
   },
   {
     name: "AWS Academy Cloud Developing",
     org: "Amazon Web Services",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     img: "/content/certs/aws-cloud-developing.png",
+    date: "Feb 2025",
+    verifyUrl:
+      "https://www.credly.com/badges/a73b7c03-5a14-48a7-9dc9-66ab65b3186e/public_url",
   },
   {
     name: "AWS Academy Cloud Operations",
     org: "Amazon Web Services",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     img: "/content/certs/aws-cloud-operations.png",
+    date: "Feb 2026",
+    verifyUrl:
+      "https://www.credly.com/badges/ed2c3f4f-4c0f-4ce1-9ddf-6d0f37354043/public_url",
   },
   {
     name: "Huawei Cloud Developer",

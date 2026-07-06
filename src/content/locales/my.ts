@@ -61,6 +61,7 @@ const my: Dict = {
   certSecLead:
     "Cloud အောင်လက်မှတ်များ အလိုအလျောက် လှည့်ပြနေသည် — တစ်ခုကို နှိပ်၍ အသေးစိတ်ကြည့်ပါ။",
   certVerified: "အတည်ပြု",
+  certVerify: "စစ်ဆေးရန်",
 
   aboutOverline: "ကုဒ်အပြင်ဘက်",
   aboutTitle: "ကျွန်ုပ်အကြောင်း",

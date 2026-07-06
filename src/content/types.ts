@@ -57,6 +57,7 @@ export interface Dict {
   certSecOverline: string;
   certSecLead: string;
   certVerified: string;
+  certVerify: string;
 
   aboutOverline: string;
   aboutTitle: string;
@@ -106,6 +107,10 @@ export interface CertMeta {
   logo: string;
   /** Path (under public/) of the certificate photo. Drop the file in and it appears. */
   img: string;
+  /** Issue date, e.g. "Feb 2025" (kept in English in every language). */
+  date?: string;
+  /** Public verification URL (e.g. a Credly badge). Shown as a "Verify" link. */
+  verifyUrl?: string;
 }
 
 export interface TechItem {

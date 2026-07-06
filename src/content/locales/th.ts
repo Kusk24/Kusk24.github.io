@@ -60,6 +60,7 @@ const th: Dict = {
   certSecLead:
     "ใบรับรองด้านคลาวด์ หมุนแสดงอัตโนมัติ — คลิกใบไหนก็ได้เพื่อดูรายละเอียด",
   certVerified: "ยืนยันแล้ว",
+  certVerify: "ตรวจสอบ",
 
   aboutOverline: "นอกเหนือจากโค้ด",
   aboutTitle: "เกี่ยวกับผม",

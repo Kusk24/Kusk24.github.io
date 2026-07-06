@@ -62,6 +62,7 @@ const en: Dict = {
   certSecLead:
     "Cloud certifications, rotating on their own — click any one to bring it into focus.",
   certVerified: "Verified",
+  certVerify: "Verify",
 
   aboutOverline: "Beyond the code",
   aboutTitle: "About me",
