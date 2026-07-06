@@ -2,15 +2,18 @@
 import { useEffect, useRef } from "react";
 
 /**
- * The hero headline rendered as a true block mosaic: the name is sampled into a
- * fixed grid of square cells, and each cell is drawn as a solid hard-edged
- * block (monochrome — like a mechanical flip-tile wall). The blocks BUILD UP
- * progressively in a scattered order, pause when the word is fully formed, then
- * clear and build again — every PERIOD ms.
+ * The hero headline with a pixel-assembly reveal. The RESTING state is the real
+ * crisp font (Space Grotesk, drawn sharp) — the pixel blocks are only a
+ * transition. Each cycle:
+ *   1. square blocks fly in from scattered offsets and settle onto the glyph
+ *      grid (assemble),
+ *   2. the blocks resolve into the crisp real text,
+ *   3. the sharp name holds,
+ *   4. the name shatters back into scattered blocks — then repeat.
  *
- * The underlying <h1> text goes transparent so only the canvas mosaic shows.
- * The <h1> stays the real, measurable element (font/size/letter-spacing from
- * getComputedStyle) so the mosaic always matches the responsive type.
+ * The underlying <h1> text is transparent; the canvas draws both the blocks and
+ * the sharp text. The <h1> stays the measurable element (font metrics via
+ * getComputedStyle) so everything matches the responsive type.
  */
 export default function HeroPixelName({ name }: { name: string }) {
   const h1Ref = useRef<HTMLHeadingElement>(null);
@@ -28,30 +31,33 @@ export default function HeroPixelName({ name }: { name: string }) {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    // Target on-screen block size in CSS px. Smaller = finer mosaic.
-    const CELL = 15;
+    const CELL = 15; // block size in CSS px
 
-    // Animation timing (ms).
-    const PERIOD = 10000; // full cycle: build → hold → clear → wait
-    const T_BUILD = 2600; // blocks appear one wave at a time
-    const T_HOLD = 4200; // fully-formed word rests
-    const T_CLEAR = 900; // blocks drop away
+    // Cycle timing (ms): assemble → morph to sharp → hold sharp → shatter.
+    const PERIOD = 9000;
+    const T_ASSEMBLE = 1500; // scattered blocks fly to their grid cells
+    const T_MORPH = 550; // blocks → crisp text cross-fade
+    const T_HOLD = 5200; // crisp name rests
+    const T_SHATTER = 750; // crisp text → scattered blocks
 
     let raf = 0;
 
     interface Cell {
-      cx: number; // block column (device px origin)
-      cy: number;
-      bw: number; // block width/height (device px)
+      x: number; // final block position (device px)
+      y: number;
+      bw: number;
       bh: number;
-      shade: number; // 0..1 coverage of the glyph in this cell
-      order: number; // 0..1 reveal position in the build sequence
+      shade: number; // glyph coverage 0..1
+      ox: number; // scatter offset the block flies in from
+      oy: number;
+      delay: number; // 0..1 stagger within the assemble/shatter window
     }
 
     let cells: Cell[] = [];
     let W = 0;
     let H = 0;
     let light = false;
+    let sharp: HTMLCanvasElement | null = null; // pre-rendered crisp text
 
     const build = () => {
       const rect = h1.getBoundingClientRect();
@@ -64,8 +70,36 @@ export default function HeroPixelName({ name }: { name: string }) {
       cv.height = Math.ceil(H * dpr);
 
       light = document.documentElement.getAttribute("data-theme") === "light";
+      const fs = parseFloat(cs.fontSize);
+      const font = `${cs.fontWeight} ${fs}px ${cs.fontFamily}`;
 
-      // Render the name to an offscreen canvas at device resolution.
+      // 1) Crisp text layer (the resting look) — white→soft-blue in dark,
+      //    dark grey in light, matching the original headline sheen.
+      sharp = document.createElement("canvas");
+      sharp.width = cv.width;
+      sharp.height = cv.height;
+      const sc = sharp.getContext("2d");
+      if (!sc) return;
+      sc.scale(dpr, dpr);
+      sc.textAlign = "center";
+      sc.textBaseline = "middle";
+      sc.font = font;
+      try {
+        (sc as CanvasRenderingContext2D & { letterSpacing?: string }).letterSpacing =
+          cs.letterSpacing;
+      } catch {}
+      const g = sc.createLinearGradient(0, 0, 0, H);
+      if (light) {
+        g.addColorStop(0, "#1d1d1f");
+        g.addColorStop(1, "#3a3a3f");
+      } else {
+        g.addColorStop(0, "#ffffff");
+        g.addColorStop(1, "#d8e0ee");
+      }
+      sc.fillStyle = g;
+      sc.fillText(name, W / 2, H / 2 + fs * 0.02);
+
+      // 2) Sample the same text (flat white) into grid cells for the blocks.
       const off = document.createElement("canvas");
       off.width = cv.width;
       off.height = cv.height;
@@ -74,8 +108,7 @@ export default function HeroPixelName({ name }: { name: string }) {
       o.scale(dpr, dpr);
       o.textAlign = "center";
       o.textBaseline = "middle";
-      const fs = parseFloat(cs.fontSize);
-      o.font = `${cs.fontWeight} ${fs}px ${cs.fontFamily}`;
+      o.font = font;
       try {
         (o as CanvasRenderingContext2D & { letterSpacing?: string }).letterSpacing =
           cs.letterSpacing;
@@ -83,7 +116,6 @@ export default function HeroPixelName({ name }: { name: string }) {
       o.fillStyle = "#fff";
       o.fillText(name, W / 2, H / 2 + fs * 0.02);
 
-      // Sample average alpha per grid cell → block coverage.
       const data = o.getImageData(0, 0, off.width, off.height).data;
       const cellPx = Math.max(2, Math.round(CELL * dpr));
       const cols = Math.ceil(off.width / cellPx);
@@ -98,7 +130,6 @@ export default function HeroPixelName({ name }: { name: string }) {
           const y1 = Math.min(off.height, y0 + cellPx);
           let sum = 0;
           let count = 0;
-          // Subsample the cell (every 2px) for speed.
           for (let y = y0; y < y1; y += 2) {
             for (let x = x0; x < x1; x += 2) {
               sum += data[(y * off.width + x) * 4 + 3];
@@ -107,16 +138,17 @@ export default function HeroPixelName({ name }: { name: string }) {
           }
           const shade = count ? sum / (count * 255) : 0;
           if (shade > 0.14) {
+            const ang = Math.random() * Math.PI * 2;
+            const dist = (40 + Math.random() * 140) * dpr;
             cells.push({
-              cx: x0,
-              cy: y0,
+              x: x0,
+              y: y0,
               bw: x1 - x0,
               bh: y1 - y0,
               shade,
-              // Build order: left-to-right sweep with a little scatter so it
-              // reads as blocks assembling, not a wipe.
-              order:
-                (gx / cols) * 0.7 + Math.random() * 0.3,
+              ox: Math.cos(ang) * dist, // fly in from a random direction
+              oy: Math.sin(ang) * dist,
+              delay: Math.random(), // scattered arrival, not a clean wipe
             });
           }
         }
@@ -125,58 +157,65 @@ export default function HeroPixelName({ name }: { name: string }) {
       h1.style.color = "transparent";
     };
 
-    // Draw all cells whose reveal position is <= progress (0..1). `fade`
-    // controls edge softness of the newest blocks so they pop rather than blur.
-    const drawBuild = (progress: number) => {
-      ctx.clearRect(0, 0, cv.width, cv.height);
-      ctx.imageSmoothingEnabled = false;
-      const gap = Math.max(1, Math.round(1 * dpr)); // seam between blocks
-      for (const c of cells) {
-        if (c.order > progress) continue;
-        // Newly-arrived blocks (within a small window) fade/scale in quickly.
-        const age = Math.min(1, (progress - c.order) / 0.06);
-        const alpha = age; // 0→1 as the block settles
-        // Monochrome block: white in dark theme, near-black in light theme.
-        // Brighter glyph coverage → more opaque block.
-        const lum = light ? 29 : 245;
-        ctx.fillStyle = `rgba(${lum},${light ? 29 : 247},${light ? 31 : 247},${
-          alpha * (0.55 + c.shade * 0.45)
-        })`;
-        ctx.fillRect(c.cx, c.cy, c.bw - gap, c.bh - gap);
-      }
+    const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+    const easeIn = (t: number) => t * t * t;
+    const clamp01 = (t: number) => Math.max(0, Math.min(1, t));
+
+    const drawSharp = (alpha: number) => {
+      if (!sharp) return;
+      ctx.globalAlpha = alpha;
+      ctx.imageSmoothingEnabled = true;
+      ctx.drawImage(sharp, 0, 0);
+      ctx.globalAlpha = 1;
     };
 
-    const drawClear = (progress: number) => {
-      // progress 0→1 removes blocks (reverse order = last-in first-out feel).
-      ctx.clearRect(0, 0, cv.width, cv.height);
+    // Blocks flying toward (dir=+1) or away from (dir=-1) their cells.
+    // prog 0..1; at prog=1 blocks sit exactly on the grid.
+    const drawBlocks = (prog: number, dir: 1 | -1, alpha = 1) => {
       ctx.imageSmoothingEnabled = false;
       const gap = Math.max(1, Math.round(1 * dpr));
+      const lum = light ? "29,29,31" : "245,245,247";
       for (const c of cells) {
-        // Each block disappears at its own moment during the clear.
-        if (1 - c.order < progress) continue;
-        const lum = light ? 29 : 245;
-        ctx.fillStyle = `rgba(${lum},${light ? 29 : 247},${light ? 31 : 247},${
-          0.55 + c.shade * 0.45
-        })`;
-        ctx.fillRect(c.cx, c.cy, c.bw - gap, c.bh - gap);
+        // Stagger each block within a 0.55-wide window by its delay.
+        const local =
+          dir === 1
+            ? clamp01((prog - c.delay * 0.55) / 0.45)
+            : clamp01((prog - c.delay * 0.55) / 0.45);
+        const settle = dir === 1 ? easeOut(local) : 1 - easeIn(local);
+        // settle: 1 = on grid, 0 = fully scattered.
+        const t = dir === 1 ? settle : settle;
+        const ox = c.ox * (1 - t);
+        const oy = c.oy * (1 - t);
+        const a = (dir === 1 ? local : 1 - easeIn(local)) * alpha;
+        if (a <= 0.01) continue;
+        ctx.fillStyle = `rgba(${lum},${a * (0.55 + c.shade * 0.45)})`;
+        ctx.fillRect(c.x + ox, c.y + oy, c.bw - gap, c.bh - gap);
       }
     };
-
-    const easeInOut = (t: number) =>
-      t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
     let loopStart = performance.now();
 
     const frame = (now: number) => {
       const p = (now - loopStart) % PERIOD;
-      if (p < T_BUILD) {
-        drawBuild(easeInOut(p / T_BUILD));
-      } else if (p < T_BUILD + T_HOLD) {
-        drawBuild(1); // fully formed, resting
-      } else if (p < T_BUILD + T_HOLD + T_CLEAR) {
-        drawClear(easeInOut((p - T_BUILD - T_HOLD) / T_CLEAR));
+      ctx.clearRect(0, 0, cv.width, cv.height);
+
+      if (p < T_ASSEMBLE) {
+        // scattered blocks fly in and settle
+        drawBlocks(p / T_ASSEMBLE, 1);
+      } else if (p < T_ASSEMBLE + T_MORPH) {
+        // cross-fade settled blocks → crisp text
+        const m = (p - T_ASSEMBLE) / T_MORPH;
+        drawBlocks(1, 1, 1 - m);
+        drawSharp(easeOut(m));
+      } else if (p < T_ASSEMBLE + T_MORPH + T_HOLD) {
+        drawSharp(1); // crisp name rests
+      } else if (p < T_ASSEMBLE + T_MORPH + T_HOLD + T_SHATTER) {
+        // crisp text → blocks scatter apart
+        const s = (p - T_ASSEMBLE - T_MORPH - T_HOLD) / T_SHATTER;
+        drawSharp(1 - easeIn(s));
+        drawBlocks(1 - s, -1);
       } else {
-        // brief empty beat before the next build
+        // brief empty beat before the next assemble
       }
       raf = requestAnimationFrame(frame);
     };
@@ -184,14 +223,13 @@ export default function HeroPixelName({ name }: { name: string }) {
     const start = () => {
       build();
       if (reduce) {
-        drawBuild(1); // static, fully formed
+        drawSharp(1); // static crisp text, no animation
         return;
       }
       loopStart = performance.now();
       raf = requestAnimationFrame(frame);
     };
 
-    // Fonts must be loaded before measuring, or the mosaic samples a fallback.
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(start);
     } else {
@@ -204,7 +242,6 @@ export default function HeroPixelName({ name }: { name: string }) {
       resizeTimer = setTimeout(start, 150);
     };
     window.addEventListener("resize", onResize);
-    // Rebuild on theme flip so block color re-tints.
     const observer = new MutationObserver(() => start());
     observer.observe(document.documentElement, {
       attributes: true,
