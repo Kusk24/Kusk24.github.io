@@ -167,6 +167,7 @@ export default function Certifications() {
                           alt={cert.name}
                           hint={cert.img.replace("/content/", "")}
                           radius={14}
+                          fit="contain"
                           style={{ width: "100%", height: 230 }}
                         />
                       </div>

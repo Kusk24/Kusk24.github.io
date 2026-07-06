@@ -12,6 +12,7 @@ export default function ContentImage({
   alt,
   hint,
   radius = 0,
+  fit = "cover",
   className,
   style,
 }: {
@@ -20,6 +21,8 @@ export default function ContentImage({
   /** Filename hint shown in the placeholder, e.g. "portrait.jpg". */
   hint?: string;
   radius?: number;
+  /** "cover" fills & crops (photos); "contain" shows the whole image (badges). */
+  fit?: "cover" | "contain";
   className?: string;
   style?: CSSProperties;
 }) {
@@ -80,7 +83,7 @@ export default function ContentImage({
           position: "relative",
           width: "100%",
           height: "100%",
-          objectFit: "cover",
+          objectFit: fit,
           display: state === "ok" ? "block" : "none",
         }}
       />
