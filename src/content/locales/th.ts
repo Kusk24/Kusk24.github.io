@@ -82,7 +82,7 @@ const th: Dict = {
   contactOverline: "ติดต่อ",
   contactTitle: "มาสร้างอะไรด้วยกัน",
   contactLead: "เปิดรับฝึกงานวิศวกรรมซอฟต์แวร์ — เว็บ มือถือ แบ็กเอนด์ หรือคลาวด์",
-  footNote: "English · ไทย · မြန်မာ — ออกแบบและพัฒนาด้วยตัวเอง",
+  footNote: "English · ไทย · မြန်မာ — ออกแบบและพัฒนาโดย Win Yu Maung",
 
   experience: [
     {

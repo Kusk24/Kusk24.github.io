@@ -85,7 +85,7 @@ const en: Dict = {
   contactTitle: "Let’s build something.",
   contactLead:
     "Open to software engineering internships — web, mobile, backend, or cloud.",
-  footNote: "English · ไทย · မြန်မာ — designed & built by me",
+  footNote: "English · ไทย · မြန်မာ — designed & built by Win Yu Maung",
 
   experience: [
     {
