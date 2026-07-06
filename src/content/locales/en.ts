@@ -4,6 +4,7 @@ const en: Dict = {
   navProjects: "Projects",
   navExp: "Experience",
   navStack: "Stack",
+  navCerts: "Certificates",
   navAbout: "About",
   navContact: "Contact",
   navResume: "Résumé",

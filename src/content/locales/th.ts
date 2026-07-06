@@ -4,6 +4,7 @@ const th: Dict = {
   navProjects: "ผลงาน",
   navExp: "ประสบการณ์",
   navStack: "เทคโนโลยี",
+  navCerts: "ใบรับรอง",
   navAbout: "เกี่ยวกับ",
   navContact: "ติดต่อ",
   navResume: "เรซูเม่",

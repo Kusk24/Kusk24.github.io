@@ -4,6 +4,7 @@ const my: Dict = {
   navProjects: "ပရောဂျက်များ",
   navExp: "အတွေ့အကြုံ",
   navStack: "နည်းပညာ",
+  navCerts: "အောင်လက်မှတ်",
   navAbout: "ကျွန်ုပ်အကြောင်း",
   navContact: "ဆက်သွယ်ရန်",
   navResume: "Resume",

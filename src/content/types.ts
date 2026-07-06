@@ -8,6 +8,7 @@ export interface Dict {
   navProjects: string;
   navExp: string;
   navStack: string;
+  navCerts: string;
   navAbout: string;
   navContact: string;
   navResume: string;

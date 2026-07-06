@@ -19,6 +19,7 @@ export default function Nav() {
     { href: "#projects", label: t.navProjects },
     { href: "#experience", label: t.navExp },
     { href: "#stack", label: t.navStack },
+    { href: "#certifications", label: t.navCerts },
     { href: "#about", label: t.navAbout },
     { href: "#contact", label: t.navContact },
   ];
