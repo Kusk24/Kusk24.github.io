@@ -224,20 +224,40 @@ export default function HeroPixelName({ name }: { name: string }) {
       raf = requestAnimationFrame(frame);
     };
 
+    // First load plays the assemble as the intro: offset the clock so the very
+    // first frame is the start of the "blocks fly in" phase, not the hold.
+    let firstRun = true;
     const start = () => {
       build();
       if (reduce) {
         drawSharp(1); // static crisp text, no animation
         return;
       }
-      loopStart = performance.now();
+      if (firstRun) {
+        // begin at the assemble phase (tShatterEnd = T_HOLD + T_SHATTER)
+        loopStart = performance.now() - (T_HOLD + T_SHATTER);
+        firstRun = false;
+      } else {
+        loopStart = performance.now();
+      }
+      if (raf) cancelAnimationFrame(raf);
       raf = requestAnimationFrame(frame);
     };
 
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(start);
-    } else {
+    // Paint the first frame immediately so the name is never blank. If the
+    // display font isn't loaded yet, wait for it (avoids sampling a fallback);
+    // otherwise start right away. Either way the intro assemble plays once.
+    const fontsReady =
+      !document.fonts || document.fonts.status === "loaded";
+    if (fontsReady) {
       start();
+    } else {
+      // draw a provisional assemble now, then rebuild with the real font
+      start();
+      document.fonts.ready.then(() => {
+        firstRun = true;
+        start();
+      });
     }
 
     let resizeTimer: ReturnType<typeof setTimeout> | undefined;

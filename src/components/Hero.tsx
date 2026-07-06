@@ -107,9 +107,7 @@ export default function Hero() {
             }}
           />
         </Reveal>
-        <Reveal y={40} duration={0.9} delay={0.1}>
-          <HeroPixelName name={profile.name} />
-        </Reveal>
+        <HeroPixelName name={profile.name} />
         <Reveal
           as="p"
           y={30}
