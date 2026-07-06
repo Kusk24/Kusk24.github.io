@@ -49,40 +49,28 @@ html {
 }
 
 /* ── Liquid glass surfaces ───────────────────────────────────────────────
-   .glass       — standard translucent panel (cards, pills, tiles)
+   .glass        — standard translucent panel (cards, pills, tiles)
    .glass-strong — denser tint for overlays that need more legibility (modal)
-   Both carry a specular top edge (::before) and a soft diagonal sheen
-   (::after) so the surface catches light like iOS-26 glass. Requires a
-   positioned, overflow-hidden host with a border-radius. */
+   The specular sheen (the light-catching highlight that reads as iOS-26 glass
+   rather than flat frost) is baked into the element background as a layered
+   gradient — no pseudo-element, so it never fights child stacking or clips. */
 .glass,
 .glass-strong {
   position: relative;
-  background: var(--glass-bg);
+  background-image: linear-gradient(
+    135deg,
+    var(--glass-sheen) 0%,
+    transparent 30%,
+    transparent 100%
+  );
+  background-color: var(--glass-bg);
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.7);
   backdrop-filter: blur(var(--glass-blur)) saturate(1.7);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
-  isolation: isolate;
 }
 .glass-strong {
-  background: var(--glass-bg-strong);
-}
-/* Diagonal sheen sweeping across the top-left — the light-catch highlight. */
-.glass::after,
-.glass-strong::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: -1;
-  background: linear-gradient(
-    135deg,
-    var(--glass-sheen) 0%,
-    transparent 34%,
-    transparent 100%
-  );
-  opacity: 0.9;
+  background-color: var(--glass-bg-strong);
 }
 /* Optional interactive lift for clickable glass (buttons, cards). */
 .glass-interactive {
