@@ -86,6 +86,17 @@ h3 {
     transform: translateX(0);
   }
 }
+@keyframes neonSweep {
+  0% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
 
 /* ── Themed icon images (mono brand icons via CSS filters) ──────────────── */
 img[data-lucide="true"] {
@@ -134,7 +145,19 @@ html[data-theme="light"] img[data-lucide-inv="true"] {
   transform: translateY(0) scale(1);
 }
 
-/* ── Featured track: horizontal swipe on small screens ──────────────────── */
+/* ── Featured stage: active dot / thumbnail highlight ───────────────────── */
+[data-featdot][data-on="true"] {
+  background: var(--accent) !important;
+  width: 26px !important;
+}
+[data-featthumb][data-on="true"] {
+  border-color: var(--accent) !important;
+}
+[data-featthumb][data-on="true"] img {
+  opacity: 1 !important;
+}
+
+/* ── Featured stage → single card + thumbnail strip on small screens ─────── */
 @media (max-width: 780px) {
   #feat-wrap {
     height: auto !important;
@@ -143,18 +166,15 @@ html[data-theme="light"] img[data-lucide-inv="true"] {
     position: static !important;
     height: auto !important;
     overflow: visible !important;
+    gap: 14px !important;
+    justify-content: flex-start !important;
+    padding-top: 6px !important;
   }
-  #feat-track {
-    transform: none !important;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 14px;
-    -webkit-overflow-scrolling: touch;
+  #feat-stage {
+    display: none !important;
   }
-  #feat-track > article {
-    scroll-snap-align: center;
-    height: 62vw !important;
-    max-height: 420px;
+  #feat-mobile {
+    display: flex !important;
   }
 }
 
