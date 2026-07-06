@@ -96,9 +96,9 @@ export default function HeroPixelName({ name }: { name: string }) {
       // (T_IN), then stays sharp until the next cycle. Blockier start via a
       // low FMIN. The first cycle also plays the reveal on load.
       const PERIOD = 10000; // fire roughly every 10s
-      const T_OUT = 650, // sharp → blocky
-        T_IN = 2100, // blocky → sharp
-        FMIN = 0.022;
+      const T_OUT = 1100, // sharp → blocky (slower dissolve)
+        T_IN = 3200, // blocky → sharp (slower resolve)
+        FMIN = 0.012; // coarser blocks at the most-pixelated point
       const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
       const easeIn = (t: number) => t * t * t;
       // Start the very first reveal immediately (offset so p begins at the
