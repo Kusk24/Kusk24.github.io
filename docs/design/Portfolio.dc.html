@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Noto+Sans+Thai:wght@400;500;600;700&amp;family=Noto+Sans+Myanmar:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--bg2:#101012;--card:#151517;--text:#f5f5f7;--text2:rgba(245,245,247,.62);--line:rgba(255,255,255,.1);--accent:#2997ff;--nav:rgba(10,10,10,.72);color-scheme:dark}
+html[data-theme="light"]{--bg:#fbfbfd;--bg2:#f5f5f7;--card:#ffffff;--text:#1d1d1f;--text2:rgba(29,29,31,.64);--line:rgba(0,0,0,.09);--accent:#0071e3;--nav:rgba(251,251,253,.75);color-scheme:light}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans Thai","Noto Sans Myanmar",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;transition:background .5s ease,color .5s ease}
+h1,h2,h3{font-family:"Space Grotesk","Instrument Sans","Noto Sans Thai","Noto Sans Myanmar",sans-serif}
+[data-rvd]{opacity:1 !important;transform:none !important}
+[data-lbtn][data-on="true"]{background:var(--text) !important;color:var(--bg) !important}
+::selection{background:var(--accent);color:#fff}
+@keyframes cueBob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+@keyframes caretBlink{0%,45%{opacity:1}55%,100%{opacity:0}}
+image-slot{display:block;width:100%;height:100%}
+img[data-lucide="true"]{filter:invert(1);opacity:.9}
+html[data-theme="light"] img[data-lucide="true"]{filter:none;opacity:.85}
+img[data-lucide-inv="true"]{filter:none}
+html[data-theme="light"] img[data-lucide-inv="true"]{filter:invert(1)}
+[data-certslide]{display:none}
+[data-certslide][data-cur="true"]{display:flex;animation:certIn .45s cubic-bezier(.2,.6,.2,1)}
+@keyframes certIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:translateX(0)}}
+[data-certitem][data-cur="true"]{border-color:var(--accent) !important;background:var(--bg2) !important;box-shadow:0 10px 30px -14px var(--accent)}
+[data-certbar][data-cur="true"]{background:var(--accent) !important;max-width:66px !important}
+[data-filter][data-on="true"]{background:var(--text) !important;color:var(--bg) !important;border-color:var(--text) !important}
+[data-projmodal]{opacity:0;pointer-events:none;transition:opacity .3s ease}
+[data-projmodal][data-open="true"]{opacity:1;pointer-events:auto}
+[data-projcard]{transform:translateY(24px) scale(.965);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+[data-projmodal][data-open="true"] [data-projcard]{transform:translateY(0) scale(1)}
+@media(max-width:780px){
+  #feat-wrap{height:auto !important}
+  #feat-sticky{position:static !important;height:auto !important;overflow:visible !important}
+  #feat-track{transform:none !important;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;-webkit-overflow-scrolling:touch}
+  #feat-track>article{scroll-snap-align:center;height:62vw !important;max-height:420px}
+}
+[data-techtile]{transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1),border-color .7s ease,box-shadow .7s ease;opacity:.34}
+[data-techtile][data-lit="true"]{opacity:1;border-color:var(--accent);box-shadow:0 14px 44px -10px var(--accent),0 0 0 1px var(--accent);transform:translateY(-5px) scale(1.05)}
+[data-techtile] img{transition:filter .7s ease}
+[data-techtile][data-lit="true"] img{filter:drop-shadow(0 0 12px var(--accent))}
+[data-techtile][data-lit="true"] [data-techname]{color:var(--text) !important}
+</style>
+</helmet>
+
+<canvas id="bg-dots" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;pointer-events:none"></canvas>
+
+<nav data-screen-label="Nav" style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 28px;background:var(--nav);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid var(--line)">
+  <a href="#top" style="font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:16px;text-decoration:none;color:var(--text);white-space:nowrap">Win Yu Maung</a>
+  <div style="display:flex;align-items:center;gap:26px">
+    <a href="#projects" style="font-size:13.5px;color:var(--text2);text-decoration:none" style-hover="color:var(--text)">{{ navProjects }}</a>
+    <a href="#experience" style="font-size:13.5px;color:var(--text2);text-decoration:none" style-hover="color:var(--text)">{{ navExp }}</a>
+    <a href="#stack" style="font-size:13.5px;color:var(--text2);text-decoration:none" style-hover="color:var(--text)">{{ navStack }}</a>
+    <a href="#about" style="font-size:13.5px;color:var(--text2);text-decoration:none" style-hover="color:var(--text)">{{ navAbout }}</a>
+    <a href="#contact" style="font-size:13.5px;color:var(--text2);text-decoration:none" style-hover="color:var(--text)">{{ navContact }}</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <div style="display:flex;align-items:center;border:1px solid var(--line);border-radius:100px;padding:3px;gap:2px">
+      <button data-lbtn="" data-on="{{ enOn }}" onClick="{{ setEn }}" style="padding:5px 12px;border-radius:100px;font-size:12px;font-weight:600;color:var(--text2);background:transparent;border:none;cursor:pointer;font-family:inherit">EN</button>
+      <button data-lbtn="" data-on="{{ thOn }}" onClick="{{ setTh }}" style="padding:5px 12px;border-radius:100px;font-size:12px;font-weight:600;color:var(--text2);background:transparent;border:none;cursor:pointer;font-family:inherit">ไทย</button>
+      <button data-lbtn="" data-on="{{ myOn }}" onClick="{{ setMy }}" style="padding:5px 12px;border-radius:100px;font-size:12px;font-weight:600;color:var(--text2);background:transparent;border:none;cursor:pointer;font-family:inherit">မြန်မာ</button>
+    </div>
+    <button onClick="{{ toggleTheme }}" title="Toggle theme" style="width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;font-size:15px;line-height:1;display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--text2)">{{ themeGlyph }}</button>
+    <a href="assets/Win-Yu-Maung-Resume.pdf" download="Win-Yu-Maung-Resume.pdf" style="display:inline-flex;align-items:center;gap:7px;background:var(--text);color:var(--bg);padding:8px 16px;border-radius:100px;font-size:12.5px;font-weight:600;text-decoration:none;white-space:nowrap" style-hover="opacity:.85"><img data-lucide-inv="true" src="https://unpkg.com/lucide-static@latest/icons/download.svg" alt="" style="width:13px;height:13px;display:block">{{ navResume }}</a>
+  </div>
+</nav>
+
+<section id="top" data-screen-label="Hero" style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:140px 24px 40px;position:relative;z-index:1;overflow:hidden;box-sizing:border-box">
+  <div id="hero-par" style="will-change:transform,opacity">
+    <p data-rv="" style="opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1);margin:0 0 20px;color:var(--accent);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:clamp(12px,1.4vw,15px);min-height:1.2em">{{ typed }}<span style="display:inline-block;width:0.5em;height:1.05em;background:var(--accent);margin-left:3px;vertical-align:-0.14em;animation:caretBlink 1.05s steps(1) infinite"></span></p>
+    <h1 data-rv="" style="opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.6,.2,1) .1s,transform .9s cubic-bezier(.2,.6,.2,1) .1s;margin:0;font-size:clamp(54px,11vw,150px);font-weight:700;letter-spacing:-0.045em;line-height:1.02">Win Yu Maung</h1>
+    <p data-rv="" style="opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.6,.2,1) .22s,transform .8s cubic-bezier(.2,.6,.2,1) .22s;font-size:clamp(17px,2vw,21px);line-height:1.65;color:var(--text2);max-width:620px;margin:28px auto 40px">{{ heroTagline }}</p>
+    <div data-rv="" style="opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.6,.2,1) .34s,transform .8s cubic-bezier(.2,.6,.2,1) .34s;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="#projects" style="display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;padding:15px 30px;border-radius:100px;font-size:15.5px;font-weight:600;text-decoration:none" style-hover="filter:brightness(1.12)"><img src="https://unpkg.com/lucide-static@latest/icons/arrow-down.svg" alt="" style="width:15px;height:15px;display:block;filter:invert(1)">{{ ctaProjects }}</a>
+      <a href="assets/Win-Yu-Maung-Resume.pdf" download="Win-Yu-Maung-Resume.pdf" style="display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);color:var(--text);padding:15px 30px;border-radius:100px;font-size:15.5px;font-weight:600;text-decoration:none" style-hover="border-color:var(--text2)"><img data-lucide="true" src="https://unpkg.com/lucide-static@latest/icons/download.svg" alt="" style="width:15px;height:15px;display:block">{{ ctaResume }}</a>
+    </div>
+  </div>
+  <div id="photo-par" data-rv="" style="opacity:0;transform:translateY(60px);transition:opacity 1s cubic-bezier(.2,.6,.2,1) .45s,transform 1s cubic-bezier(.2,.6,.2,1) .45s;margin-top:76px;will-change:transform">
+    <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-portrait" shape="rounded" radius="32" src="https://picsum.photos/seed/winyu-portrait/800/960" placeholder="Drop your photo / avatar here" hint-size="400px,480px" style="width:min(400px,84vw);height:480px;display:block;box-shadow:0 40px 100px -30px rgba(0,0,0,.5)"></x-import>
+  </div>
+  <div style="margin-top:56px;color:var(--text2);font-size:20px;animation:cueBob 2.2s ease-in-out infinite">↓</div>
+</section>
+
+<section id="projects" data-screen-label="Projects" style="position:relative;z-index:1;padding:150px 24px 120px">
+  <div style="max-width:1200px;margin:0 auto 44px;padding:0 24px">
+    <div data-rv="" style="opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
+      <div style="max-width:660px">
+        <p style="margin:0 0 14px;color:var(--accent);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:13px">{{ projOverline }}</p>
+        <h2 style="margin:0 0 18px;font-size:clamp(40px,5.5vw,68px);font-weight:700;letter-spacing:-0.035em;line-height:1.05">{{ projTitle }}</h2>
+        <p style="margin:0;font-size:16.5px;line-height:1.65;color:var(--text2)">{{ projLead }}</p>
+      </div>
+      <a href="https://github.com/Kusk24" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap">{{ moreGh }} ↗</a>
+    </div>
+  </div>
+  <div id="feat-wrap" style="position:relative;height:240vh">
+    <div id="feat-sticky" style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:22px">
+      <div style="max-width:1200px;width:100%;box-sizing:border-box;margin:0 auto;padding:0 24px"><span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text2)"><img data-lucide="true" src="https://unpkg.com/lucide-static@latest/icons/sparkles.svg" alt="" style="width:14px;height:14px;display:block">{{ featuredLabel }}</span></div>
+      <div id="feat-track" style="display:flex;gap:28px;padding:0 24px;will-change:transform">
+        <sc-for list="{{ featured }}" as="proj" hint-placeholder-count="3">
+          <article onClick="{{ proj.open }}" style="flex:none;width:clamp(300px,64vw,700px);height:min(64vh,580px);position:relative;border:1px solid var(--line);border-radius:26px;overflow:hidden;cursor:pointer;background:var(--card)" style-hover="border-color:var(--accent)">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ proj.slotId }}" shape="rect" src="{{ proj.img }}" placeholder="{{ proj.ph }}" hint-size="100%,100%" style="width:100%;height:100%;display:block"></x-import>
+            <div style="position:absolute;left:0;right:0;bottom:0;padding:26px 28px;background:linear-gradient(transparent,rgba(0,0,0,.82));pointer-events:none">
+              <div style="display:flex;gap:8px;margin:0 0 12px">
+                <span style="font-size:11px;font-weight:600;color:#fff;background:rgba(255,255,255,.18);border-radius:100px;padding:4px 11px">{{ proj.platform }}</span>
+                <span style="font-size:11px;font-weight:600;color:#fff;background:rgba(255,255,255,.18);border-radius:100px;padding:4px 11px">{{ proj.type }}</span>
+              </div>
+              <h3 style="margin:0 0 5px;font-size:clamp(22px,2.6vw,30px);font-weight:700;letter-spacing:-0.02em;color:#fff">{{ proj.name }}</h3>
+              <p style="margin:0;font-size:14px;color:rgba(255,255,255,.82)">{{ proj.sub }}</p>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+      <div style="max-width:1200px;width:100%;box-sizing:border-box;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:8px;color:var(--text2);font-size:12.5px"><img data-lucide="true" src="https://unpkg.com/lucide-static@latest/icons/mouse-pointer-2.svg" alt="" style="width:14px;height:14px;display:block">{{ scrollHint }}</div>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <div data-rv="" style="opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1);margin:90px 0 24px">
+      <h3 style="margin:0 0 8px;font-size:clamp(26px,3.2vw,36px);font-weight:700;letter-spacing:-0.025em">{{ allTitle }}</h3>
+      <p style="margin:0;font-size:15.5px;color:var(--text2)">{{ allLead }}</p>
+    </div>
+    <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1);display:flex;flex-wrap:wrap;gap:9px;margin:0 0 30px">
+      <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+        <button data-filter="" data-on="{{ f.on }}" onClick="{{ f.pick }}" style="font-size:13px;font-weight:600;padding:8px 16px;border:1px solid var(--line);border-radius:100px;background:transparent;color:var(--text2);cursor:pointer;font-family:inherit;transition:background .2s ease,color .2s ease,border-color .2s ease" style-hover="border-color:var(--text2);color:var(--text)">{{ f.label }}</button>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px">
+      <sc-for list="{{ gridProjects }}" as="item" hint-placeholder-count="4">
+        <div data-rv="" onClick="{{ item.open }}" style="opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1),border-color .25s ease;display:flex;flex-direction:column;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;cursor:pointer" style-hover="border-color:var(--accent)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--text2)"><img data-lucide="true" src="{{ item.platIcon }}" alt="" style="width:15px;height:15px;display:block">{{ item.platform }}</span>
+            <span style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:100px;padding:4px 10px">{{ item.type }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <h3 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-0.015em">{{ item.name }}</h3>
+            <p style="margin:0;font-size:14px;line-height:1.55;color:var(--text2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ item.desc }}</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:auto">
+            <sc-for list="{{ item.techIcons }}" as="tag" hint-placeholder-count="3">
+              <span style="display:inline-flex;align-items:center;gap:6px;font-size:11.5px;padding:5px 11px;border:1px solid var(--line);border-radius:100px;color:var(--text2)"><sc-if value="{{ tag.icon }}" hint-placeholder-val="{{ false }}"><img src="{{ tag.icon }}" alt="" style="width:12px;height:12px;display:block"></sc-if>{{ tag.label }}</span>
+            </sc-for>
+          </div>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--accent);margin-top:2px">{{ viewCase }} →</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:80px auto 0">
+    <div data-rv="" style="opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1);margin:0 0 28px">
+      <h3 style="margin:0 0 8px;font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-0.02em">{{ archTitle }}</h3>
+      <p style="margin:0;font-size:15px;color:var(--text2)">{{ archLead }}</p>
+    </div>
+    <sc-if value="{{ reposFailed }}" hint-placeholder-val="{{ false }}">
+      <p style="margin:0;font-size:15px"><a href="https://github.com/Kusk24" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;text-decoration:none">{{ archFail }} ↗</a></p>
+    </sc-if>
+    <sc-if value="{{ reposLoaded }}" hint-placeholder-val="{{ false }}">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:16px">
+        <sc-for list="{{ gridRepos }}" as="r" hint-placeholder-count="4">
+          <a data-rv="" href="{{ r.url }}" target="_blank" rel="noopener" style="opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1);display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;text-decoration:none;color:var(--text)" style-hover="border-color:var(--accent)">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+              <span style="font-size:15.5px;font-weight:600;letter-spacing:-0.01em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ r.name }}</span>
+              <span style="color:var(--text2);font-size:13px;flex:none">↗</span>
+            </div>
+            <span style="font-size:13.5px;line-height:1.55;color:var(--text2);min-height:42px">{{ r.desc }}</span>
+            <span style="display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--text2);margin-top:auto"><sc-if value="{{ r.icon }}" hint-placeholder-val="{{ false }}"><img src="{{ r.icon }}" alt="" style="width:13px;height:13px;display:block"></sc-if>{{ r.lang }}<span style="margin-left:auto">{{ r.year }}</span></span>
+          </a>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:24px">
+        <sc-if value="{{ reposMore }}" hint-placeholder-val="{{ true }}">
+          <button onClick="{{ toggleRepos }}" style="display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);color:var(--text);font-size:14px;font-weight:600;padding:11px 20px;border-radius:100px;cursor:pointer;font-family:inherit;transition:border-color .2s ease" style-hover="border-color:var(--accent);color:var(--accent)">{{ repoBtnLabel }}</button>
+        </sc-if>
+        <a href="https://github.com/Kusk24?tab=repositories" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;color:var(--text2);font-size:14px;font-weight:600;text-decoration:none" style-hover="color:var(--accent)"><img src="{{ ghIcon }}" alt="" style="width:16px;height:16px;display:block">{{ seeAllGh }} ↗</a>
+      </div>
+    </sc-if>
+  </div>
+  <div data-projmodal="" data-open="{{ projOpen }}" onClick="{{ closeProject }}" style="position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)">
+    <div data-projcard="" onClick="{{ stopProp }}" style="position:relative;width:min(720px,100%);max-height:88vh;overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:26px;box-shadow:0 40px 100px -30px rgba(0,0,0,.7)">
+      <button onClick="{{ closeProject }}" title="Close" style="position:absolute;top:16px;right:16px;z-index:2;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit" style-hover="border-color:var(--accent);color:var(--accent)">✕</button>
+      <img src="{{ activeProj.img }}" alt="" style="width:100%;height:240px;object-fit:cover;display:block;border-bottom:1px solid var(--line)">
+      <div style="padding:28px 32px 32px">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 16px">
+          <span style="display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--text2);border:1px solid var(--line);border-radius:100px;padding:5px 12px"><img data-lucide="true" src="{{ activeProj.platIcon }}" alt="" style="width:14px;height:14px;display:block">{{ activeProj.platform }}</span>
+          <span style="font-size:12px;font-weight:600;color:var(--accent);border:1px solid var(--accent);border-radius:100px;padding:5px 12px">{{ activeProj.type }}</span>
+          <span style="margin-left:auto;font-size:12.5px;color:var(--text2)">{{ activeProj.when }}</span>
+        </div>
+        <h3 style="margin:0 0 6px;font-size:28px;font-weight:700;letter-spacing:-0.02em">{{ activeProj.name }}</h3>
+        <p style="margin:0 0 22px;font-size:14.5px;font-weight:600;color:var(--accent)">{{ activeProj.sub }}</p>
+        <p style="margin:0 0 6px;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text2)">{{ overviewLabel }}</p>
+        <p style="margin:0 0 20px;font-size:15.5px;line-height:1.65;color:var(--text)">{{ activeProj.desc }}</p>
+        <p style="margin:0 0 6px;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text2)">{{ roleLabel }}</p>
+        <p style="margin:0 0 22px;font-size:15.5px;line-height:1.65;color:var(--text)">{{ activeProj.role }}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px">
+          <sc-for list="{{ activeProj.techIcons }}" as="tag" hint-placeholder-count="3">
+            <span style="display:inline-flex;align-items:center;gap:7px;font-size:12.5px;padding:6px 13px;border:1px solid var(--line);border-radius:100px;color:var(--text2)"><sc-if value="{{ tag.icon }}" hint-placeholder-val="{{ false }}"><img src="{{ tag.icon }}" alt="" style="width:13px;height:13px;display:block"></sc-if>{{ tag.label }}</span>
+          </sc-for>
+        </div>
+        <a href="{{ activeProj.link }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:var(--text);color:var(--bg);font-size:14.5px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:100px" style-hover="opacity:.85"><img src="{{ ghIconBtn }}" alt="" style="width:15px;height:15px;display:block">{{ ghLabel }} ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" data-screen-label="Experience & Education" style="position:relative;z-index:1;padding:150px 24px;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div style="max-width:1200px;margin:0 auto">
+    <div data-rv="" style="opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1);margin:0 0 64px">
+      <p style="margin:0 0 14px;color:var(--accent);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:13px">{{ expOverline }}</p>
+      <h2 style="margin:0;font-size:clamp(40px,5.5vw,68px);font-weight:700;letter-spacing:-0.035em;line-height:1.05">{{ expTitle }}</h2>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start">
+      <div style="flex:1.4 1 420px;min-width:min(420px,100%);display:flex;flex-direction:column;gap:0">
+        <sc-for list="{{ experience }}" as="job" hint-placeholder-count="2">
+          <div data-rv="" style="opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1);position:relative;border-left:1px solid var(--line);padding:0 0 52px 34px">
+            <span style="position:absolute;left:-5px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--accent)"></span>
+            <p style="margin:0 0 6px;font-size:13px;color:var(--text2)">{{ job.period }}</p>
+            <h3 style="margin:0 0 4px;font-size:22px;font-weight:700;letter-spacing:-0.015em">{{ job.role }}</h3>
+            <p style="margin:0 0 12px;font-size:15px;font-weight:600;color:var(--accent)">{{ job.org }}</p>
+            <p style="margin:0;font-size:15.5px;line-height:1.65;color:var(--text2);max-width:560px">{{ job.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="flex:1 1 320px;min-width:min(320px,100%);display:flex;flex-direction:column;gap:24px">
+        <div data-rv="" style="opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.2,.6,.2,1) .1s,transform .8s cubic-bezier(.2,.6,.2,1) .1s;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:36px">
+          <p style="display:flex;align-items:center;gap:8px;margin:0 0 18px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text2)"><img data-lucide="true" src="https://unpkg.com/lucide-static@latest/icons/graduation-cap.svg" alt="" style="width:15px;height:15px;display:block">{{ eduLabel }}</p>
+          <h3 style="margin:0 0 6px;font-size:21px;font-weight:700;letter-spacing:-0.015em">{{ eduSchool }}</h3>
+          <p style="margin:0 0 4px;font-size:15px;line-height:1.55;color:var(--text2)">{{ eduDegree }}</p>
+          <p style="margin:0 0 28px;font-size:13.5px;color:var(--text2)">{{ eduPeriod }}</p>
+          <div style="display:flex;align-items:baseline;gap:10px">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:60px;font-weight:700;letter-spacing:-0.03em;line-height:1">3.72</span>
+            <span style="font-size:20px;color:var(--text2);font-weight:500">/ 4.0 {{ gpaLabel }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack" data-screen-label="Tech Stack" style="position:relative;z-index:1;padding:150px 24px">
+  <div style="max-width:1140px;margin:0 auto">
+    <div data-rv="" style="opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1);margin:0 0 56px;max-width:640px">
+      <p style="display:flex;align-items:center;gap:8px;margin:0 0 14px;color:var(--accent);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:13px"><img data-lucide="true" src="https://unpkg.com/lucide-static@latest/icons/layers.svg" alt="" style="width:15px;height:15px;display:block">{{ stackOverline }}</p>
+      <h2 style="margin:0 0 16px;font-size:clamp(40px,5.5vw,68px);font-weight:700;letter-spacing:-0.035em;line-height:1.05">{{ stackTitle }}</h2>
+      <p style="margin:0;font-size:16.5px;line-height:1.65;color:var(--text2)">{{ stackLead }}</p>
+    </div>
+    <div onMouseEnter="{{ techHoldOn }}" onMouseLeave="{{ techHoldOff }}" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(122px,1fr));gap:16px">
+      <sc-for list="{{ techStack }}" as="tech" hint-placeholder-count="12">
+        <div data-rv="" data-techtile="" data-lit="{{ tech.lit }}" onMouseEnter="{{ tech.hover }}" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1);display:flex;flex-direction:column;align-items:center;gap:12px;box-sizing:border-box;padding:24px 12px;border:1px solid var(--line);border-radius:20px;background:var(--card);cursor:default">
+          <img src="{{ tech.icon }}" alt="{{ tech.name }}" style="width:42px;height:42px;display:block;object-fit:contain">
+          <span data-techname="" style="font-size:13px;font-weight:500;color:var(--text2);text-align:center;line-height:1.3">{{ tech.name }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="certifications" data-screen-label="Certificates" style="position:relative;z-index:1;padding:150px 24px">
+  <div style="max-width:1140px;margin:0 auto">
+    <div data-rv="" style="opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1);margin:0 0 56px">
+      <p style="display:flex;align-items:center;gap:8px;margin:0 0 14px;color:var(--accent);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:13px"><img data-lucide="true" src="https://unpkg.com/lucide-static@latest/icons/award.svg" alt="" style="width:15px;height:15px;display:block">{{ certSecOverline }}</p>
+      <h2 style="margin:0 0 16px;font-size:clamp(40px,5.5vw,68px);font-weight:700;letter-spacing:-0.035em;line-height:1.05">{{ certsLabel }}</h2>
+      <p style="margin:0;font-size:16.5px;line-height:1.65;color:var(--text2);max-width:560px">{{ certSecLead }}</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:stretch">
+      <div data-rv="" onMouseEnter="{{ certHoldOn }}" onMouseLeave="{{ certHoldOff }}" style="opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1);flex:1.35 1 460px;min-width:min(460px,100%);box-sizing:border-box;background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:28px;padding:14px;display:flex;flex-direction:column;gap:16px;box-shadow:0 40px 90px -50px rgba(0,0,0,.7)">
+        <div style="flex:1;min-width:0">
+          <sc-for list="{{ certs }}" as="cert" hint-placeholder-count="1">
+            <div data-certslide="" data-cur="{{ cert.cur }}" style="flex-direction:column;height:100%">
+              <div style="position:relative;flex:1;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--bg2)">
+                <img src="{{ cert.icon }}" alt="" style="position:absolute;right:-34px;bottom:-30px;width:210px;height:210px;object-fit:contain;opacity:.05;pointer-events:none">
+                <div style="position:absolute;top:0;left:0;right:0;height:120px;background:radial-gradient(120% 100% at 20% 0%,var(--accent),transparent 60%);opacity:.14;pointer-events:none"></div>
+                <div style="position:relative;display:flex;align-items:flex-start;gap:14px;padding:22px 22px 0">
+                  <span style="flex:none;width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:#fff;box-shadow:0 8px 24px -8px rgba(0,0,0,.5);overflow:hidden"><img src="{{ cert.icon }}" alt="" style="width:32px;height:32px;object-fit:contain;display:block"></span>
+                  <div style="display:flex;flex-direction:column;gap:3px;min-width:0;flex:1;padding-top:2px">
+                    <span style="font-size:18px;font-weight:600;letter-spacing:-0.015em;color:var(--text);line-height:1.25">{{ cert.name }}</span>
+                    <span style="font-size:13.5px;color:var(--text2)">{{ cert.org }}</span>
+                  </div>
+                  <span style="flex:none;display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;letter-spacing:.02em;color:var(--accent);border:1px solid var(--accent);border-radius:100px;padding:5px 11px;white-space:nowrap"><img data-lucide="true" src="https://unpkg.com/lucide-static@latest/icons/badge-check.svg" alt="" style="width:13px;height:13px;display:block">{{ certVerified }}</span>
+                </div>
+                <div style="position:relative;padding:16px 22px 22px">
+                  <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ cert.photoId }}" shape="rounded" radius="14" placeholder="Drop certificate image" hint-size="100%,230px" style="width:100%;height:230px;display:block"></x-import>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:2px 8px 8px">
+          <button onClick="{{ certPrev }}" title="Previous" style="flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:all .2s ease" style-hover="border-color:var(--accent);color:var(--accent)">‹</button>
+          <div style="flex:1;display:flex;align-items:center;gap:7px">
+            <sc-for list="{{ certs }}" as="cert" hint-placeholder-count="4">
+              <button data-certbar="" data-cur="{{ cert.cur }}" onClick="{{ cert.select }}" title="{{ cert.name }}" style="flex:1;height:5px;max-width:44px;border:none;border-radius:3px;background:var(--line);cursor:pointer;padding:0;transition:background .5s ease,max-width .5s ease"></button>
+            </sc-for>
+            <span style="margin-left:6px;font-size:12px;color:var(--text2);font-variant-numeric:tabular-nums">{{ certCounter }}</span>
+          </div>
+          <button onClick="{{ certNext }}" title="Next" style="flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:all .2s ease" style-hover="border-color:var(--accent);color:var(--accent)">›</button>
+        </div>
+      </div>
+      <div style="flex:1 1 340px;min-width:min(340px,100%);display:flex;flex-direction:column;gap:12px">
+        <sc-for list="{{ certs }}" as="cert" hint-placeholder-count="4">
+          <div data-rv="" data-certitem="" data-cur="{{ cert.cur }}" onClick="{{ cert.select }}" style="opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1),border-color .25s ease;display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:var(--card);cursor:pointer" style-hover="border-color:var(--text2)">
+            <span style="flex:none;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:#ffffff;overflow:hidden"><img src="{{ cert.icon }}" alt="" style="width:27px;height:27px;display:block;object-fit:contain"></span>
+            <span style="display:flex;flex-direction:column;gap:2px;min-width:0;flex:1"><span style="font-size:14.5px;font-weight:600;letter-spacing:-0.01em;color:var(--text)">{{ cert.name }}</span><span style="font-size:12.5px;color:var(--text2)">{{ cert.org }}</span></span>
+            <img data-lucide="true" src="https://unpkg.com/lucide-static@latest/icons/chevron-right.svg" alt="" style="flex:none;width:15px;height:15px;display:block;opacity:.45">
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" data-screen-label="About" style="position:relative;z-index:1;padding:160px 24px">
+  <div style="max-width:780px;margin:0 auto">
+    <div data-rv="" style="opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1);margin:0 0 40px">
+      <p style="margin:0 0 14px;color:var(--accent);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:13px">{{ aboutOverline }}</p>
+      <h2 style="margin:0;font-size:clamp(40px,5.5vw,68px);font-weight:700;letter-spacing:-0.035em;line-height:1.05">{{ aboutTitle }}</h2>
+    </div>
+    <p data-rv="" style="opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.6,.2,1) .1s,transform .8s cubic-bezier(.2,.6,.2,1) .1s;margin:0 0 28px;font-size:clamp(21px,2.5vw,28px);line-height:1.55;font-weight:500;letter-spacing:-0.01em">{{ aboutP1 }}</p>
+    <p data-rv="" style="opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.6,.2,1) .2s,transform .8s cubic-bezier(.2,.6,.2,1) .2s;margin:0 0 40px;font-size:17.5px;line-height:1.7;color:var(--text2)">{{ aboutP2 }}</p>
+    <div data-rv="" style="opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.6,.2,1) .3s,transform .8s cubic-bezier(.2,.6,.2,1) .3s;display:flex;flex-wrap:wrap;gap:10px">
+      <sc-for list="{{ aboutFacts }}" as="fact" hint-placeholder-count="3">
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:13.5px;padding:9px 18px;border:1px solid var(--line);border-radius:100px;color:var(--text2)"><img data-lucide="true" src="{{ fact.icon }}" alt="" style="width:14px;height:14px;display:block">{{ fact.label }}</span>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="Contact" style="position:relative;z-index:1;padding:150px 24px 90px;background:var(--bg2);border-top:1px solid var(--line);text-align:center">
+  <div style="max-width:900px;margin:0 auto">
+    <div data-rv="" style="opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)">
+      <p style="margin:0 0 14px;color:var(--accent);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:13px">{{ contactOverline }}</p>
+      <h2 style="margin:0 0 18px;font-size:clamp(40px,6vw,76px);font-weight:700;letter-spacing:-0.035em;line-height:1.05">{{ contactTitle }}</h2>
+      <p style="margin:0 auto 48px;font-size:17px;line-height:1.65;color:var(--text2);max-width:520px">{{ contactLead }}</p>
+    </div>
+    <a data-rv="" href="mailto:winyumg2003a@gmail.com" style="opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.6,.2,1) .12s,transform .8s cubic-bezier(.2,.6,.2,1) .12s;display:inline-flex;align-items:center;gap:0.4em;font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,4.2vw,46px);font-weight:700;letter-spacing:-0.025em;color:var(--text);text-decoration:none;border-bottom:3px solid var(--accent);padding-bottom:6px" style-hover="color:var(--accent)"><img data-lucide="true" src="https://unpkg.com/lucide-static@latest/icons/mail.svg" alt="" style="width:0.7em;height:0.7em;display:block">winyumg2003a@gmail.com</a>
+    <div data-rv="" style="opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.6,.2,1) .24s,transform .8s cubic-bezier(.2,.6,.2,1) .24s;display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:52px">
+      <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="3">
+        <a href="{{ c.href }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);padding:12px 22px;border-radius:100px;color:var(--text);font-size:14.5px;font-weight:600;text-decoration:none" style-hover="border-color:var(--accent);color:var(--accent)"><sc-if value="{{ c.icon }}" hint-placeholder-val="{{ false }}"><img data-lucide="{{ c.lucide }}" src="{{ c.icon }}" alt="" style="width:15px;height:15px;display:block"></sc-if>{{ c.label }} ↗</a>
+      </sc-for>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:110px auto 0;padding-top:28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--text2)">
+    <span>© 2026 Win Yu Maung</span>
+    <span>{{ footNote }}</span>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;accentColor&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#2997ff&quot;, &quot;options&quot;: [&quot;#2997ff&quot;, &quot;#ff7847&quot;, &quot;#32d583&quot;, &quot;#bf5af2&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Theme&quot; },
+  &quot;defaultTheme&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;dark&quot;, &quot;options&quot;: [&quot;dark&quot;, &quot;light&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Theme&quot; },
+  &quot;reduceMotion&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Motion&quot; }
+}">
+class Component extends DCLogic {
+  state = { lang: 'en', theme: 'dark', repos: null, reposFailed: false, certIdx: 0, techIdx: 0, typed: '', filter: 'All', openIdx: null, repoOpen: false };
+
+  PMETA = [
+    { type: 'Team', platform: 'iOS', featured: true },
+    { type: 'Team', platform: 'Android', featured: true },
+    { type: 'Personal', platform: 'Game', featured: true },
+    { type: 'Team', platform: 'Backend', featured: true }
+  ];
+
+  _typeTick() {
+    const phrases = (this.I18N[this.state.lang] || this.I18N.en).typedPhrases;
+    const full = phrases[this._tpi % phrases.length];
+    if (!this._tpDel) {
+      this._tpc++;
+      if (this._tpc >= full.length) {
+        this.setState({ typed: full });
+        this._tpDel = true;
+        this._typeTimer = setTimeout(() => this._typeTick(), 1400);
+        return;
+      }
+    } else {
+      this._tpc--;
+      if (this._tpc <= 0) {
+        this._tpDel = false; this._tpi++; this._tpc = 0;
+        this.setState({ typed: '' });
+        this._typeTimer = setTimeout(() => this._typeTick(), 260);
+        return;
+      }
+    }
+    this.setState({ typed: full.slice(0, this._tpc) });
+    this._typeTimer = setTimeout(() => this._typeTick(), this._tpDel ? 34 : 62);
+  }
+
+  _startTyping() {
+    clearTimeout(this._typeTimer);
+    this._tpi = 0; this._tpc = 0; this._tpDel = false;
+    if (this._reduce) {
+      const phrases = (this.I18N[this.state.lang] || this.I18N.en).typedPhrases;
+      this.setState({ typed: phrases[0] });
+      return;
+    }
+    this.setState({ typed: '' });
+    this._typeTimer = setTimeout(() => this._typeTick(), 400);
+  }
+
+  TECH = [
+    { name: 'Swift', slug: 'swift' }, { name: 'Kotlin', slug: 'kotlin' },
+    { name: 'Java', slug: 'openjdk' }, { name: 'Python', slug: 'python' },
+    { name: 'JavaScript', slug: 'javascript' }, { name: 'TypeScript', slug: 'typescript' },
+    { name: 'C++', slug: 'cplusplus' }, { name: 'Dart', slug: 'dart' },
+    { name: 'SwiftUI', slug: 'swift' }, { name: 'Jetpack Compose', slug: 'jetpackcompose' },
+    { name: 'React', slug: 'react' }, { name: 'Next.js', slug: 'nextdotjs' },
+    { name: 'Tailwind', slug: 'tailwindcss' }, { name: 'Flask', slug: 'flask' },
+    { name: 'Firebase', slug: 'firebase' }, { name: 'PostgreSQL', slug: 'postgresql' },
+    { name: 'AWS', slug: 'amazonwebservices', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' }, { name: 'Git', slug: 'git' },
+    { name: 'GitHub', slug: 'github' }, { name: 'Docker', slug: 'docker' }
+  ];
+
+  _startTechTimer() {
+    clearInterval(this._techTimer);
+    if (this._reduce) return;
+    this._techTimer = setInterval(() => {
+      if (this._techHold) return;
+      this.setState((s) => ({ techIdx: (s.techIdx + 1) % this.TECH.length }));
+    }, 1200);
+  }
+
+  _startCertTimer() {
+    clearInterval(this._certTimer);
+    if (this._reduce) return;
+    this._certTimer = setInterval(() => {
+      if (this._certHold) return;
+      const n = this.I18N.en.certs.length;
+      this.setState((s) => ({ certIdx: (s.certIdx + 1) % n }));
+    }, 3800);
+  }
+
+  I18N = {
+    en: {
+      navProjects: 'Projects', navStack: 'Stack', navExp: 'Experience', navAbout: 'About', navContact: 'Contact', navResume: 'Résumé',
+      stackOverline: 'Tools of the trade', stackTitle: 'Tech stack & languages',
+      stackLead: 'The languages, frameworks, and platforms I reach for — lighting up one at a time.',
+      heroRole: 'Computer Science Student · Software Engineer',
+      typedPhrases: ['Computer Science Student', 'Software Engineer', 'Web · Mobile · Cloud Developer'],
+      heroTagline: 'I build for web, mobile, and cloud — from SwiftUI and Jetpack Compose apps to Flask backends running on AWS.',
+      ctaProjects: 'View projects', ctaResume: 'Download résumé',
+      projOverline: 'Selected work', projTitle: 'Projects',
+      projLead: 'Featured builds up front — swipe through them — then browse everything below, filtered by type or platform.',
+      featuredLabel: 'Featured', scrollHint: 'Scroll to move through featured work',
+      allTitle: 'All projects', allLead: 'Personal, team, and organization work — click any project for the full case study.',
+      filterAll: 'All', viewCase: 'View case study', overviewLabel: 'Overview',
+      moreGh: 'More projects on GitHub',
+      archTitle: 'Latest on GitHub', archLead: 'My most recent repositories, pulled live.', seeMoreGh: 'See more', seeLessGh: 'Show less', seeAllGh: 'All repositories',
+      archFail: 'Couldn\u2019t load repos right now — see everything on GitHub',
+      certSecOverline: 'Credentials', certSecLead: 'Cloud certifications, rotating on their own — click any one to bring it into focus.', certAutoHint: 'Auto-plays · pauses on hover', certVerified: 'Verified',
+      roleLabel: 'My part', ghLabel: 'View source on GitHub',
+      expOverline: 'Track record', expTitle: 'Experience & education',
+      eduLabel: 'Education', certsLabel: 'Certificates', gpaLabel: 'GPA',
+      eduSchool: 'Assumption University of Thailand',
+      eduDegree: 'B.Sc. Computer Science — Software Engineering concentration',
+      eduPeriod: 'June 2023 – October 2026 (expected)',
+      aboutOverline: 'Beyond the code', aboutTitle: 'About me',
+      aboutP1: 'I got into software by wanting to build things I could actually hold — an iOS app my friends could open, a game with a boss fight, a backend that didn\u2019t fall over.',
+      aboutP2: 'Three years into my CS degree at Assumption University, that curiosity has become a habit of picking up whatever stack the problem needs: Swift one semester, Flask and PostgreSQL the next, AWS in between. Outside the terminal I keep a disciplined gym routine — consistency there and consistency in engineering feel like the same muscle.',
+      aboutFacts: [
+        { label: 'Based in Samut Prakan, Thailand', ic: 'map-pin' },
+        { label: 'Burmese — native', ic: 'languages' },
+        { label: 'English — fluent', ic: 'languages' },
+        { label: 'TrueLAB Runway 2026 finalist', ic: 'trophy' }
+      ],
+      contactOverline: 'Get in touch', contactTitle: 'Let\u2019s build something.',
+      contactLead: 'Open to software engineering internships — web, mobile, backend, or cloud.',
+      footNote: 'English · ไทย · မြန်မာ — designed & built by me',
+      certs: [
+        { name: 'AWS Academy Cloud Foundations', org: 'Amazon Web Services', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+        { name: 'AWS Academy Cloud Developing', org: 'Amazon Web Services', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+        { name: 'AWS Academy Cloud Operations', org: 'Amazon Web Services', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+        { name: 'Huawei Cloud Developer', org: 'Huawei Cloud', logo: 'https://cdn.simpleicons.org/huawei' }
+      ],
+      contacts: [
+        { label: 'GitHub', href: 'https://github.com/Kusk24' },
+        { label: 'LinkedIn', href: 'https://www.linkedin.com/in/win-yu-maung-06747827b' },
+        { label: '(+66) 96 101 6972', href: 'tel:+66961016972' }
+      ],
+      experience: [
+        { org: 'GlowOps — CodeBlue Team', role: 'Project CTO / Technical Lead', period: 'April 2026 – Present',
+          desc: 'TrueLAB Open Innovation Runway 2026 finalist. Leading a LINE-first AI operations copilot for beauty & wellness SMEs — system architecture, integrations, AI workflows, and the staff approval hub.' },
+        { org: 'Schedjuice Company Limited', role: 'Frontend Developer Intern', period: 'August – October 2025',
+          desc: 'Shipped features for an education-automation platform in Next.js and Tailwind CSS; collaborated through GitHub on issue fixes, UI refinement, and product development.' }
+      ],
+      projects: [
+        { name: 'AUGO', sub: 'iOS · Social media with AR interaction', when: '2/2025',
+          desc: 'Team-built iOS social app where students capture AR collectibles around campus — holographic cards, live leaderboard, campus map, and announcements.',
+          role: 'AR camera with device-motion tracking, auth with Keychain, and a modular design using SPM libraries.',
+          tech: ['SwiftUI', 'Firebase', 'AR / Core Motion', 'Swift Package Manager'],
+          link: 'https://github.com/Kusk24/AuGo', slotId: 'slot-augo', ph: 'AUGO — screenshot or GIF of the AR camera' },
+        { name: 'MotoPedia', sub: 'Android · Wikipedia for motorcycles', when: '2/2024',
+          desc: 'Android encyclopedia for motorcycles: browse specs, find dealers on Google Maps, and switch languages on the fly.',
+          role: 'Team project — MVVM architecture with Jetpack Compose and Firebase sync.',
+          tech: ['Kotlin', 'Jetpack Compose', 'Firebase', 'Google Maps'],
+          link: 'https://github.com/Kusk24/Android-Term-Project', slotId: 'slot-motopedia', ph: 'MotoPedia — app screenshot or demo GIF' },
+        { name: 'Space Shooter', sub: 'Java · Game development', when: '1/2025',
+          desc: 'Vertical and side-scrolling shooter with animated sprites, boss battles, and power-ups.',
+          role: 'Levels load from CSV maps with progressive difficulty, sound effects, and a scoring dashboard.',
+          tech: ['Java', 'Game loop & sprites', 'CSV level maps'],
+          link: 'https://github.com/Kusk24/Game_Design_Development_Project1', slotId: 'slot-shooter', ph: 'Space Shooter — gameplay GIF' },
+        { name: 'GameRental Backend', sub: 'Flask · PostgreSQL REST API', when: '2/2024',
+          desc: 'RESTful API powering a game-rental service — customers, staff, and admins each get role-based access control.',
+          role: 'Designed the PostgreSQL schema and the Flask + SQLAlchemy endpoints.',
+          tech: ['Flask', 'PostgreSQL', 'SQLAlchemy', 'REST'],
+          link: 'https://github.com/SoePhonePyae/Database-Backend', slotId: 'slot-backend', ph: 'API diagram or terminal demo' }
+      ]
+    },
+    th: {
+      navProjects: 'ผลงาน', navStack: 'เทคโนโลยี', navExp: 'ประสบการณ์', navAbout: 'เกี่ยวกับ', navContact: 'ติดต่อ', navResume: 'เรซูเม่',
+      stackOverline: 'เครื่องมือที่ใช้', stackTitle: 'เทคโนโลยีและภาษา',
+      stackLead: 'ภาษา เฟรมเวิร์ก และแพลตฟอร์มที่ผมใช้ — สว่างขึ้นทีละอย่าง',
+      heroRole: 'นักศึกษาวิทยาการคอมพิวเตอร์ · วิศวกรซอฟต์แวร์',
+      typedPhrases: ['นักศึกษาวิทยาการคอมพิวเตอร์', 'วิศวกรซอฟต์แวร์', 'นักพัฒนา เว็บ · มือถือ · คลาวด์'],
+      heroTagline: 'ผมสร้างงานทั้งเว็บ มือถือ และคลาวด์ — ตั้งแต่แอป SwiftUI และ Jetpack Compose ไปจนถึงแบ็กเอนด์ Flask บน AWS',
+      ctaProjects: 'ดูผลงาน', ctaResume: 'ดาวน์โหลดเรซูเม่',
+      projOverline: 'ผลงานคัดสรร', projTitle: 'โปรเจกต์',
+      projLead: 'ผลงานเด่นด้านบน — เลื่อนดูได้ — แล้วดูทั้งหมดด้านล่าง กรองตามประเภทหรือแพลตฟอร์ม',
+      featuredLabel: 'ผลงานเด่น', scrollHint: 'เลื่อนเพื่อดูผลงานเด่น',
+      allTitle: 'โปรเจกต์ทั้งหมด', allLead: 'งานส่วนตัว งานทีม และงานองค์กร — คลิกเพื่อดูรายละเอียด',
+      filterAll: 'ทั้งหมด', viewCase: 'ดูรายละเอียด', overviewLabel: 'ภาพรวม',
+      moreGh: 'ดูโปรเจกต์เพิ่มเติมบน GitHub',
+      archTitle: 'ล่าสุดบน GitHub', archLead: 'รีโพล่าสุดของผม ดึงสดแบบเรียลไทม์', seeMoreGh: 'ดูเพิ่ม', seeLessGh: 'ย่อ', seeAllGh: 'รีโพทั้งหมด',
+      archFail: 'โหลดข้อมูลไม่ได้ในขณะนี้ — ดูทั้งหมดบน GitHub',
+      certSecOverline: 'ใบรับรอง', certSecLead: 'ใบรับรองด้านคลาวด์ หมุนแสดงอัตโนมัติ — คลิกใบไหนก็ได้เพื่อดูรายละเอียด', certAutoHint: 'เล่นอัตโนมัติ · หยุดเมื่อชี้เมาส์', certVerified: 'ยืนยันแล้ว',
+      roleLabel: 'บทบาทของผม', ghLabel: 'ดูซอร์สโค้ดบน GitHub',
+      expOverline: 'เส้นทางที่ผ่านมา', expTitle: 'ประสบการณ์และการศึกษา',
+      eduLabel: 'การศึกษา', certsLabel: 'ประกาศนียบัตร', gpaLabel: 'เกรดเฉลี่ย',
+      eduSchool: 'มหาวิทยาลัยอัสสัมชัญ',
+      eduDegree: 'วท.บ. วิทยาการคอมพิวเตอร์ — สาขาวิศวกรรมซอฟต์แวร์',
+      eduPeriod: 'มิ.ย. 2023 – ต.ค. 2026 (คาดว่าจะสำเร็จการศึกษา)',
+      aboutOverline: 'นอกเหนือจากโค้ด', aboutTitle: 'เกี่ยวกับผม',
+      aboutP1: 'ผมเริ่มเขียนโค้ดเพราะอยากสร้างสิ่งที่จับต้องได้จริง — แอป iOS ที่เพื่อนเปิดใช้ได้ เกมที่มีบอสไฟต์ และแบ็กเอนด์ที่ไม่ล่ม',
+      aboutP2: 'สามปีในหลักสูตรวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยอัสสัมชัญ ความอยากรู้นั้นกลายเป็นนิสัยของการหยิบสแต็กใหม่ตามที่ปัญหาต้องการ — Swift เทอมหนึ่ง Flask กับ PostgreSQL อีกเทอม และ AWS คั่นกลาง นอกจอผมเข้ายิมอย่างสม่ำเสมอ — วินัยที่นั่นกับวินัยในงานวิศวกรรมคือกล้ามเนื้อเดียวกัน',
+      aboutFacts: [
+        { label: 'อาศัยอยู่ที่สมุทรปราการ ประเทศไทย', ic: 'map-pin' },
+        { label: 'ภาษาพม่า — ภาษาแม่', ic: 'languages' },
+        { label: 'ภาษาอังกฤษ — คล่อง', ic: 'languages' },
+        { label: 'ผู้เข้ารอบสุดท้าย TrueLAB Runway 2026', ic: 'trophy' }
+      ],
+      contactOverline: 'ติดต่อ', contactTitle: 'มาสร้างอะไรด้วยกัน',
+      contactLead: 'เปิดรับฝึกงานวิศวกรรมซอฟต์แวร์ — เว็บ มือถือ แบ็กเอนด์ หรือคลาวด์',
+      footNote: 'English · ไทย · မြန်မာ — ออกแบบและพัฒนาด้วยตัวเอง',
+      certs: [
+        { name: 'AWS Academy Cloud Foundations', org: 'Amazon Web Services', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+        { name: 'AWS Academy Cloud Developing', org: 'Amazon Web Services', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+        { name: 'AWS Academy Cloud Operations', org: 'Amazon Web Services', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+        { name: 'Huawei Cloud Developer', org: 'Huawei Cloud', logo: 'https://cdn.simpleicons.org/huawei' }
+      ],
+      contacts: [
+        { label: 'GitHub', href: 'https://github.com/Kusk24' },
+        { label: 'LinkedIn', href: 'https://www.linkedin.com/in/win-yu-maung-06747827b' },
+        { label: '(+66) 96 101 6972', href: 'tel:+66961016972' }
+      ],
+      experience: [
+        { org: 'GlowOps — ทีม CodeBlue', role: 'CTO โปรเจกต์ / หัวหน้าฝ่ายเทคนิค', period: 'เม.ย. 2026 – ปัจจุบัน',
+          desc: 'ผู้เข้ารอบสุดท้าย TrueLAB Open Innovation Runway 2026 — นำทีมสร้าง AI copilot สำหรับ SME ความงามและสุขภาพบน LINE: สถาปัตยกรรมระบบ การเชื่อมต่อ เวิร์กโฟลว์ AI และศูนย์อนุมัติสำหรับพนักงาน' },
+        { org: 'บริษัท Schedjuice จำกัด', role: 'นักศึกษาฝึกงานฟรอนต์เอนด์', period: 'ส.ค. – ต.ค. 2025',
+          desc: 'พัฒนาฟีเจอร์ให้แพลตฟอร์มการศึกษาอัตโนมัติด้วย Next.js และ Tailwind CSS ทำงานร่วมทีมผ่าน GitHub เพื่อแก้ไขปัญหาและปรับปรุง UI' }
+      ],
+      projects: [
+        { name: 'AUGO', sub: 'iOS · โซเชียลมีเดียพร้อม AR', when: '2/2025',
+          desc: 'แอปโซเชียลบน iOS ที่ให้นักศึกษาเก็บของสะสม AR รอบมหาวิทยาลัย — การ์ดโฮโลแกรม ลีดเดอร์บอร์ดสด แผนที่วิทยาเขต และประกาศ (โปรเจกต์ทีม)',
+          role: 'กล้อง AR พร้อมการติดตามการเคลื่อนไหวของอุปกรณ์ การยืนยันตัวตนด้วย Keychain และสถาปัตยกรรมโมดูลาร์ด้วย SPM',
+          tech: ['SwiftUI', 'Firebase', 'AR / Core Motion', 'Swift Package Manager'],
+          link: 'https://github.com/Kusk24/AuGo', slotId: 'slot-augo', ph: 'AUGO — screenshot or GIF of the AR camera' },
+        { name: 'MotoPedia', sub: 'Android · สารานุกรมมอเตอร์ไซค์', when: '2/2024',
+          desc: 'สารานุกรมมอเตอร์ไซค์บน Android — ดูสเปก ค้นหาตัวแทนจำหน่ายบน Google Maps และสลับภาษาได้ทันที',
+          role: 'โปรเจกต์ทีม — สถาปัตยกรรม MVVM ด้วย Jetpack Compose และซิงก์ข้อมูลผ่าน Firebase',
+          tech: ['Kotlin', 'Jetpack Compose', 'Firebase', 'Google Maps'],
+          link: 'https://github.com/Kusk24/Android-Term-Project', slotId: 'slot-motopedia', ph: 'MotoPedia — app screenshot or demo GIF' },
+        { name: 'Space Shooter', sub: 'Java · พัฒนาเกม', when: '1/2025',
+          desc: 'เกมยิงแนวตั้งและเลื่อนด้านข้างเขียนด้วย Java — สไปรต์แอนิเมชัน บอสไฟต์ และพาวเวอร์อัป',
+          role: 'โหลดด่านจากไฟล์ CSV พร้อมความยากแบบก้าวหน้า เอฟเฟกต์เสียง และแดชบอร์ดคะแนน',
+          tech: ['Java', 'Game loop & sprites', 'CSV level maps'],
+          link: 'https://github.com/Kusk24/Game_Design_Development_Project1', slotId: 'slot-shooter', ph: 'Space Shooter — gameplay GIF' },
+        { name: 'GameRental Backend', sub: 'Flask · REST API กับ PostgreSQL', when: '2/2024',
+          desc: 'RESTful API สำหรับบริการเช่าเกม — ลูกค้า พนักงาน และแอดมินมีสิทธิ์เข้าถึงตามบทบาท',
+          role: 'ออกแบบสคีมา PostgreSQL และเอนด์พอยต์ Flask + SQLAlchemy',
+          tech: ['Flask', 'PostgreSQL', 'SQLAlchemy', 'REST'],
+          link: 'https://github.com/SoePhonePyae/Database-Backend', slotId: 'slot-backend', ph: 'API diagram or terminal demo' }
+      ]
+    },
+    my: {
+      navProjects: 'ပရောဂျက်များ', navStack: 'နည်းပညာ', navExp: 'အတွေ့အကြုံ', navAbout: 'ကျွန်ုပ်အကြောင်း', navContact: 'ဆက်သွယ်ရန်', navResume: 'Resume',
+      stackOverline: 'အသုံးပြုသည့် ကိရိယာများ', stackTitle: 'နည်းပညာနှင့် ဘာသာစကားများ',
+      stackLead: 'ကျွန်ုပ် အသုံးပြုသည့် ဘာသာစကား၊ framework နှင့် platform များ — တစ်ခုချင်း အလင်းပေါက်လာသည်။',
+      heroRole: 'ကွန်ပျူတာသိပ္ပံ ကျောင်းသား · ဆော့ဖ်ဝဲအင်ဂျင်နီယာ',
+      typedPhrases: ['ကွန်ပျူတာသိပ္ပံ ကျောင်းသား', 'ဆော့ဖ်ဝဲအင်ဂျင်နီယာ', 'Web · Mobile · Cloud Developer'],
+      heroTagline: 'ဝက်ဘ်၊ မိုဘိုင်းနှင့် cloud အတွက် တည်ဆောက်သည် — SwiftUI နှင့် Jetpack Compose အက်ပ်များမှ AWS ပေါ်ရှိ Flask backend များအထိ။',
+      ctaProjects: 'ပရောဂျက်များ ကြည့်ရန်', ctaResume: 'Resume ဒေါင်းလုဒ်',
+      projOverline: 'ရွေးချယ်ထားသော လက်ရာများ', projTitle: 'ပရောဂျက်များ',
+      projLead: 'ထင်ရှားသော ပရောဂျက်များကို အပေါ်တွင် — ရွှေ့ကြည့်ပါ — ပြီးရင် အောက်တွင် အမျိုးအစား/platform ဖြင့် စစ်ထုတ်ကြည့်ပါ။',
+      featuredLabel: 'ထင်ရှားသော', scrollHint: 'ထင်ရှားသော ပရောဂျက်များ ကြည့်ရန် ရွှေ့ပါ',
+      allTitle: 'ပရောဂျက် အားလုံး', allLead: 'ကိုယ်ပိုင်၊ အဖွဲ့နှင့် အဖွဲ့အစည်း လက်ရာများ — အသေးစိတ်ကြည့်ရန် နှိပ်ပါ။',
+      filterAll: 'အားလုံး', viewCase: 'အသေးစိတ်ကြည့်ရန်', overviewLabel: 'အနှစ်ချုပ်',
+      moreGh: 'GitHub တွင် နောက်ထပ်ပရောဂျက်များ',
+      archTitle: 'GitHub ပေါ်မှ နောက်ဆုံး', archLead: 'ကျွန်ုပ်၏ နောက်ဆုံး repository များ — တိုက်ရိုက်ရယူထားသည်။', seeMoreGh: 'ပိုကြည့်ရန်', seeLessGh: 'ချုံ့ရန်', seeAllGh: 'repository အားလုံး',
+      archFail: 'ယခုအချိန်တွင် repo များ မရယူနိုင်ပါ — GitHub တွင် အားလုံးကြည့်ပါ',
+      certSecOverline: 'အသိအမှတ်ပြုလက်မှတ်', certSecLead: 'Cloud အောင်လက်မှတ်များ အလိုအလျောက် လှည့်ပြနေသည် — တစ်ခုကို နှိပ်၍ အသေးစိတ်ကြည့်ပါ။', certAutoHint: 'အလိုအလျောက် · hover လုပ်လျှင် ရပ်သည်', certVerified: 'အတည်ပြု',
+      roleLabel: 'ကျွန်ုပ်၏ တာဝန်', ghLabel: 'GitHub တွင် source ကြည့်ရန်',
+      expOverline: 'ဖြတ်သန်းမှု', expTitle: 'အတွေ့အကြုံနှင့် ပညာရေး',
+      eduLabel: 'ပညာရေး', certsLabel: 'အောင်လက်မှတ်များ', gpaLabel: 'GPA',
+      eduSchool: 'Assumption University of Thailand',
+      eduDegree: 'B.Sc. ကွန်ပျူတာသိပ္ပံ — Software Engineering အထူးပြု',
+      eduPeriod: '2023 ဇွန် – 2026 အောက်တိုဘာ (မျှော်မှန်း)',
+      aboutOverline: 'ကုဒ်အပြင်ဘက်', aboutTitle: 'ကျွန်ုပ်အကြောင်း',
+      aboutP1: 'ကိုယ်တိုင်ကိုင်တွယ်နိုင်သည့်အရာများ တည်ဆောက်ချင်စိတ်ဖြင့် coding ကို စတင်ခဲ့သည် — သူငယ်ချင်းများ ဖွင့်ကြည့်နိုင်သည့် iOS အက်ပ်၊ boss fight ပါသည့် ဂိမ်း၊ မပျက်သည့် backend။',
+      aboutP2: 'Assumption University တွင် သုံးနှစ်ကြာ သင်ယူပြီးနောက် ပြဿနာအလိုက် နည်းပညာအသစ်များ လေ့လာသည့် အလေ့အကျင့် ဖြစ်လာခဲ့သည် — တစ်ချိန်တွင် Swift၊ နောက်တစ်ချိန် Flask နှင့် PostgreSQL၊ ကြားထဲတွင် AWS။ ကွန်ပျူတာရှေ့မှ မဟုတ်သည့်အချိန်တွင် ပုံမှန် ကိုယ်ကာယလေ့ကျင့်သည် — ထိုစည်းကမ်းနှင့် အင်ဂျင်နီယာစည်းကမ်းသည် တူညီသော ကြွက်သားပင်ဖြစ်သည်။',
+      aboutFacts: [
+        { label: 'ထိုင်းနိုင်ငံ Samut Prakan တွင် နေထိုင်သည်', ic: 'map-pin' },
+        { label: 'မြန်မာ — မိခင်ဘာသာ', ic: 'languages' },
+        { label: 'အင်္ဂလိပ် — ကျွမ်းကျင်', ic: 'languages' },
+        { label: 'TrueLAB Runway 2026 နောက်ဆုံးအဆင့်', ic: 'trophy' }
+      ],
+      contactOverline: 'ဆက်သွယ်ရန်', contactTitle: 'အတူတကွ တည်ဆောက်ကြရအောင်။',
+      contactLead: 'ဆော့ဖ်ဝဲအင်ဂျင်နီယာ အလုပ်သင်အခွင့်အလမ်းများ — ဝက်ဘ်၊ မိုဘိုင်း၊ backend သို့မဟုတ် cloud — ကြိုဆိုပါသည်။',
+      footNote: 'English · ไทย · မြန်မာ — ကိုယ်တိုင် ဒီဇိုင်းရေးဆွဲ တည်ဆောက်ထားသည်',
+      certs: [
+        { name: 'AWS Academy Cloud Foundations', org: 'Amazon Web Services', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+        { name: 'AWS Academy Cloud Developing', org: 'Amazon Web Services', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+        { name: 'AWS Academy Cloud Operations', org: 'Amazon Web Services', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+        { name: 'Huawei Cloud Developer', org: 'Huawei Cloud', logo: 'https://cdn.simpleicons.org/huawei' }
+      ],
+      contacts: [
+        { label: 'GitHub', href: 'https://github.com/Kusk24' },
+        { label: 'LinkedIn', href: 'https://www.linkedin.com/in/win-yu-maung-06747827b' },
+        { label: '(+66) 96 101 6972', href: 'tel:+66961016972' }
+      ],
+      experience: [
+        { org: 'GlowOps — CodeBlue Team', role: 'Project CTO / Technical Lead', period: '2026 ဧပြီ – ယခုအထိ',
+          desc: 'TrueLAB Open Innovation Runway 2026 နောက်ဆုံးအဆင့် — အလှအပနှင့် ကျန်းမာရေး SME များအတွက် LINE-first AI copilot ကို ဦးဆောင်တည်ဆောက်နေသည် — system architecture၊ integration များ၊ AI workflow များနှင့် staff approval hub။' },
+        { org: 'Schedjuice Company Limited', role: 'Frontend Developer အလုပ်သင်', period: '2025 ဩဂုတ် – အောက်တိုဘာ',
+          desc: 'Next.js နှင့် Tailwind CSS ဖြင့် ပညာရေး automation platform အတွက် feature များ တည်ဆောက်ခဲ့ပြီး GitHub မှတဆင့် ပူးပေါင်းလုပ်ဆောင်ခဲ့သည်။' }
+      ],
+      projects: [
+        { name: 'AUGO', sub: 'iOS · AR ပါသော ဆိုရှယ်မီဒီယာ', when: '2/2025',
+          desc: 'ကျောင်းဝင်းအတွင်း AR collectible များ ဖမ်းယူနိုင်သည့် iOS ဆိုရှယ်အက်ပ် — holographic ကတ်များ၊ တိုက်ရိုက် leaderboard၊ ကျောင်းမြေပုံနှင့် ကြေညာချက်များ (အဖွဲ့ပရောဂျက်)။',
+          role: 'AR ကင်မရာနှင့် device-motion tracking၊ Keychain authentication နှင့် SPM ဖြင့် modular architecture။',
+          tech: ['SwiftUI', 'Firebase', 'AR / Core Motion', 'Swift Package Manager'],
+          link: 'https://github.com/Kusk24/AuGo', slotId: 'slot-augo', ph: 'AUGO — screenshot or GIF of the AR camera' },
+        { name: 'MotoPedia', sub: 'Android · ဆိုင်ကယ် encyclopedia', when: '2/2024',
+          desc: 'Android အတွက် ဆိုင်ကယ် encyclopedia — spec များကြည့်ရှု၊ Google Maps ပေါ်တွင် ဆိုင်များရှာဖွေ၊ ဘာသာစကား ချက်ချင်းပြောင်းနိုင်သည်။',
+          role: 'အဖွဲ့ပရောဂျက် — Jetpack Compose နှင့် Firebase ဖြင့် MVVM architecture။',
+          tech: ['Kotlin', 'Jetpack Compose', 'Firebase', 'Google Maps'],
+          link: 'https://github.com/Kusk24/Android-Term-Project', slotId: 'slot-motopedia', ph: 'MotoPedia — app screenshot or demo GIF' },
+        { name: 'Space Shooter', sub: 'Java · ဂိမ်းတည်ဆောက်မှု', when: '1/2025',
+          desc: 'Java ဖြင့်ရေးသားထားသော ဒေါင်လိုက်နှင့် ဘေးတိုက် scrolling ပစ်ခတ်ဂိမ်း — animated sprite များ၊ boss battle များနှင့် power-up များ။',
+          role: 'CSV မြေပုံများမှ level များ load လုပ်ပြီး တဖြည်းဖြည်း ခက်ခဲလာသော difficulty၊ အသံ effect နှင့် ရမှတ် dashboard။',
+          tech: ['Java', 'Game loop & sprites', 'CSV level maps'],
+          link: 'https://github.com/Kusk24/Game_Design_Development_Project1', slotId: 'slot-shooter', ph: 'Space Shooter — gameplay GIF' },
+        { name: 'GameRental Backend', sub: 'Flask · PostgreSQL REST API', when: '2/2024',
+          desc: 'ဂိမ်းငှားရမ်းဝန်ဆောင်မှုအတွက် RESTful API — customer၊ staff နှင့် admin တို့အတွက် role-based access control။',
+          role: 'PostgreSQL schema နှင့် Flask + SQLAlchemy endpoint များ ဒီဇိုင်းရေးဆွဲခဲ့သည်။',
+          tech: ['Flask', 'PostgreSQL', 'SQLAlchemy', 'REST'],
+          link: 'https://github.com/SoePhonePyae/Database-Backend', slotId: 'slot-backend', ph: 'API diagram or terminal demo' }
+      ]
+    }
+  };
+
+  componentDidMount() {
+    const theme = this.props.defaultTheme || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    if (theme !== this.state.theme) this.setState({ theme });
+    if (this.props.accentColor) document.documentElement.style.setProperty('--accent', this.props.accentColor);
+
+    document.addEventListener('error', (e) => {
+      if (e.target && e.target.tagName === 'IMG') e.target.style.display = 'none';
+    }, true);
+
+    fetch('https://api.github.com/users/Kusk24/repos?per_page=100&sort=pushed')
+      .then((r) => { if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
+      .then((list) => {
+        const skip = ['augo', 'android-term-project', 'game_design_development_project1', 'database-backend', 'kusk24'];
+        const repos = list
+          .filter((r) => !r.fork && !skip.includes(r.name.toLowerCase()))
+          .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
+          .slice(0, 16)
+          .map((r) => ({
+            name: r.name.replace(/[-_]/g, ' '),
+            desc: r.description || 'View on GitHub',
+            lang: r.language || 'Code',
+            url: r.html_url,
+            year: String(new Date(r.pushed_at).getFullYear())
+          }));
+        this.setState({ repos });
+      })
+      .catch(() => this.setState({ reposFailed: true }));
+
+    const reduce = !!this.props.reduceMotion ||
+      (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    this._reduce = reduce;
+    this._certHold = false;
+    this._techHold = false;
+    this._startCertTimer();
+    this._startTechTimer();
+    this._startTyping();
+    this._initDots(reduce);
+
+    if (reduce) {
+      const all = () => document.querySelectorAll('[data-rv]').forEach((el) => el.setAttribute('data-rvd', ''));
+      all(); setTimeout(all, 500);
+      return;
+    }
+
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.setAttribute('data-rvd', '');
+          this._io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+    this._observe = () => {
+      document.querySelectorAll('[data-rv]:not([data-rvd])').forEach((el) => this._io.observe(el));
+    };
+    this._observe();
+    setTimeout(this._observe, 400);
+    setTimeout(this._observe, 1500);
+
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = 0;
+        const y = window.scrollY;
+        const hero = document.getElementById('hero-par');
+        if (hero) {
+          hero.style.transform = 'translate3d(0,' + (y * 0.28) + 'px,0)';
+          hero.style.opacity = String(Math.max(0, 1 - y / 620));
+        }
+        const photo = document.getElementById('photo-par');
+        if (photo && photo.hasAttribute('data-rvd')) {
+          photo.style.transform = 'translate3d(0,' + (y * -0.08) + 'px,0)';
+        }
+        const fw = document.getElementById('feat-wrap');
+        const ft = document.getElementById('feat-track');
+        if (fw && ft && window.innerWidth > 780) {
+          const total = fw.offsetHeight - window.innerHeight;
+          const prog = total > 0 ? Math.min(1, Math.max(0, -fw.getBoundingClientRect().top / total)) : 0;
+          const dist = Math.max(0, ft.scrollWidth - window.innerWidth + 48);
+          ft.style.transform = 'translate3d(' + (-prog * dist) + 'px,0,0)';
+        }
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+
+  componentDidUpdate() {
+    if (this._observe) this._observe();
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._dotsRaf) cancelAnimationFrame(this._dotsRaf);
+    clearInterval(this._certTimer);
+    clearInterval(this._techTimer);
+    clearTimeout(this._typeTimer);
+    if (this._onDotsMove) window.removeEventListener('pointermove', this._onDotsMove);
+    if (this._onDotsResize) window.removeEventListener('resize', this._onDotsResize);
+  }
+
+  _initDots(reduce) {
+    const cv = document.getElementById('bg-dots');
+    if (!cv) return;
+    const ctx = cv.getContext('2d');
+    let W = 0, H = 0;
+    const stars = [];
+    const nebulae = [];
+    const HUES = [215, 230, 262, 285, 195];
+
+    const build = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = window.innerWidth; H = window.innerHeight;
+      cv.width = W * dpr; cv.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      stars.length = 0; nebulae.length = 0;
+      const clusters = 5 + Math.round(W / 800);
+      for (let c = 0; c < clusters; c++) {
+        const cx = (0.06 + 0.88 * Math.random()) * W;
+        const cy = (0.06 + 0.88 * Math.random()) * H;
+        const spread = 60 + Math.random() * 150;
+        const hue = HUES[Math.floor(Math.random() * HUES.length)];
+        nebulae.push({ x: cx, y: cy, r: spread * 2.4 + 90, hue,
+          a: 0.05 + Math.random() * 0.07, ph: Math.random() * 6.283 });
+        if (Math.random() < 0.5) {
+          nebulae.push({ x: cx + (Math.random() - 0.5) * spread * 1.6,
+            y: cy + (Math.random() - 0.5) * spread * 1.6,
+            r: spread * 1.3 + 60, hue: HUES[Math.floor(Math.random() * HUES.length)],
+            a: 0.04 + Math.random() * 0.05, ph: Math.random() * 6.283 });
+        }
+        const n = 22 + Math.floor(Math.random() * 30);
+        for (let i = 0; i < n; i++) {
+          const a = Math.random() * Math.PI * 2;
+          const r = Math.abs(Math.random() + Math.random() - 1) * spread * 1.4;
+          const hx = cx + Math.cos(a) * r;
+          const hy = cy + Math.sin(a) * r;
+          stars.push({ hx, hy, x: hx, y: hy, vx: 0, vy: 0,
+            s: 0.5 + Math.random() * 1.3, o: 0.25 + Math.random() * 0.55,
+            tw: 0.6 + Math.random() * 1.8, ph: Math.random() * 6.283,
+            hue, bright: Math.random() < 0.07 });
+        }
+      }
+      for (let i = 0; i < 60; i++) {
+        const hx = Math.random() * W, hy = Math.random() * H;
+        stars.push({ hx, hy, x: hx, y: hy, vx: 0, vy: 0,
+          s: 0.4 + Math.random() * 0.9, o: 0.1 + Math.random() * 0.3,
+          tw: 0.5 + Math.random() * 1.5, ph: Math.random() * 6.283,
+          hue: 220, bright: false });
+      }
+    };
+    build();
+
+    const mouse = { x: -9999, y: -9999 };
+    let t = 0;
+
+    const draw = (animate) => {
+      t += 0.008;
+      ctx.clearRect(0, 0, W, H);
+      const dark = document.documentElement.getAttribute('data-theme') !== 'light';
+
+      ctx.globalCompositeOperation = dark ? 'lighter' : 'source-over';
+      for (const nb of nebulae) {
+        const drift = Math.cos(t * 0.4 + nb.ph) * 10;
+        const x = nb.x + drift, y = nb.y + Math.sin(t * 0.3 + nb.ph) * 8;
+        const breathe = 1 + Math.sin(t * 0.5 + nb.ph) * 0.06;
+        const r = nb.r * breathe;
+        const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+        if (dark) {
+          g.addColorStop(0, 'hsla(' + nb.hue + ',85%,62%,' + nb.a + ')');
+          g.addColorStop(0.45, 'hsla(' + nb.hue + ',80%,55%,' + (nb.a * 0.45) + ')');
+          g.addColorStop(1, 'hsla(' + nb.hue + ',80%,50%,0)');
+        } else {
+          g.addColorStop(0, 'hsla(' + nb.hue + ',65%,55%,' + (nb.a * 0.55) + ')');
+          g.addColorStop(1, 'hsla(' + nb.hue + ',65%,55%,0)');
+        }
+        ctx.fillStyle = g;
+        ctx.fillRect(x - r, y - r, r * 2, r * 2);
+      }
+
+      for (const d of stars) {
+        if (animate) {
+          const dx = d.x - mouse.x, dy = d.y - mouse.y;
+          const R = 150, dist2 = dx * dx + dy * dy;
+          if (dist2 < R * R) {
+            const dist = Math.sqrt(dist2) || 1;
+            const f = (1 - dist / R) * 2.4;
+            d.vx += (dx / dist) * f;
+            d.vy += (dy / dist) * f;
+          }
+          d.vx += (d.hx - d.x) * 0.02;
+          d.vy += (d.hy - d.y) * 0.02;
+          d.vx *= 0.86; d.vy *= 0.86;
+          d.x += d.vx; d.y += d.vy;
+        }
+        const ix = Math.cos(t * 1.1 + d.ph) * 0.5;
+        const iy = Math.sin(t * 1.4 + d.ph) * 0.5;
+        const twinkle = 0.65 + 0.35 * Math.sin(t * d.tw * 3 + d.ph);
+        const alpha = Math.min(1, d.o * twinkle);
+        const px = d.x + ix, py = d.y + iy;
+        if (d.bright) {
+          const gr = ctx.createRadialGradient(px, py, 0, px, py, d.s * 7);
+          const core = dark ? '255,255,255' : '50,60,110';
+          gr.addColorStop(0, 'rgba(' + core + ',' + (alpha * 0.5) + ')');
+          gr.addColorStop(1, 'rgba(' + core + ',0)');
+          ctx.fillStyle = gr;
+          ctx.fillRect(px - d.s * 7, py - d.s * 7, d.s * 14, d.s * 14);
+        }
+        ctx.beginPath();
+        ctx.arc(px, py, d.bright ? d.s * 1.4 : d.s, 0, 6.2832);
+        ctx.fillStyle = dark
+          ? 'hsla(' + d.hue + ',60%,88%,' + alpha + ')'
+          : 'hsla(' + d.hue + ',45%,30%,' + (alpha * 0.8) + ')';
+        ctx.fill();
+      }
+      ctx.globalCompositeOperation = 'source-over';
+    };
+
+    if (reduce) {
+      draw(false);
+      this._onDotsResize = () => { build(); draw(false); };
+      window.addEventListener('resize', this._onDotsResize);
+      return;
+    }
+
+    this._onDotsMove = (e) => { mouse.x = e.clientX; mouse.y = e.clientY; };
+    window.addEventListener('pointermove', this._onDotsMove, { passive: true });
+
+    let rsT = 0;
+    this._onDotsResize = () => { clearTimeout(rsT); rsT = setTimeout(build, 200); };
+    window.addEventListener('resize', this._onDotsResize);
+
+    const tick = () => {
+      draw(true);
+      this._dotsRaf = requestAnimationFrame(tick);
+    };
+    tick();
+  }
+
+  _iconUrl(slug) {
+    const mono = this.state.theme === 'dark' ? 'f5f5f7' : '1d1d1f';
+    return 'https://cdn.simpleicons.org/' + slug + '/' + mono;
+  }
+
+  _techIcon(name) {
+    const DEV = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/';
+    if (name === 'Java') return DEV + 'java/java-original.svg';
+    if (name === 'C#') return DEV + 'csharp/csharp-original.svg';
+    if (name === 'C++') return DEV + 'cplusplus/cplusplus-original.svg';
+    const M = {
+      'SwiftUI': 'swift', 'Swift': 'swift', 'Swift Package Manager': 'swift', 'AR / Core Motion': 'apple',
+      'Kotlin': 'kotlin', 'Jetpack Compose': 'jetpackcompose', 'Firebase': 'firebase', 'Google Maps': 'googlemaps',
+      'Flask': 'flask', 'PostgreSQL': 'postgresql', 'SQLAlchemy': 'sqlalchemy',
+      'Python': 'python', 'JavaScript': 'javascript', 'TypeScript': 'typescript', 'HTML': 'html5', 'CSS': 'css',
+      'Shell': 'gnubash', 'Dart': 'dart', 'Jupyter Notebook': 'jupyter', 'C': 'c', 'Go': 'go', 'PHP': 'php', 'Ruby': 'ruby'
+    };
+    const slug = M[name];
+    return slug ? this._iconUrl(slug) : null;
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const t = this.I18N[lang] || this.I18N.en;
+    const setLang = (l) => () => { this.setState({ lang: l }); this._startTyping(); };
+    const PIMG = {
+      'slot-augo': 'https://picsum.photos/seed/augo-app/1200/600',
+      'slot-motopedia': 'https://picsum.photos/seed/moto-ride/1200/600',
+      'slot-shooter': 'https://picsum.photos/seed/space-night/1200/600',
+      'slot-backend': 'https://picsum.photos/seed/server-code/1200/600'
+    };
+    const LUC = 'https://unpkg.com/lucide-static@latest/icons/';
+    const PLAT_ICON = { iOS: 'smartphone', Android: 'smartphone', Web: 'globe', Backend: 'server', Game: 'gamepad-2', Cloud: 'cloud', 'ML/AI': 'brain' };
+    const projects = t.projects.map((p, i) => {
+      const m = this.PMETA[i] || {};
+      return Object.assign({}, p, {
+        img: PIMG[p.slotId],
+        techIcons: p.tech.map((n) => ({ label: n, icon: this._techIcon(n) })),
+        type: m.type || 'Personal',
+        platform: m.platform || 'Web',
+        featured: !!m.featured,
+        platIcon: LUC + (PLAT_ICON[m.platform] || 'code') + '.svg',
+        open: () => this.setState({ openIdx: i })
+      });
+    });
+    const featured = projects.filter((p) => p.featured);
+    const uniq = (a) => a.filter((v, i) => a.indexOf(v) === i);
+    const filterKeys = ['All'].concat(uniq(this.PMETA.map((m) => m.type))).concat(uniq(this.PMETA.map((m) => m.platform)));
+    const af = this.state.filter || 'All';
+    const filters = filterKeys.map((k) => ({
+      key: k,
+      label: k === 'All' ? t.filterAll : k,
+      on: af === k ? 'true' : 'false',
+      pick: () => this.setState({ filter: k })
+    }));
+    const gridProjects = projects.filter((p) => af === 'All' || p.type === af || p.platform === af);
+    const activeProj = projects[this.state.openIdx == null ? 0 : this.state.openIdx] || projects[0];
+    const LUCIDE = 'https://unpkg.com/lucide-static@latest/icons/';
+    const contacts = t.contacts.map((c) => Object.assign({}, c, {
+      icon: c.label === 'GitHub' ? this._iconUrl('github')
+        : (c.label === 'LinkedIn' ? 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg' : LUCIDE + 'phone.svg'),
+      lucide: c.label !== 'GitHub' && c.label !== 'LinkedIn'
+    }));
+    const repos = (this.state.repos || []).map((r) => Object.assign({}, r, { icon: this._techIcon(r.lang) }));
+    const gridRepos = this.state.repoOpen ? repos : repos.slice(0, 4);
+    const nCerts = t.certs.length;
+    const certs = t.certs.map((c, i) => Object.assign({}, c, {
+      icon: c.logo,
+      photoId: 'cert-photo-' + (i + 1),
+      cur: i === this.state.certIdx ? 'true' : 'false',
+      select: () => { this.setState({ certIdx: i }); this._startCertTimer(); }
+    }));
+    const aboutFacts = t.aboutFacts.map((f) => Object.assign({}, f, { icon: LUCIDE + f.ic + '.svg' }));
+    const techStack = this.TECH.map((tech, i) => Object.assign({}, tech, {
+      icon: tech.icon || this._iconUrl(tech.slug),
+      lit: i === this.state.techIdx ? 'true' : 'false',
+      hover: () => { this.setState({ techIdx: i }); this._startTechTimer(); }
+    }));
+    return Object.assign({}, t, {
+      projects, contacts, repos, certs, aboutFacts, techStack,
+      featured, filters, gridProjects, activeProj,
+      projOpen: this.state.openIdx != null,
+      closeProject: () => this.setState({ openIdx: null }),
+      stopProp: (e) => e.stopPropagation(),
+      typed: this.state.typed,
+      techHoldOn: () => { this._techHold = true; },
+      techHoldOff: () => { this._techHold = false; },
+      reposLoaded: !!this.state.repos && repos.length > 0,
+      reposFailed: this.state.reposFailed,
+      ghIcon: this._iconUrl('github'),
+      gridRepos,
+      reposMore: repos.length > 4,
+      repoBtnLabel: this.state.repoOpen ? t.seeLessGh : t.seeMoreGh,
+      toggleRepos: () => this.setState((s) => ({ repoOpen: !s.repoOpen })),
+      ghIconBtn: 'https://cdn.simpleicons.org/github/' + (this.state.theme === 'dark' ? '0a0a0a' : 'fbfbfd'),
+      certCounter: (this.state.certIdx + 1) + ' / ' + nCerts,
+      certPrev: () => { this.setState((s) => ({ certIdx: (s.certIdx - 1 + nCerts) % nCerts })); this._startCertTimer(); },
+      certNext: () => { this.setState((s) => ({ certIdx: (s.certIdx + 1) % nCerts })); this._startCertTimer(); },
+      certHoldOn: () => { this._certHold = true; },
+      certHoldOff: () => { this._certHold = false; },
+      hideImg: (e) => { e.target.style.display = 'none'; },
+      enOn: lang === 'en', thOn: lang === 'th', myOn: lang === 'my',
+      setEn: setLang('en'), setTh: setLang('th'), setMy: setLang('my'),
+      themeGlyph: this.state.theme === 'dark' ? '☀' : '☾',
+      toggleTheme: () => {
+        const next = this.state.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        this.setState({ theme: next });
+      }
+    });
+  }
+}
+</script>
+</body>
+</html>
