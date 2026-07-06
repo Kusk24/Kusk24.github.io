@@ -22,6 +22,20 @@ shown wherever a file is still missing):
 | `projects/motopedia.png` | MotoPedia — featured card + modal |
 | `projects/space-shooter.png` | Space Shooter — featured card + modal |
 | `projects/gamerental.png` | GameRental — featured card + modal |
+| `projects/jtrax-admin.png` | JTrax Admin — grid card + modal |
+| `projects/jtrax-web-app.png` | JTrax Web App — grid card + modal |
+| `projects/jtrax-backend.png` | JTrax Backend — grid card + modal |
+| `projects/jtrax-mobile-app.png` | JTrax Mobile App — grid card + modal |
+| `projects/springboard.png` | SpringBoard — grid card + modal |
+| `projects/ice-breaker.png` | IceBreaker — grid card + modal |
+| `projects/cpu-scheduling.png` | CPU Scheduling — grid card + modal |
+| `projects/web-ecommerce.png` | Clothing E-commerce — grid card + modal |
+| `projects/water-billing.png` | Water Billing System — grid card + modal |
+| `projects/tank-1990.png` | Tank 1990 — grid card + modal |
+| `projects/spending-tracker.png` | Spending Tracker — grid card + modal |
+| `projects/lambda-crud.png` | Lambda CRUD Functions — grid card + modal |
+| `projects/database-term.png` | Database Term Project — grid card + modal |
+| `projects/ios-term.png` | iOS Term Project — grid card + modal |
 | `certs/aws-cloud-foundations.png` | Certificate photo in the carousel |
 | `certs/aws-cloud-developing.png` | Certificate photo in the carousel |
 | `certs/aws-cloud-operations.png` | Certificate photo in the carousel |
@@ -49,10 +63,23 @@ so edit the same field in all three to keep languages in sync.
 
 ### Adding a project
 
-1. Add an entry to `projects` in `src/content/site.ts` (link, image path, tags, tech).
+1. Add an entry to `projects` in `src/content/site.ts` (link, image path,
+   `when` date, tags, tech). Set `featured: true` to promote it into the big
+   horizontal showcase up top, or `false` to keep it in the "All projects" grid.
 2. Add the matching text entry **at the same position** in the `projects` array
    of `en.ts`, `th.ts`, and `my.ts`.
-3. Drop the image into `public/content/projects/`.
+3. Drop the image into `public/content/projects/` (see the table above for the
+   filename — it's `projects/<key>.png`).
+4. If the project is one of your own GitHub repos, add its repo name (lowercase)
+   to `github.skipRepos` in `site.ts` so it doesn't also appear in the live
+   "Latest on GitHub" list.
+
+### Project dates & sorting
+
+Each project's `when` is a `"M/YYYY"` string (e.g. `"2/2025"`). It's shown on
+every grid card and in the case-study modal formatted as `Feb 2025`, and it
+drives the **Sort** dropdown next to the filters ("Newest first" — the default —
+and "Oldest first"). Keep the `M/YYYY` format so sorting stays correct.
 
 ### Adding a certificate
 
