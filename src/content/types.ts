@@ -25,6 +25,9 @@ export interface Dict {
   allTitle: string;
   allLead: string;
   filterAll: string;
+  sortLabel: string;
+  sortNewest: string;
+  sortOldest: string;
   viewCase: string;
   overviewLabel: string;
   roleLabel: string;
