@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowDown, Download } from "lucide-react";
 import Reveal from "./Reveal";
 import ContentImage from "./ContentImage";
+import HeroPixelName from "./HeroPixelName";
 import { useLanguage } from "@/lib/language";
 import { profile } from "@/content/site";
 
@@ -106,14 +107,8 @@ export default function Hero() {
             }}
           />
         </Reveal>
-        <Reveal
-          as="h1"
-          y={40}
-          duration={0.9}
-          delay={0.1}
-          className="m-0 text-[clamp(54px,11vw,150px)] font-bold leading-[1.02] tracking-[-0.045em]"
-        >
-          {profile.name}
+        <Reveal y={40} duration={0.9} delay={0.1}>
+          <HeroPixelName name={profile.name} />
         </Reveal>
         <Reveal
           as="p"
