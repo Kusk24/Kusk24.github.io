@@ -32,6 +32,8 @@ const en: Dict = {
   sortLabel: "Sort",
   sortNewest: "Newest first",
   sortOldest: "Oldest first",
+  projShowMore: "Show all projects",
+  projShowLess: "Show fewer",
   viewCase: "View case study",
   overviewLabel: "Overview",
   roleLabel: "My part",

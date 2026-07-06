@@ -34,6 +34,9 @@ const PLATFORM_ICONS: Record<string, typeof Code> = {
 
 type SortKey = "newest" | "oldest";
 
+/** How many grid cards to show before "Show all projects" is clicked. */
+const GRID_COLLAPSED = 6;
+
 /** Turn a "M/YYYY" string into a sortable number (year * 12 + month). */
 function whenValue(when: string): number {
   const [m, y] = when.split("/").map((n) => parseInt(n, 10));
@@ -98,6 +101,7 @@ export default function Projects() {
   const { theme } = useTheme();
   const [filter, setFilter] = useState("All");
   const [sort, setSort] = useState<SortKey>("newest");
+  const [expanded, setExpanded] = useState(false);
   const [activeIdx, setActiveIdx] = useState(0);
   const [open, setOpen] = useState(false);
 
@@ -133,6 +137,9 @@ export default function Projects() {
       return sort === "newest" ? diff : -diff;
     });
   }, [projects, filter, sort]);
+  const shownProjects = expanded
+    ? gridProjects
+    : gridProjects.slice(0, GRID_COLLAPSED);
   const active = projects[activeIdx] ?? projects[0];
 
   // Horizontal scrub: the sticky track translates with scroll progress.
@@ -295,7 +302,10 @@ export default function Projects() {
                 key={k}
                 data-filter=""
                 data-on={filter === k ? "true" : "false"}
-                onClick={() => setFilter(k)}
+                onClick={() => {
+                  setFilter(k);
+                  setExpanded(false);
+                }}
                 className="cursor-pointer rounded-full border border-[var(--line)] bg-transparent px-4 py-2 text-[13px] font-semibold text-[var(--text2)] transition-colors hover:border-[var(--text2)] hover:text-[var(--text)]"
                 style={{ fontFamily: "inherit" }}
               >
@@ -322,7 +332,7 @@ export default function Projects() {
         </Reveal>
 
         <div className="grid gap-[18px] [grid-template-columns:repeat(auto-fill,minmax(280px,1fr))]">
-          {gridProjects.map((p) => {
+          {shownProjects.map((p) => {
             const PlatIcon = PLATFORM_ICONS[p.platform] ?? Code;
             return (
               <Reveal
@@ -384,6 +394,20 @@ export default function Projects() {
             );
           })}
         </div>
+
+        {gridProjects.length > GRID_COLLAPSED && (
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={() => setExpanded((v) => !v)}
+              className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-[var(--line)] px-5 py-[11px] text-[14px] font-semibold text-[var(--text)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              style={{ background: "var(--card)", fontFamily: "inherit" }}
+            >
+              {expanded
+                ? t.projShowLess
+                : `${t.projShowMore} (${gridProjects.length})`}
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Latest on GitHub */}

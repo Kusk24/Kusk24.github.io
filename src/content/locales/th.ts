@@ -31,6 +31,8 @@ const th: Dict = {
   sortLabel: "เรียงลำดับ",
   sortNewest: "ใหม่สุดก่อน",
   sortOldest: "เก่าสุดก่อน",
+  projShowMore: "ดูโปรเจกต์ทั้งหมด",
+  projShowLess: "ดูน้อยลง",
   viewCase: "ดูรายละเอียด",
   overviewLabel: "ภาพรวม",
   roleLabel: "บทบาทของผม",

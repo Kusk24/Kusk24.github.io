@@ -31,6 +31,8 @@ const my: Dict = {
   sortLabel: "စီစဉ်ရန်",
   sortNewest: "အသစ်ဆုံး အရင်",
   sortOldest: "အဟောင်းဆုံး အရင်",
+  projShowMore: "ပရောဂျက်အားလုံး ကြည့်ရန်",
+  projShowLess: "လျှော့ကြည့်ရန်",
   viewCase: "အသေးစိတ်ကြည့်ရန်",
   overviewLabel: "အနှစ်ချုပ်",
   roleLabel: "ကျွန်ုပ်၏ တာဝန်",
