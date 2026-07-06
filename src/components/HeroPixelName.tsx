@@ -31,14 +31,16 @@ export default function HeroPixelName({ name }: { name: string }) {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    const CELL = 15; // block size in CSS px
+    const CELL = 11; // block size in CSS px
 
-    // Cycle timing (ms): assemble → morph to sharp → hold sharp → shatter.
-    const PERIOD = 9000;
-    const T_ASSEMBLE = 1500; // scattered blocks fly to their grid cells
-    const T_MORPH = 550; // blocks → crisp text cross-fade
-    const T_HOLD = 5200; // crisp name rests
-    const T_SHATTER = 750; // crisp text → scattered blocks
+    // Cycle timing (ms). The loop NEVER goes empty: it rests on the crisp name,
+    // then periodically ripples into blocks and straight back —
+    //   hold sharp → shatter to blocks → reassemble → morph to sharp → (repeat).
+    const PERIOD = 8000;
+    const T_HOLD = 4600; // crisp name rests (always readable)
+    const T_SHATTER = 700; // crisp text → scattered blocks
+    const T_ASSEMBLE = 1500; // blocks fly back onto the grid
+    const T_MORPH = 500; // settled blocks → crisp text cross-fade
 
     let raf = 0;
 
@@ -139,7 +141,7 @@ export default function HeroPixelName({ name }: { name: string }) {
           const shade = count ? sum / (count * 255) : 0;
           if (shade > 0.14) {
             const ang = Math.random() * Math.PI * 2;
-            const dist = (40 + Math.random() * 140) * dpr;
+            const dist = (26 + Math.random() * 90) * dpr;
             cells.push({
               x: x0,
               y: y0,
@@ -199,23 +201,25 @@ export default function HeroPixelName({ name }: { name: string }) {
       const p = (now - loopStart) % PERIOD;
       ctx.clearRect(0, 0, cv.width, cv.height);
 
-      if (p < T_ASSEMBLE) {
-        // scattered blocks fly in and settle
-        drawBlocks(p / T_ASSEMBLE, 1);
-      } else if (p < T_ASSEMBLE + T_MORPH) {
-        // cross-fade settled blocks → crisp text
-        const m = (p - T_ASSEMBLE) / T_MORPH;
+      const tShatterEnd = T_HOLD + T_SHATTER;
+      const tAssembleEnd = tShatterEnd + T_ASSEMBLE;
+
+      if (p < T_HOLD) {
+        // crisp name rests — always readable
+        drawSharp(1);
+      } else if (p < tShatterEnd) {
+        // crisp text ripples apart into blocks (text stays mostly present)
+        const s = (p - T_HOLD) / T_SHATTER;
+        drawSharp(1 - easeIn(s) * 0.85);
+        drawBlocks(1 - s, -1);
+      } else if (p < tAssembleEnd) {
+        // blocks fly back onto the grid
+        drawBlocks((p - tShatterEnd) / T_ASSEMBLE, 1);
+      } else {
+        // settled blocks cross-fade back to crisp text (loop ends on sharp)
+        const m = (p - tAssembleEnd) / T_MORPH;
         drawBlocks(1, 1, 1 - m);
         drawSharp(easeOut(m));
-      } else if (p < T_ASSEMBLE + T_MORPH + T_HOLD) {
-        drawSharp(1); // crisp name rests
-      } else if (p < T_ASSEMBLE + T_MORPH + T_HOLD + T_SHATTER) {
-        // crisp text → blocks scatter apart
-        const s = (p - T_ASSEMBLE - T_MORPH - T_HOLD) / T_SHATTER;
-        drawSharp(1 - easeIn(s));
-        drawBlocks(1 - s, -1);
-      } else {
-        // brief empty beat before the next assemble
       }
       raf = requestAnimationFrame(frame);
     };
