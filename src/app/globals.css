@@ -11,6 +11,17 @@
   --accent: #2997ff;
   --nav: rgba(10, 10, 10, 0.72);
   color-scheme: dark;
+
+  /* ── Liquid glass (iOS-26 style) — dark ── */
+  --glass-bg: rgba(28, 28, 32, 0.44);
+  --glass-bg-strong: rgba(26, 26, 30, 0.62);
+  --glass-blur: 22px;
+  --glass-border: rgba(255, 255, 255, 0.14);
+  /* Specular edge + drop shadow, layered. The inset top highlight is the
+     light-catching "liquid" rim that reads as glass rather than flat frost. */
+  --glass-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.14) inset,
+    0 8px 24px -12px rgba(0, 0, 0, 0.7), 0 2px 8px -4px rgba(0, 0, 0, 0.5);
+  --glass-sheen: rgba(255, 255, 255, 0.1);
 }
 html[data-theme="light"] {
   --bg: #fbfbfd;
@@ -22,10 +33,75 @@ html[data-theme="light"] {
   --accent: #0071e3;
   --nav: rgba(251, 251, 253, 0.75);
   color-scheme: light;
+
+  /* ── Liquid glass (iOS-26 style) — light ── */
+  --glass-bg: rgba(255, 255, 255, 0.52);
+  --glass-bg-strong: rgba(255, 255, 255, 0.7);
+  --glass-blur: 22px;
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.9) inset,
+    0 8px 24px -14px rgba(0, 0, 0, 0.22), 0 2px 8px -5px rgba(0, 0, 0, 0.16);
+  --glass-sheen: rgba(255, 255, 255, 0.55);
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* ── Liquid glass surfaces ───────────────────────────────────────────────
+   .glass       — standard translucent panel (cards, pills, tiles)
+   .glass-strong — denser tint for overlays that need more legibility (modal)
+   Both carry a specular top edge (::before) and a soft diagonal sheen
+   (::after) so the surface catches light like iOS-26 glass. Requires a
+   positioned, overflow-hidden host with a border-radius. */
+.glass,
+.glass-strong {
+  position: relative;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.7);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.7);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  isolation: isolate;
+}
+.glass-strong {
+  background: var(--glass-bg-strong);
+}
+/* Diagonal sheen sweeping across the top-left — the light-catch highlight. */
+.glass::after,
+.glass-strong::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(
+    135deg,
+    var(--glass-sheen) 0%,
+    transparent 34%,
+    transparent 100%
+  );
+  opacity: 0.9;
+}
+/* Optional interactive lift for clickable glass (buttons, cards). */
+.glass-interactive {
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.35s ease, border-color 0.25s ease;
+}
+.glass-interactive:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 1px 0 0 var(--glass-sheen) inset,
+    0 18px 44px -16px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(41, 151, 255, 0.25);
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-interactive {
+    transition: none;
+  }
+  .glass-interactive:hover {
+    transform: none;
+  }
 }
 
 body {
