@@ -84,4 +84,8 @@ and "Oldest first"). Keep the `M/YYYY` format so sorting stays correct.
 ### Adding a certificate
 
 Add an entry to `certs` in `site.ts` and drop the photo into `public/content/certs/`.
-Names/orgs stay in English in every language (as designed).
+Names/orgs stay in English in every language (as designed). Two optional fields:
+
+- `date` — issue date like `"Feb 2025"`, shown next to the org.
+- `verifyUrl` — a public verification link (e.g. a Credly badge `public_url`);
+  renders a "Verify ↗" link on the showcase card.
