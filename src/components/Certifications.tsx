@@ -231,7 +231,7 @@ export default function Certifications() {
                 <div
                   data-certitem=""
                   data-cur={i === cur ? "true" : "false"}
-                  onMouseEnter={() => select(i)}
+                  onMouseEnter={() => setCur(i)}
                   onClick={() => select(i)}
                   className="flex cursor-pointer items-center gap-3.5 rounded-[16px] border border-[var(--line)] px-4 py-3.5 transition-colors hover:border-[var(--text2)]"
                   style={{ background: "var(--card)" }}
