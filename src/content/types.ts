@@ -5,6 +5,10 @@ export type Lang = "en" | "th" | "my";
 
 /** Text that changes per language. One file per language in src/content/locales/. */
 export interface Dict {
+  /** Full name as shown in the nav logo, localized per language. */
+  brandName: string;
+  /** Short nickname shown in parentheses after the name in the nav logo. */
+  brandNick: string;
   navProjects: string;
   navExp: string;
   navStack: string;

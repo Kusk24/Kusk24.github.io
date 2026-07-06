@@ -37,7 +37,10 @@ export default function Nav() {
           color: "var(--text)",
         }}
       >
-        {profile.name}
+        {t.brandName}{" "}
+        <span style={{ color: "var(--text2)", fontWeight: 500 }}>
+          ({t.brandNick})
+        </span>
       </a>
 
       <div className="hidden items-center gap-[26px] min-[880px]:flex">

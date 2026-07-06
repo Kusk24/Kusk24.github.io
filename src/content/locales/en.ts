@@ -1,6 +1,8 @@
 import type { Dict } from "../types";
 
 const en: Dict = {
+  brandName: "Win Yu Maung",
+  brandNick: "Win Yu",
   navProjects: "Projects",
   navExp: "Experience",
   navStack: "Stack",

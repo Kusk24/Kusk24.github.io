@@ -1,6 +1,8 @@
 import type { Dict } from "../types";
 
 const my: Dict = {
+  brandName: "ဝင်းယုမောင်",
+  brandNick: "ဝင်းယု",
   navProjects: "ပရောဂျက်များ",
   navExp: "အတွေ့အကြုံ",
   navStack: "နည်းပညာ",

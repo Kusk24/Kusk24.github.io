@@ -1,6 +1,8 @@
 import type { Dict } from "../types";
 
 const th: Dict = {
+  brandName: "วิน ยุ หม่อง",
+  brandNick: "วิน ยุ",
   navProjects: "ผลงาน",
   navExp: "ประสบการณ์",
   navStack: "เทคโนโลยี",
