@@ -1,7 +1,9 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
+  ArrowDownUp,
   Brain,
+  Calendar,
   Cloud,
   Code,
   Gamepad2,
@@ -29,6 +31,37 @@ const PLATFORM_ICONS: Record<string, typeof Code> = {
   Cloud: Cloud,
   "ML/AI": Brain,
 };
+
+type SortKey = "newest" | "oldest";
+
+/** Turn a "M/YYYY" string into a sortable number (year * 12 + month). */
+function whenValue(when: string): number {
+  const [m, y] = when.split("/").map((n) => parseInt(n, 10));
+  if (!y || !m) return 0;
+  return y * 12 + m;
+}
+
+const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+/** "2/2025" → "Feb 2025" (falls back to the raw string if unparseable). */
+function formatWhen(when: string): string {
+  const [m, y] = when.split("/").map((n) => parseInt(n, 10));
+  if (!y || !m || m < 1 || m > 12) return when;
+  return `${MONTHS[m - 1]} ${y}`;
+}
 
 function TechChip({
   label,
@@ -64,6 +97,7 @@ export default function Projects() {
   const { t } = useLanguage();
   const { theme } = useTheme();
   const [filter, setFilter] = useState("All");
+  const [sort, setSort] = useState<SortKey>("newest");
   const [activeIdx, setActiveIdx] = useState(0);
   const [open, setOpen] = useState(false);
 
@@ -90,9 +124,15 @@ export default function Projects() {
       ...uniq(projectMeta.map((m) => m.platform)),
     ];
   }, []);
-  const gridProjects = projects.filter(
-    (p) => filter === "All" || p.type === filter || p.platform === filter
-  );
+  const gridProjects = useMemo(() => {
+    const list = projects.filter(
+      (p) => filter === "All" || p.type === filter || p.platform === filter
+    );
+    return [...list].sort((a, b) => {
+      const diff = whenValue(b.when) - whenValue(a.when);
+      return sort === "newest" ? diff : -diff;
+    });
+  }, [projects, filter, sort]);
   const active = projects[activeIdx] ?? projects[0];
 
   // Horizontal scrub: the sticky track translates with scroll progress.
@@ -244,19 +284,41 @@ export default function Projects() {
           </p>
         </Reveal>
 
-        <Reveal y={20} duration={0.7} className="mb-[30px] flex flex-wrap gap-[9px]">
-          {filters.map((k) => (
-            <button
-              key={k}
-              data-filter=""
-              data-on={filter === k ? "true" : "false"}
-              onClick={() => setFilter(k)}
-              className="cursor-pointer rounded-full border border-[var(--line)] bg-transparent px-4 py-2 text-[13px] font-semibold text-[var(--text2)] transition-colors hover:border-[var(--text2)] hover:text-[var(--text)]"
-              style={{ fontFamily: "inherit" }}
+        <Reveal
+          y={20}
+          duration={0.7}
+          className="mb-[30px] flex flex-wrap items-center justify-between gap-x-4 gap-y-3"
+        >
+          <div className="flex flex-wrap gap-[9px]">
+            {filters.map((k) => (
+              <button
+                key={k}
+                data-filter=""
+                data-on={filter === k ? "true" : "false"}
+                onClick={() => setFilter(k)}
+                className="cursor-pointer rounded-full border border-[var(--line)] bg-transparent px-4 py-2 text-[13px] font-semibold text-[var(--text2)] transition-colors hover:border-[var(--text2)] hover:text-[var(--text)]"
+                style={{ fontFamily: "inherit" }}
+              >
+                {k === "All" ? t.filterAll : k}
+              </button>
+            ))}
+          </div>
+          <label
+            className="ml-auto inline-flex items-center gap-2 whitespace-nowrap text-[13px] font-semibold"
+            style={{ color: "var(--text2)" }}
+          >
+            <ArrowDownUp size={15} strokeWidth={2} />
+            <span className="sr-only sm:not-sr-only">{t.sortLabel}</span>
+            <select
+              value={sort}
+              onChange={(e) => setSort(e.target.value as SortKey)}
+              className="cursor-pointer rounded-full border border-[var(--line)] bg-transparent px-3 py-2 text-[13px] font-semibold text-[var(--text)] transition-colors hover:border-[var(--text2)]"
+              style={{ fontFamily: "inherit", background: "var(--card)" }}
             >
-              {k === "All" ? t.filterAll : k}
-            </button>
-          ))}
+              <option value="newest">{t.sortNewest}</option>
+              <option value="oldest">{t.sortOldest}</option>
+            </select>
+          </label>
         </Reveal>
 
         <div className="grid gap-[18px] [grid-template-columns:repeat(auto-fill,minmax(280px,1fr))]">
@@ -288,6 +350,13 @@ export default function Projects() {
                       {p.type}
                     </span>
                   </div>
+                  <span
+                    className="inline-flex items-center gap-1.5 text-[12px]"
+                    style={{ color: "var(--text2)" }}
+                  >
+                    <Calendar size={13} strokeWidth={2} />
+                    {formatWhen(p.when)}
+                  </span>
                   <div className="flex flex-col gap-1.5">
                     <h3 className="m-0 text-[20px] font-bold tracking-[-0.015em]">
                       {p.name}
@@ -375,10 +444,11 @@ export default function Projects() {
                 {active.type}
               </span>
               <span
-                className="ml-auto text-[12.5px]"
+                className="ml-auto inline-flex items-center gap-1.5 text-[12.5px]"
                 style={{ color: "var(--text2)" }}
               >
-                {active.when}
+                <Calendar size={13} strokeWidth={2} />
+                {formatWhen(active.when)}
               </span>
             </div>
             <h3 className="m-0 mb-1.5 text-[28px] font-bold tracking-[-0.02em]">
