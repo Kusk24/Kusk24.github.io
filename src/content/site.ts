@@ -278,20 +278,36 @@ export const certs: CertMeta[] = [
 
 /** Tech-stack tiles (grid order). */
 export const techStack: TechItem[] = [
+  // Languages
   { name: "Swift", slug: "swift" },
   { name: "Kotlin", slug: "kotlin" },
   { name: "Java", slug: "openjdk" },
   { name: "Python", slug: "python" },
+  { name: "Go", slug: "go" },
   { name: "JavaScript", slug: "javascript" },
   { name: "TypeScript", slug: "typescript" },
   { name: "C++", slug: "cplusplus" },
+  {
+    name: "C#",
+    slug: "csharp",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
+  },
   { name: "Dart", slug: "dart" },
+  { name: "HTML5", slug: "html5" },
+  { name: "CSS", slug: "css" },
+  // Frameworks & UI
   { name: "SwiftUI", slug: "swift" },
   { name: "Jetpack Compose", slug: "jetpackcompose" },
   { name: "React", slug: "react" },
+  { name: "React Native", slug: "react" },
   { name: "Next.js", slug: "nextdotjs" },
+  { name: "Expo", slug: "expo" },
   { name: "Tailwind", slug: "tailwindcss" },
+  { name: "Express.js", slug: "express" },
   { name: "Flask", slug: "flask" },
+  { name: "Spring Boot", slug: "springboot" },
+  { name: "Unity", slug: "unity" },
+  // Data, cloud & tooling
   { name: "Firebase", slug: "firebase" },
   { name: "PostgreSQL", slug: "postgresql" },
   {
