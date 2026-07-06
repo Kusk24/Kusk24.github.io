@@ -22,6 +22,7 @@ export interface Dict {
   projTitle: string;
   projLead: string;
   featuredLabel: string;
+  onStage: string;
   scrollHint: string;
   allTitle: string;
   allLead: string;

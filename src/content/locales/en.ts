@@ -24,6 +24,7 @@ const en: Dict = {
   projLead:
     "Featured builds up front — swipe through them — then browse everything below, filtered by type or platform.",
   featuredLabel: "Featured",
+  onStage: "On stage",
   scrollHint: "Scroll to move through featured work",
   allTitle: "All projects",
   allLead:
