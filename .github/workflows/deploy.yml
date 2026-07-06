@@ -35,7 +35,19 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deploy1.outputs.page_url || steps.deploy2.outputs.page_url || steps.deployment.outputs.page_url }}
     steps:
+      # GitHub's Pages backend intermittently returns "Deployment failed, try
+      # again later." even when the artifact is fine. Retry a couple of times
+      # before failing the run. continue-on-error lets a failed attempt fall
+      # through to the next one.
+      - id: deploy1
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - id: deploy2
+        if: steps.deploy1.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
       - id: deployment
+        if: steps.deploy1.outcome == 'failure' && steps.deploy2.outcome == 'failure'
         uses: actions/deploy-pages@v4
