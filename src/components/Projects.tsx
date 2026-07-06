@@ -574,8 +574,7 @@ export default function Projects() {
               <Reveal
                 key={p.key}
                 duration={0.7}
-                className="flex cursor-pointer flex-col gap-3.5 rounded-[20px] border border-[var(--line)] p-[22px] transition-colors hover:border-[var(--accent)]"
-                style={{ background: "var(--card)" }}
+                className="glass glass-interactive flex cursor-pointer flex-col gap-3.5 rounded-[20px] p-[22px]"
               >
                 <div
                   onClick={() => openProject(p.key)}
@@ -663,12 +662,7 @@ export default function Projects() {
         <div
           data-projcard=""
           onClick={(e) => e.stopPropagation()}
-          className="relative max-h-[88vh] w-[min(720px,100%)] overflow-auto rounded-[26px] border"
-          style={{
-            background: "var(--card)",
-            borderColor: "var(--line)",
-            boxShadow: "0 40px 100px -30px rgba(0,0,0,.7)",
-          }}
+          className="glass-strong relative max-h-[88vh] w-[min(720px,100%)] overflow-auto rounded-[26px]"
         >
           <button
             onClick={() => setOpen(false)}

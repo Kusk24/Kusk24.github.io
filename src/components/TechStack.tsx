@@ -73,8 +73,7 @@ export default function TechStack() {
                   setLit(i);
                   startTimer();
                 }}
-                className="box-border flex cursor-default flex-col items-center gap-3 rounded-[20px] border px-3 py-6"
-                style={{ background: "var(--card)", borderColor: "var(--line)" }}
+                className="glass box-border flex cursor-default flex-col items-center gap-3 rounded-[20px] px-3 py-6"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

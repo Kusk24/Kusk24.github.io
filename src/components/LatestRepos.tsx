@@ -102,8 +102,8 @@ export default function LatestRepos() {
                     href={r.url}
                     target="_blank"
                     rel="noopener"
-                    className="flex w-full flex-col gap-2.5 rounded-[18px] border border-[var(--line)] p-[22px] no-underline transition-colors hover:border-[var(--accent)]"
-                    style={{ background: "var(--card)", color: "var(--text)" }}
+                    className="glass glass-interactive flex w-full flex-col gap-2.5 rounded-[18px] p-[22px] no-underline"
+                    style={{ color: "var(--text)" }}
                   >
                     <div className="flex items-center justify-between gap-2.5">
                       <span className="overflow-hidden text-ellipsis whitespace-nowrap text-[15.5px] font-semibold tracking-[-0.01em]">
@@ -149,8 +149,8 @@ export default function LatestRepos() {
             {repos.length > github.collapsedCount && (
               <button
                 onClick={() => setExpanded((v) => !v)}
-                className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-[var(--line)] px-5 py-[11px] text-[14px] font-semibold text-[var(--text)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-                style={{ background: "var(--card)", fontFamily: "inherit" }}
+                className="glass inline-flex cursor-pointer items-center gap-2 rounded-full px-5 py-[11px] text-[14px] font-semibold text-[var(--text)] transition-colors hover:text-[var(--accent)]"
+                style={{ fontFamily: "inherit" }}
               >
                 {expanded ? t.seeLessGh : t.seeMoreGh}
               </button>

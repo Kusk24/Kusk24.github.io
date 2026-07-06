@@ -181,8 +181,8 @@ export default function Certifications() {
                 <button
                   onClick={() => select((cur - 1 + n) % n)}
                   title="Previous"
-                  className="flex h-[38px] w-[38px] flex-none cursor-pointer items-center justify-center rounded-full border border-[var(--line)] text-[16px] text-[var(--text)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-                  style={{ background: "var(--card)", fontFamily: "inherit" }}
+                  className="glass flex h-[38px] w-[38px] flex-none cursor-pointer items-center justify-center rounded-full text-[16px] text-[var(--text)] transition-colors hover:text-[var(--accent)]"
+                  style={{ fontFamily: "inherit" }}
                 >
                   ‹
                 </button>
@@ -211,8 +211,8 @@ export default function Certifications() {
                 <button
                   onClick={() => select((cur + 1) % n)}
                   title="Next"
-                  className="flex h-[38px] w-[38px] flex-none cursor-pointer items-center justify-center rounded-full border border-[var(--line)] text-[16px] text-[var(--text)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-                  style={{ background: "var(--card)", fontFamily: "inherit" }}
+                  className="glass flex h-[38px] w-[38px] flex-none cursor-pointer items-center justify-center rounded-full text-[16px] text-[var(--text)] transition-colors hover:text-[var(--accent)]"
+                  style={{ fontFamily: "inherit" }}
                 >
                   ›
                 </button>
@@ -233,8 +233,7 @@ export default function Certifications() {
                   data-cur={i === cur ? "true" : "false"}
                   onMouseEnter={() => setCur(i)}
                   onClick={() => select(i)}
-                  className="flex cursor-pointer items-center gap-3.5 rounded-[16px] border border-[var(--line)] px-4 py-3.5 transition-colors hover:border-[var(--text2)]"
-                  style={{ background: "var(--card)" }}
+                  className="glass flex cursor-pointer items-center gap-3.5 rounded-[16px] px-4 py-3.5"
                 >
                   <span
                     className="flex h-[42px] w-[42px] flex-none items-center justify-center overflow-hidden rounded-xl border bg-white"

@@ -67,8 +67,7 @@ export default function Experience() {
             <Reveal
               y={40}
               delay={0.1}
-              className="rounded-[26px] border p-9"
-              style={{ background: "var(--card)", borderColor: "var(--line)" }}
+              className="glass rounded-[26px] p-9"
             >
               <p
                 className="m-0 mb-[18px] flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.14em]"
