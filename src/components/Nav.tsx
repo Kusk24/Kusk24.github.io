@@ -26,13 +26,8 @@ export default function Nav() {
 
   return (
     <nav
-      className="fixed inset-x-0 top-0 z-[100] flex items-center justify-between gap-4 border-b px-7 py-3"
-      style={{
-        background: "var(--nav)",
-        borderColor: "var(--line)",
-        backdropFilter: "blur(20px) saturate(1.6)",
-        WebkitBackdropFilter: "blur(20px) saturate(1.6)",
-      }}
+      className="glass fixed inset-x-0 top-0 z-[100] flex items-center justify-between gap-4 px-7 py-3"
+      style={{ borderInline: "none", borderTop: "none", borderRadius: 0 }}
     >
       <a
         href="#top"
@@ -58,10 +53,7 @@ export default function Nav() {
       </div>
 
       <div className="flex items-center gap-3">
-        <div
-          className="flex items-center gap-[2px] rounded-full border p-[3px]"
-          style={{ borderColor: "var(--line)" }}
-        >
+        <div className="glass flex items-center gap-[2px] rounded-full p-[3px]">
           {LANGS.map((l) => (
             <button
               key={l.code}
@@ -79,7 +71,7 @@ export default function Nav() {
         <button
           onClick={toggleTheme}
           title="Toggle theme"
-          className="flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full border border-[var(--line)] bg-transparent text-[15px] leading-none transition-colors hover:border-[var(--text2)]"
+          className="glass glass-interactive flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full bg-transparent text-[15px] leading-none"
           style={{ color: "var(--text)" }}
         >
           {theme === "dark" ? "☀" : "☾"}
