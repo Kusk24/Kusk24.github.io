@@ -266,10 +266,13 @@ export const certs: CertMeta[] = [
       "https://www.credly.com/badges/ed2c3f4f-4c0f-4ce1-9ddf-6d0f37354043/public_url",
   },
   {
-    name: "Huawei Cloud Developer",
+    name: "Huawei Cloud Developer (HCCDA)",
     org: "Huawei Cloud",
     logo: "https://cdn.simpleicons.org/huawei",
     img: "/content/certs/huawei-cloud-developer.png",
+    date: "Valid until Oct 2028",
+    verifyUrl:
+      "https://drive.google.com/file/d/1QFTSLfrQftHymM4K95YwaJKA6-N3voE3/view",
   },
 ];
 
