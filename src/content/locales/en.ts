@@ -12,12 +12,14 @@ const en: Dict = {
   navResume: "Résumé",
 
   typedPhrases: [
-    "Computer Science Student",
     "Software Engineer",
-    "Web · Mobile · Cloud Developer",
+    "Full-Stack Web Developer",
+    "DevOps · Cloud",
+    "Mobile Developer",
+    "AI-Assisted Development",
   ],
   heroTagline:
-    "I build for web, mobile, and cloud — from SwiftUI and Jetpack Compose apps to Flask backends running on AWS.",
+    "Software engineer focused on full-stack web and DevOps — from Next.js frontends to cloud infrastructure on AWS — and I build mobile apps as well, from SwiftUI and Jetpack Compose to React Native.",
   ctaProjects: "View projects",
   ctaResume: "Download résumé",
 
@@ -75,18 +77,19 @@ const en: Dict = {
   aboutP1:
     "I got into software by wanting to build things I could actually hold — an iOS app my friends could open, a game with a boss fight, a backend that didn’t fall over.",
   aboutP2:
-    "Three years into my CS degree at Assumption University, that curiosity has become a habit of picking up whatever stack the problem needs: Swift one semester, Flask and PostgreSQL the next, AWS in between. Outside the terminal I keep a disciplined gym routine — consistency there and consistency in engineering feel like the same muscle.",
+    "Three years into my CS degree at Assumption University, that curiosity has become a habit of picking up whatever stack the problem needs: Swift one semester, Flask and PostgreSQL the next, AWS in between. I also work fluently with AI — pairing with coding agents to build, review, and ship faster without letting quality slip. Outside the terminal I keep a disciplined gym routine — consistency there and consistency in engineering feel like the same muscle.",
   aboutFacts: [
     { label: "Based in Samut Prakan, Thailand", ic: "map-pin" },
     { label: "Burmese — native", ic: "languages" },
     { label: "English — fluent", ic: "languages" },
     { label: "TrueLAB Runway 2026 finalist", ic: "trophy" },
+    { label: "Fluent in AI-assisted development", ic: "sparkles" },
   ],
 
   contactOverline: "Get in touch",
   contactTitle: "Let’s build something.",
   contactLead:
-    "Open to software engineering internships — web, mobile, backend, or cloud.",
+    "Open to software engineering roles and internships — full-stack web, DevOps, or mobile.",
   footNote: "English · ไทย · မြန်မာ — designed & built by Win Yu Maung",
 
   experience: [

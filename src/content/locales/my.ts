@@ -12,12 +12,14 @@ const my: Dict = {
   navResume: "Resume",
 
   typedPhrases: [
-    "ကွန်ပျူတာသိပ္ပံ ကျောင်းသား",
     "ဆော့ဖ်ဝဲအင်ဂျင်နီယာ",
-    "Web · Mobile · Cloud Developer",
+    "Full-Stack Web Developer",
+    "DevOps · Cloud",
+    "Mobile Developer",
+    "AI-Assisted Development",
   ],
   heroTagline:
-    "ဝက်ဘ်၊ မိုဘိုင်းနှင့် cloud အတွက် တည်ဆောက်သည် — SwiftUI နှင့် Jetpack Compose အက်ပ်များမှ AWS ပေါ်ရှိ Flask backend များအထိ။",
+    "Full-stack web နှင့် DevOps ကို အဓိကထားသော ဆော့ဖ်ဝဲအင်ဂျင်နီယာ — Next.js frontend မှ AWS cloud infrastructure အထိ — SwiftUI၊ Jetpack Compose နှင့် React Native ဖြင့် mobile app များလည်း တည်ဆောက်နိုင်သည်။",
   ctaProjects: "ပရောဂျက်များ ကြည့်ရန်",
   ctaResume: "Resume ဒေါင်းလုဒ်",
 
@@ -74,18 +76,19 @@ const my: Dict = {
   aboutP1:
     "ကိုယ်တိုင်ကိုင်တွယ်နိုင်သည့်အရာများ တည်ဆောက်ချင်စိတ်ဖြင့် coding ကို စတင်ခဲ့သည် — သူငယ်ချင်းများ ဖွင့်ကြည့်နိုင်သည့် iOS အက်ပ်၊ boss fight ပါသည့် ဂိမ်း၊ မပျက်သည့် backend။",
   aboutP2:
-    "Assumption University တွင် သုံးနှစ်ကြာ သင်ယူပြီးနောက် ပြဿနာအလိုက် နည်းပညာအသစ်များ လေ့လာသည့် အလေ့အကျင့် ဖြစ်လာခဲ့သည် — တစ်ချိန်တွင် Swift၊ နောက်တစ်ချိန် Flask နှင့် PostgreSQL၊ ကြားထဲတွင် AWS။ ကွန်ပျူတာရှေ့မှ မဟုတ်သည့်အချိန်တွင် ပုံမှန် ကိုယ်ကာယလေ့ကျင့်သည် — ထိုစည်းကမ်းနှင့် အင်ဂျင်နီယာစည်းကမ်းသည် တူညီသော ကြွက်သားပင်ဖြစ်သည်။",
+    "Assumption University တွင် သုံးနှစ်ကြာ သင်ယူပြီးနောက် ပြဿနာအလိုက် နည်းပညာအသစ်များ လေ့လာသည့် အလေ့အကျင့် ဖြစ်လာခဲ့သည် — တစ်ချိန်တွင် Swift၊ နောက်တစ်ချိန် Flask နှင့် PostgreSQL၊ ကြားထဲတွင် AWS။ AI ကိုလည်း ကျွမ်းကျင်စွာ အသုံးပြုသည် — coding agent များနှင့် တွဲလုပ်၍ အရည်အသွေး မကျဆင်းစေဘဲ ပိုမြန်ဆန်စွာ တည်ဆောက် စစ်ဆေး ပို့ဆောင်နိုင်သည်။ ကွန်ပျူတာရှေ့မှ မဟုတ်သည့်အချိန်တွင် ပုံမှန် ကိုယ်ကာယလေ့ကျင့်သည် — ထိုစည်းကမ်းနှင့် အင်ဂျင်နီယာစည်းကမ်းသည် တူညီသော ကြွက်သားပင်ဖြစ်သည်။",
   aboutFacts: [
     { label: "ထိုင်းနိုင်ငံ Samut Prakan တွင် နေထိုင်သည်", ic: "map-pin" },
     { label: "မြန်မာ — မိခင်ဘာသာ", ic: "languages" },
     { label: "အင်္ဂလိပ် — ကျွမ်းကျင်", ic: "languages" },
     { label: "TrueLAB Runway 2026 နောက်ဆုံးအဆင့်", ic: "trophy" },
+    { label: "AI-assisted development ကျွမ်းကျင်", ic: "sparkles" },
   ],
 
   contactOverline: "ဆက်သွယ်ရန်",
   contactTitle: "အတူတကွ တည်ဆောက်ကြရအောင်။",
   contactLead:
-    "ဆော့ဖ်ဝဲအင်ဂျင်နီယာ အလုပ်သင်အခွင့်အလမ်းများ — ဝက်ဘ်၊ မိုဘိုင်း၊ backend သို့မဟုတ် cloud — ကြိုဆိုပါသည်။",
+    "ဆော့ဖ်ဝဲအင်ဂျင်နီယာ အလုပ်နှင့် အလုပ်သင် အခွင့်အလမ်းများ — full-stack web၊ DevOps သို့မဟုတ် mobile — ကြိုဆိုပါသည်။",
   footNote: "English · ไทย · မြန်မာ — Win Yu Maung ဒီဇိုင်းရေးဆွဲ တည်ဆောက်ထားသည်",
 
   experience: [

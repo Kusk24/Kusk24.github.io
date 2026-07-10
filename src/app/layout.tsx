@@ -33,7 +33,7 @@ const myanmar = Noto_Sans_Myanmar({
 export const metadata: Metadata = {
   title: "Win Yu Maung — Software Engineer",
   description:
-    "I build for web, mobile, and cloud — from SwiftUI and Jetpack Compose apps to Flask backends running on AWS.",
+    "Software engineer focused on full-stack web and DevOps — from Next.js frontends to cloud infrastructure on AWS — plus mobile apps in SwiftUI, Jetpack Compose, and React Native.",
 };
 
 // Applies the saved theme before first paint so there is no flash.
