@@ -30,10 +30,29 @@ const myanmar = Noto_Sans_Myanmar({
   variable: "--font-mm",
 });
 
+const SITE_URL = "https://kusk24.github.io";
+const TITLE = "Win Yu Maung — Software Engineer";
+const DESCRIPTION =
+  "Software engineer focused on full-stack web and DevOps — from Next.js frontends to cloud infrastructure on AWS — plus mobile apps in SwiftUI, Jetpack Compose, and React Native.";
+
 export const metadata: Metadata = {
-  title: "Win Yu Maung — Software Engineer",
-  description:
-    "Software engineer focused on full-stack web and DevOps — from Next.js frontends to cloud infrastructure on AWS — plus mobile apps in SwiftUI, Jetpack Compose, and React Native.",
+  metadataBase: new URL(SITE_URL),
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: SITE_URL,
+    siteName: "Win Yu Maung",
+    type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: TITLE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/og.png"],
+  },
 };
 
 // Applies the saved theme before first paint so there is no flash.
