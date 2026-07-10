@@ -38,6 +38,45 @@ export default function Contact() {
       ),
     },
     {
+      label: "Facebook",
+      href: profile.facebookUrl,
+      icon: (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={monoIconUrl("facebook", theme)}
+          alt=""
+          style={{ width: 15, height: 15, display: "block" }}
+          onError={(e) => (e.currentTarget.style.display = "none")}
+        />
+      ),
+    },
+    {
+      label: "Instagram",
+      href: profile.instagramUrl,
+      icon: (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={monoIconUrl("instagram", theme)}
+          alt=""
+          style={{ width: 15, height: 15, display: "block" }}
+          onError={(e) => (e.currentTarget.style.display = "none")}
+        />
+      ),
+    },
+    {
+      label: "LINE",
+      href: profile.lineUrl,
+      icon: (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={monoIconUrl("line", theme)}
+          alt=""
+          style={{ width: 15, height: 15, display: "block" }}
+          onError={(e) => (e.currentTarget.style.display = "none")}
+        />
+      ),
+    },
+    {
       label: profile.phoneDisplay,
       href: profile.phoneHref,
       icon: <Phone size={15} strokeWidth={2} />,

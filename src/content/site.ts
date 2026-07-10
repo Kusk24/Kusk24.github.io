@@ -14,6 +14,10 @@ export const profile = {
   githubUrl: "https://github.com/Kusk24",
   githubReposUrl: "https://github.com/Kusk24?tab=repositories",
   linkedinUrl: "https://www.linkedin.com/in/win-yu-maung-06747827b",
+  facebookUrl: "https://www.facebook.com/win.yu.67488",
+  instagramUrl: "https://www.instagram.com/_seannez",
+  /** LINE ID link — the ~ prefix opens the add-friend page for the ID. */
+  lineUrl: "https://line.me/ti/p/~kusk24",
   /** Drop your resume PDF at public/content/Win-Yu-Maung-Resume.pdf */
   resumePath: "/content/Win-Yu-Maung-Resume.pdf",
   resumeFileName: "Win-Yu-Maung-Resume.pdf",
