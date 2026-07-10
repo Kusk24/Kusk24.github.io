@@ -72,7 +72,21 @@ export default function HeroPixelName({ name }: { name: string }) {
       cv.height = Math.ceil(H * dpr);
 
       light = document.documentElement.getAttribute("data-theme") === "light";
-      const fs = parseFloat(cs.fontSize);
+      // Fit-to-width: canvas fillText never wraps, so if the CSS font size
+      // would overflow the box (very narrow screens, zoom, long names), shrink
+      // the drawn size until the whole name fits. Clipping becomes impossible.
+      let fs = parseFloat(cs.fontSize);
+      const meas = document.createElement("canvas").getContext("2d");
+      if (meas) {
+        meas.font = `${cs.fontWeight} ${fs}px ${cs.fontFamily}`;
+        try {
+          (meas as CanvasRenderingContext2D & { letterSpacing?: string }).letterSpacing =
+            cs.letterSpacing;
+        } catch {}
+        const tw = meas.measureText(name).width;
+        const maxW = W * 0.98;
+        if (tw > maxW) fs = Math.max(10, Math.floor(fs * (maxW / tw)));
+      }
       const font = `${cs.fontWeight} ${fs}px ${cs.fontFamily}`;
 
       // 1) Crisp text layer (the resting look) — white→soft-blue in dark,
@@ -284,7 +298,7 @@ export default function HeroPixelName({ name }: { name: string }) {
     <h1
       ref={h1Ref}
       id="hero-name"
-      className="relative m-0 text-[clamp(36px,11vw,150px)] font-bold leading-[1.02] tracking-[-0.045em]"
+      className="relative m-0 whitespace-nowrap text-[clamp(36px,11vw,150px)] font-bold leading-[1.02] tracking-[-0.045em]"
     >
       {name}
       <canvas
