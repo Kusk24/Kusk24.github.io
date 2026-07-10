@@ -248,6 +248,26 @@ export default function Projects() {
     setOpen(true);
   };
 
+  // While the case-study modal is open: lock the page scroll (compensating for
+  // the vanished scrollbar so nothing shifts) and close on Escape.
+  useEffect(() => {
+    if (!open) return;
+    const scrollbar = window.innerWidth - document.documentElement.clientWidth;
+    const prevOverflow = document.body.style.overflow;
+    const prevPadding = document.body.style.paddingRight;
+    document.body.style.overflow = "hidden";
+    if (scrollbar > 0) document.body.style.paddingRight = `${scrollbar}px`;
+    const onEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onEsc);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      document.body.style.paddingRight = prevPadding;
+      window.removeEventListener("keydown", onEsc);
+    };
+  }, [open]);
+
   // Fanned-card geometry for each featured project relative to the active one.
   const fActive = Math.min(featActive, Math.max(0, nFeat - 1));
   const { w: gW, h: gH } = stageSize;
