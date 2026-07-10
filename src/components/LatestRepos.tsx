@@ -14,6 +14,23 @@ interface Repo {
   year: string;
 }
 
+// Cache the GitHub response so repeat visits don't spend the unauthenticated
+// rate limit (60 req/hr per IP); a stale cache still beats the error state.
+const CACHE_KEY = "gh-repos-v1";
+const CACHE_TTL = 60 * 60 * 1000; // 1 hour
+
+function readCache(): { at: number; repos: Repo[] } | null {
+  try {
+    const raw = localStorage.getItem(CACHE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed.repos)) return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
 export default function LatestRepos() {
   const { t } = useLanguage();
   const { theme } = useTheme();
@@ -22,6 +39,11 @@ export default function LatestRepos() {
   const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
+    const cached = readCache();
+    if (cached && Date.now() - cached.at < CACHE_TTL) {
+      const raf = requestAnimationFrame(() => setRepos(cached.repos));
+      return () => cancelAnimationFrame(raf);
+    }
     fetch(
       `https://api.github.com/users/${github.username}/repos?per_page=100&sort=pushed`
     )
@@ -55,9 +77,19 @@ export default function LatestRepos() {
               year: String(new Date(r.pushed_at).getFullYear()),
             }));
           setRepos(repos);
+          try {
+            localStorage.setItem(
+              CACHE_KEY,
+              JSON.stringify({ at: Date.now(), repos })
+            );
+          } catch {}
         }
       )
-      .catch(() => setFailed(true));
+      .catch(() => {
+        // Rate-limited or offline: show yesterday's list over an error link.
+        if (cached) setRepos(cached.repos);
+        else setFailed(true);
+      });
   }, []);
 
   const shown = repos
