@@ -624,7 +624,7 @@ export default function Projects() {
           </label>
         </Reveal>
 
-        <div className="grid gap-[18px] [grid-template-columns:repeat(auto-fill,minmax(280px,1fr))]">
+        <div className="grid gap-[18px] [grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr))]">
           {shownProjects.map((p) => {
             const PlatIcon = PLATFORM_ICONS[p.platform] ?? Code;
             return (

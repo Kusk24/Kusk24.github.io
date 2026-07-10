@@ -26,19 +26,22 @@ export default function Nav() {
 
   return (
     <nav
-      className="glass fixed inset-x-0 top-0 z-[100] flex items-center justify-between gap-4 px-7 py-3"
+      className="glass fixed inset-x-0 top-0 z-[100] flex items-center justify-between gap-2 px-3 py-3 min-[480px]:px-4 min-[880px]:gap-4 min-[880px]:px-7"
       style={{ borderInline: "none", borderTop: "none", borderRadius: 0 }}
     >
       <a
         href="#top"
-        className="whitespace-nowrap text-[16px] font-bold tracking-[-0.02em] no-underline"
+        className="whitespace-nowrap text-[14px] font-bold tracking-[-0.02em] no-underline min-[480px]:text-[16px]"
         style={{
           fontFamily: "var(--font-grotesk), sans-serif",
           color: "var(--text)",
         }}
       >
         {t.brandName}{" "}
-        <span style={{ color: "var(--text2)", fontWeight: 500 }}>
+        <span
+          className="hidden min-[640px]:inline"
+          style={{ color: "var(--text2)", fontWeight: 500 }}
+        >
           ({t.brandNick})
         </span>
       </a>
@@ -55,7 +58,7 @@ export default function Nav() {
         ))}
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-1.5 min-[480px]:gap-3">
         <div className="glass flex items-center gap-[2px] rounded-full p-[3px]">
           {LANGS.map((l) => (
             <button
@@ -63,7 +66,7 @@ export default function Nav() {
               data-lbtn=""
               data-on={lang === l.code ? "true" : "false"}
               onClick={() => setLang(l.code)}
-              className="cursor-pointer rounded-full border-none bg-transparent px-3 py-[5px] text-[12px] font-semibold"
+              className="cursor-pointer rounded-full border-none bg-transparent px-2 py-[5px] text-[12px] font-semibold min-[480px]:px-3"
               style={{ color: "var(--text2)", fontFamily: "inherit" }}
             >
               {l.label}
@@ -74,7 +77,7 @@ export default function Nav() {
         <button
           onClick={toggleTheme}
           title="Toggle theme"
-          className="glass glass-interactive flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full bg-transparent text-[15px] leading-none"
+          className="glass glass-interactive flex h-[34px] w-[34px] flex-none cursor-pointer items-center justify-center rounded-full bg-transparent text-[15px] leading-none"
           style={{ color: "var(--text)" }}
         >
           {theme === "dark" ? "☀" : "☾"}
@@ -83,11 +86,12 @@ export default function Nav() {
         <a
           href={profile.resumePath}
           download={profile.resumeFileName}
-          className="inline-flex items-center gap-[7px] whitespace-nowrap rounded-full px-4 py-2 text-[12.5px] font-semibold no-underline transition-opacity hover:opacity-85"
+          title={t.navResume}
+          className="inline-flex items-center gap-[7px] whitespace-nowrap rounded-full px-3 py-2 text-[12.5px] font-semibold no-underline transition-opacity hover:opacity-85 min-[880px]:px-4"
           style={{ background: "var(--text)", color: "var(--bg)" }}
         >
           <Download size={13} strokeWidth={2.4} />
-          {t.navResume}
+          <span className="hidden min-[400px]:inline">{t.navResume}</span>
         </a>
       </div>
     </nav>

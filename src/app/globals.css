@@ -46,6 +46,12 @@ html[data-theme="light"] {
 
 html {
   scroll-behavior: smooth;
+  /* No element may push the page sideways on narrow screens. `clip` (not
+     `hidden`) so no scroll container is created and position:sticky survives. */
+  overflow-x: clip;
+}
+body {
+  overflow-x: clip;
 }
 
 /* ── Liquid glass surfaces ───────────────────────────────────────────────

@@ -72,7 +72,7 @@ export default function Contact() {
         <Reveal as="span" delay={0.12} className="inline-block">
           <a
             href={`mailto:${profile.email}`}
-            className="neon-underline relative inline-flex items-center gap-[0.4em] pb-[9px] text-[clamp(22px,4.2vw,46px)] font-bold tracking-[-0.025em] text-[var(--text)] no-underline transition-colors hover:text-[var(--accent)]"
+            className="neon-underline relative inline-flex max-w-full flex-wrap items-center justify-center gap-[0.4em] pb-[9px] text-[clamp(17px,4.2vw,46px)] font-bold tracking-[-0.025em] text-[var(--text)] no-underline transition-colors hover:text-[var(--accent)]"
             style={{ fontFamily: "var(--font-grotesk), sans-serif" }}
           >
             <Mail size="0.7em" strokeWidth={2} />

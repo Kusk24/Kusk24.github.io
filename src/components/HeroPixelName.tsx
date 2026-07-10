@@ -284,7 +284,7 @@ export default function HeroPixelName({ name }: { name: string }) {
     <h1
       ref={h1Ref}
       id="hero-name"
-      className="relative m-0 text-[clamp(54px,11vw,150px)] font-bold leading-[1.02] tracking-[-0.045em]"
+      className="relative m-0 text-[clamp(36px,11vw,150px)] font-bold leading-[1.02] tracking-[-0.045em]"
     >
       {name}
       <canvas
