@@ -210,30 +210,38 @@ export default function HeroPixelName({ name }: { name: string }) {
     };
 
     let loopStart = performance.now();
+    let heldPainted = false; // resting frame already on the canvas
 
     const frame = (now: number) => {
       const p = (now - loopStart) % PERIOD;
-      ctx.clearRect(0, 0, cv.width, cv.height);
-
       const tShatterEnd = T_HOLD + T_SHATTER;
       const tAssembleEnd = tShatterEnd + T_ASSEMBLE;
 
       if (p < T_HOLD) {
-        // crisp name rests — always readable
-        drawSharp(1);
-      } else if (p < tShatterEnd) {
-        // crisp text ripples apart into blocks (text stays mostly present)
-        const s = (p - T_HOLD) / T_SHATTER;
-        drawSharp(1 - easeIn(s) * 0.85);
-        drawBlocks(1 - s, -1);
-      } else if (p < tAssembleEnd) {
-        // blocks fly back onto the grid
-        drawBlocks((p - tShatterEnd) / T_ASSEMBLE, 1);
+        // Resting phase: paint the crisp name once, then do zero canvas work
+        // until the next ripple — keeps scrolling smooth and saves battery.
+        if (!heldPainted) {
+          ctx.clearRect(0, 0, cv.width, cv.height);
+          drawSharp(1);
+          heldPainted = true;
+        }
       } else {
-        // settled blocks cross-fade back to crisp text (loop ends on sharp)
-        const m = (p - tAssembleEnd) / T_MORPH;
-        drawBlocks(1, 1, 1 - m);
-        drawSharp(easeOut(m));
+        heldPainted = false;
+        ctx.clearRect(0, 0, cv.width, cv.height);
+        if (p < tShatterEnd) {
+          // crisp text ripples apart into blocks (text stays mostly present)
+          const s = (p - T_HOLD) / T_SHATTER;
+          drawSharp(1 - easeIn(s) * 0.85);
+          drawBlocks(1 - s, -1);
+        } else if (p < tAssembleEnd) {
+          // blocks fly back onto the grid
+          drawBlocks((p - tShatterEnd) / T_ASSEMBLE, 1);
+        } else {
+          // settled blocks cross-fade back to crisp text (loop ends on sharp)
+          const m = (p - tAssembleEnd) / T_MORPH;
+          drawBlocks(1, 1, 1 - m);
+          drawSharp(easeOut(m));
+        }
       }
       raf = requestAnimationFrame(frame);
     };
@@ -241,8 +249,10 @@ export default function HeroPixelName({ name }: { name: string }) {
     // First load plays the assemble as the intro: offset the clock so the very
     // first frame is the start of the "blocks fly in" phase, not the hold.
     let firstRun = true;
+    let onScreen = true; // updated by the IntersectionObserver below
     const start = () => {
       build();
+      heldPainted = false;
       if (reduce) {
         drawSharp(1); // static crisp text, no animation
         return;
@@ -255,8 +265,22 @@ export default function HeroPixelName({ name }: { name: string }) {
         loopStart = performance.now();
       }
       if (raf) cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(frame);
+      if (onScreen) raf = requestAnimationFrame(frame);
     };
+
+    // Freeze the loop entirely while the hero is scrolled out of view — the
+    // rest of the page shouldn't pay for an animation nobody can see.
+    const visIO = new IntersectionObserver(([entry]) => {
+      onScreen = !!entry?.isIntersecting;
+      if (!onScreen) {
+        if (raf) cancelAnimationFrame(raf);
+        raf = 0;
+      } else if (!raf && !reduce && sharp) {
+        heldPainted = false;
+        raf = requestAnimationFrame(frame);
+      }
+    });
+    visIO.observe(h1);
 
     // Paint the first frame immediately so the name is never blank. If the
     // display font isn't loaded yet, wait for it (avoids sampling a fallback);
@@ -291,6 +315,7 @@ export default function HeroPixelName({ name }: { name: string }) {
       clearTimeout(resizeTimer);
       window.removeEventListener("resize", onResize);
       observer.disconnect();
+      visIO.disconnect();
     };
   }, [name]);
 

@@ -44,6 +44,15 @@ html[data-theme="light"] {
   --glass-sheen: rgba(255, 255, 255, 0.55);
 }
 
+/* Lighter frost on phones — large backdrop blurs are the main scroll cost
+   on mobile GPUs; halving the radius is visually near-identical there. */
+@media (max-width: 780px) {
+  :root,
+  html[data-theme="light"] {
+    --glass-blur: 12px;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   /* No element may push the page sideways on narrow screens. `clip` (not
