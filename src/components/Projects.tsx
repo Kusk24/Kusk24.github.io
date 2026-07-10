@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowDownUp,
   Brain,
@@ -192,19 +192,56 @@ export default function Projects() {
 
   // Scroll the page so a given featured card comes on stage (desktop), or just
   // switch it directly (mobile).
-  const goFeatured = (i: number) => {
-    const fw = wrapRef.current;
-    if (fw && window.innerWidth > 780 && nFeat > 0) {
-      const total = fw.offsetHeight - window.innerHeight;
-      const top = window.scrollY + fw.getBoundingClientRect().top;
-      window.scrollTo({
-        top: Math.round(top + ((i + 0.5) / nFeat) * total),
-        behavior: "smooth",
-      });
-    } else {
-      setFeatActive(i);
-    }
-  };
+  const goFeatured = useCallback(
+    (i: number) => {
+      const fw = wrapRef.current;
+      if (fw && window.innerWidth > 780 && nFeat > 0) {
+        const total = fw.offsetHeight - window.innerHeight;
+        const top = window.scrollY + fw.getBoundingClientRect().top;
+        window.scrollTo({
+          top: Math.round(top + ((i + 0.5) / nFeat) * total),
+          behavior: "smooth",
+        });
+      } else {
+        setFeatActive(i);
+      }
+    },
+    [nFeat]
+  );
+
+  // Arrow-key navigation while the featured stage is on screen: ←/↑ previous,
+  // →/↓ next. At either end the key falls through to normal page scrolling so
+  // the section never traps the user.
+  const featRef = useRef(0);
+  useEffect(() => {
+    featRef.current = featActive;
+  }, [featActive]);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (open) return; // modal open — leave keys alone
+      const tag = (e.target as HTMLElement | null)?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+      const fw = wrapRef.current;
+      if (!fw || nFeat === 0) return;
+      const r = fw.getBoundingClientRect();
+      const engaged =
+        window.innerWidth > 780
+          ? r.top <= 2 && r.bottom >= window.innerHeight - 2 // sticky pinned
+          : r.top < window.innerHeight * 0.6 &&
+            r.bottom > window.innerHeight * 0.4;
+      if (!engaged) return;
+      let dir = 0;
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") dir = 1;
+      else if (e.key === "ArrowLeft" || e.key === "ArrowUp") dir = -1;
+      else return;
+      const next = featRef.current + dir;
+      if (next < 0 || next >= nFeat) return; // at the edge — let the page move
+      e.preventDefault();
+      goFeatured(next);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [nFeat, open, goFeatured]);
 
   const openProject = (key: string) => {
     setActiveIdx(projects.findIndex((p) => p.key === key));
@@ -223,7 +260,7 @@ export default function Projects() {
   const railStag = Math.round(gW * 0.028);
   const vStag = Math.round(gH * 0.06);
   const fTrans =
-    "transform .62s cubic-bezier(.22,1,.36,1), opacity .5s ease, filter .5s ease, box-shadow .5s ease, border-color .25s ease";
+    "transform .95s cubic-bezier(.3,1,.35,1), opacity .75s ease, filter .75s ease, box-shadow .75s ease, border-color .25s ease";
 
   const layerStyleFor = (i: number): React.CSSProperties => {
     const isActive = i === fActive;
@@ -495,22 +532,42 @@ export default function Projects() {
               <ChevronsDown size={14} strokeWidth={2} />
               {t.scrollHint}
             </span>
-            <div className="flex items-center gap-2">
-              {featured.map((p, i) => (
-                <button
-                  key={p.key}
-                  data-featdot=""
-                  data-on={i === fActive ? "true" : "false"}
-                  onClick={() => goFeatured(i)}
-                  aria-label="Featured project"
-                  className="h-[9px] w-[9px] rounded-full border-none p-0"
-                  style={{
-                    background: "var(--line)",
-                    cursor: "pointer",
-                    transition: "background .3s ease, width .3s ease",
-                  }}
-                />
-              ))}
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => goFeatured(fActive - 1)}
+                disabled={fActive === 0}
+                aria-label="Previous featured project"
+                className="glass flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-[15px] text-[var(--text)] transition-colors hover:text-[var(--accent)] disabled:cursor-default disabled:opacity-35 disabled:hover:text-[var(--text)]"
+                style={{ fontFamily: "inherit" }}
+              >
+                ‹
+              </button>
+              <div className="flex items-center gap-2">
+                {featured.map((p, i) => (
+                  <button
+                    key={p.key}
+                    data-featdot=""
+                    data-on={i === fActive ? "true" : "false"}
+                    onClick={() => goFeatured(i)}
+                    aria-label="Featured project"
+                    className="h-[9px] w-[9px] rounded-full border-none p-0"
+                    style={{
+                      background: "var(--line)",
+                      cursor: "pointer",
+                      transition: "background .3s ease, width .3s ease",
+                    }}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={() => goFeatured(fActive + 1)}
+                disabled={fActive === nFeat - 1}
+                aria-label="Next featured project"
+                className="glass flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-[15px] text-[var(--text)] transition-colors hover:text-[var(--accent)] disabled:cursor-default disabled:opacity-35 disabled:hover:text-[var(--text)]"
+                style={{ fontFamily: "inherit" }}
+              >
+                ›
+              </button>
             </div>
           </div>
         </div>
