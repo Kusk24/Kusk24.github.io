@@ -124,6 +124,12 @@ export interface ProjectMeta {
    * `link` button.
    */
   repos?: RepoLink[];
+  /**
+   * Extra screenshots shown in the case-study modal below the write-up.
+   * Paths under public/ — drop the files in and they appear; missing files
+   * are hidden automatically.
+   */
+  gallery?: string[];
 }
 
 export interface CertMeta {

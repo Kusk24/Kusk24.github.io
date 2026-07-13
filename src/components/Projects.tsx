@@ -813,6 +813,21 @@ export default function Projects() {
                 <TechChip key={tag.label} label={tag.label} icon={tag.icon} large />
               ))}
             </div>
+            {active.gallery && active.gallery.length > 0 && (
+              <div className="mb-[26px] flex flex-wrap gap-2.5">
+                {active.gallery.map((src) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={src}
+                    src={src}
+                    alt=""
+                    className="max-w-full rounded-[14px] border border-[var(--line)]"
+                    style={{ height: 220, width: "auto", objectFit: "contain", background: "var(--bg2)" }}
+                    onError={(e) => (e.currentTarget.style.display = "none")}
+                  />
+                ))}
+              </div>
+            )}
             {active.repos && active.repos.length > 0 ? (
               <div>
                 <p

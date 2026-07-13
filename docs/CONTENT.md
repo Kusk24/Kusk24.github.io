@@ -18,7 +18,9 @@ shown wherever a file is still missing):
 |---|---|
 | `portrait.png` | Hero photo under your name (≈800×960+) |
 | `Win-Yu-Maung-Resume.pdf` | The résumé download buttons (nav + hero) |
-| `projects/glowops.png` | GlowOps — featured card + case-study modal |
+| `projects/glowops.png` | GlowOps — featured card + case-study modal (Staff Hub dashboard shot) |
+| `projects/glowops-console.png` | GlowOps modal gallery — admin console shot |
+| `projects/glowops-line.png` | GlowOps modal gallery — LINE booking chat shot |
 | `projects/jtrax.png` | JTrax — featured card + modal |
 | `projects/augo.png` | AUGO — featured card + modal |
 | `projects/springboard.png` | SpringBoard — featured card + modal |

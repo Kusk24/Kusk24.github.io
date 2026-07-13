@@ -53,6 +53,10 @@ export const projects: ProjectMeta[] = [
       "Terraform",
       "AWS",
     ],
+    gallery: [
+      "/content/projects/glowops-console.png",
+      "/content/projects/glowops-line.png",
+    ],
     repos: [
       {
         name: "glowops-backend",
