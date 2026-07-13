@@ -97,6 +97,39 @@ function TechChip({
   );
 }
 
+/**
+ * Gallery shots layered over a featured card's main image, so the stage
+ * reads as a multi-screenshot collage. Missing files hide themselves.
+ */
+function GalleryCollage({ shots }: { shots: string[] }) {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      {shots.slice(0, 2).map((src, i) => (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          key={src}
+          src={src}
+          alt=""
+          className="absolute rounded-[12px] border"
+          style={{
+            top: i === 0 ? "8%" : "36%",
+            right: i === 0 ? "3.5%" : "13%",
+            height: "44%",
+            width: "auto",
+            maxWidth: "42%",
+            objectFit: "cover",
+            transform: `rotate(${i === 0 ? 2.5 : -3}deg)`,
+            borderColor: "rgba(255,255,255,.28)",
+            background: "var(--bg2)",
+            boxShadow: "0 24px 60px -18px rgba(0,0,0,.65)",
+          }}
+          onError={(e) => (e.currentTarget.style.display = "none")}
+        />
+      ))}
+    </div>
+  );
+}
+
 export default function Projects() {
   const { t } = useLanguage();
   const { theme } = useTheme();
@@ -418,6 +451,9 @@ export default function Projects() {
                     hint={p.imgHint}
                     style={{ width: "100%", height: "100%" }}
                   />
+                  {p.gallery && p.gallery.length > 0 && (
+                    <GalleryCollage shots={p.gallery} />
+                  )}
                   {isActive && (
                     <div
                       className="absolute left-4 top-4 inline-flex items-center gap-[7px] rounded-full border px-3.5 py-[7px] text-[11px] font-semibold uppercase tracking-[0.09em] text-white"
@@ -497,6 +533,9 @@ export default function Projects() {
                   hint={featActiveItem.imgHint}
                   style={{ width: "100%", height: "100%" }}
                 />
+                {featActiveItem.gallery && featActiveItem.gallery.length > 0 && (
+                  <GalleryCollage shots={featActiveItem.gallery} />
+                )}
                 <div
                   className="pointer-events-none absolute inset-x-0 bottom-0 p-[22px]"
                   style={{ background: "linear-gradient(transparent, rgba(0,0,0,.86))" }}
