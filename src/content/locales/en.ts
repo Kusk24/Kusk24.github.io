@@ -43,6 +43,9 @@ const en: Dict = {
   overviewLabel: "Overview",
   roleLabel: "My part",
   ghLabel: "View source on GitHub",
+  reposLabel: "Repositories",
+  privateLabel: "Private",
+  publicLabel: "Public",
   moreGh: "More projects on GitHub",
 
   archTitle: "Latest on GitHub",
@@ -109,10 +112,28 @@ const en: Dict = {
 
   projects: [
     {
+      name: "GlowOps",
+      sub: "LINE-first AI operations copilot for wellness clinics",
+      desc: "TrueLAB Open Innovation Runway 2026 finalist, in active development with a pilot clinic: customers chat on LINE while a multi-module AI pipeline answers service questions, books appointments, and escalates edge cases to a staff approval hub.",
+      role: "Project CTO / technical lead — architecture across six repos: the AI pipeline backend, LINE OA integration, staff hub, operator console, and Terraform-managed AWS infrastructure.",
+    },
+    {
+      name: "JTrax",
+      sub: "School attendance & management platform — real client",
+      desc: "Senior Project II delivered for a real client: multi-branch school management with attendance check-in, schedules, courses, and role-based portals for students, teachers, parents, and admins — on web and mobile.",
+      role: "Led the stack end to end — Go REST API with multi-role auth, Next.js admin and web portals, and the React Native mobile app.",
+    },
+    {
       name: "AUGO",
       sub: "iOS · Social media with AR interaction",
       desc: "Team-built iOS social app where students capture AR collectibles around campus — holographic cards, live leaderboard, campus map, and announcements.",
       role: "AR camera with device-motion tracking, auth with Keychain, and a modular design using SPM libraries.",
+    },
+    {
+      name: "SpringBoard",
+      sub: "AI · Spring Boot modernization tool",
+      desc: "AI-powered Spring Boot modernization tool built with IBM Bob IDE and watsonx.ai — analyzes a repo, detects migration risks, and refactors 2.x to 3.x.",
+      role: "Team project — integrated the IBM Granite model and analysis workflow.",
     },
     {
       name: "MotoPedia",
@@ -131,36 +152,6 @@ const en: Dict = {
       sub: "Flask · PostgreSQL REST API",
       desc: "RESTful API powering a game-rental service — customers, staff, and admins each get role-based access control.",
       role: "Designed the PostgreSQL schema and the Flask + SQLAlchemy endpoints.",
-    },
-    {
-      name: "JTrax Admin",
-      sub: "Next.js · School-management admin portal",
-      desc: "Super-admin and branch-admin portals for the JTrax attendance platform — manage branches, teachers, students, classes, and credits.",
-      role: "Team project — built the admin web app in Next.js and Tailwind.",
-    },
-    {
-      name: "JTrax Web App",
-      sub: "Next.js · Student/teacher/parent portal",
-      desc: "Student, teacher, and parent web app for JTrax — attendance check-in, schedules, records, and profiles.",
-      role: "Team project — implemented the check-in flow and record views.",
-    },
-    {
-      name: "JTrax Backend",
-      sub: "Go · Attendance & management API",
-      desc: "School attendance and management API — auth, multi-role permissions, courses, classes, and attendance tracking.",
-      role: "Team project — built API endpoints and role-based permissions in Go.",
-    },
-    {
-      name: "JTrax Mobile App",
-      sub: "React Native · Student/teacher/parent app",
-      desc: "Student, teacher, and parent mobile app for JTrax — attendance check-in, schedules, records, and profiles.",
-      role: "Team project — built the cross-platform mobile client in React Native.",
-    },
-    {
-      name: "SpringBoard",
-      sub: "AI · Spring Boot modernization tool",
-      desc: "AI-powered Spring Boot modernization tool built with IBM Bob IDE and watsonx.ai — analyzes a repo, detects migration risks, and refactors 2.x to 3.x.",
-      role: "Team project — integrated the IBM Granite model and analysis workflow.",
     },
     {
       name: "IceBreaker",

@@ -40,6 +40,9 @@ export interface Dict {
   overviewLabel: string;
   roleLabel: string;
   ghLabel: string;
+  reposLabel: string;
+  privateLabel: string;
+  publicLabel: string;
   moreGh: string;
 
   archTitle: string;
@@ -88,6 +91,15 @@ export interface Dict {
   projects: { name: string; sub: string; desc: string; role: string }[];
 }
 
+/** One GitHub repository belonging to a project. */
+export interface RepoLink {
+  /** Short label shown in the repo list, e.g. "glowops-backend". */
+  name: string;
+  url: string;
+  /** Private repos stay listed (in case they go public later) with a lock badge. */
+  private?: boolean;
+}
+
 /** Language-independent data for one project (links, images, tags). */
 export interface ProjectMeta {
   /** Stable id, also the image filename under public/content/projects/. */
@@ -106,6 +118,12 @@ export interface ProjectMeta {
   featured: boolean;
   /** Tech chips (kept in English in every language, as designed). */
   tech: string[];
+  /**
+   * All repositories of a multi-repo project. When present, the case-study
+   * modal lists them (with public/private badges) instead of the single
+   * `link` button.
+   */
+  repos?: RepoLink[];
 }
 
 export interface CertMeta {

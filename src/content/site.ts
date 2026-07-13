@@ -38,6 +38,76 @@ export const education = {
  */
 export const projects: ProjectMeta[] = [
   {
+    key: "glowops",
+    img: "/content/projects/glowops.png",
+    imgHint: "projects/glowops.png",
+    link: "https://github.com/CodeBlueTeam",
+    when: "4/2026",
+    platform: "ML/AI",
+    type: "Team",
+    featured: true,
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "LINE Messaging API",
+      "Terraform",
+      "AWS",
+    ],
+    repos: [
+      {
+        name: "glowops-backend",
+        url: "https://github.com/CodeBlueTeam/glowops-backend",
+        private: true,
+      },
+      {
+        name: "glowops-staff-hub",
+        url: "https://github.com/CodeBlueTeam/glowops-staff-hub",
+        private: true,
+      },
+      {
+        name: "glowops-console",
+        url: "https://github.com/CodeBlueTeam/glowops-console",
+        private: true,
+      },
+      {
+        name: "glowops-line-bot",
+        url: "https://github.com/CodeBlueTeam/glowops-line-bot",
+        private: true,
+      },
+      {
+        name: "glowops-infra",
+        url: "https://github.com/CodeBlueTeam/glowops-infra",
+        private: true,
+      },
+      {
+        name: "second-brain-template",
+        url: "https://github.com/CodeBlueTeam/second-brain-template",
+        private: true,
+      },
+    ],
+  },
+  {
+    key: "jtrax",
+    img: "/content/projects/jtrax.png",
+    imgHint: "projects/jtrax.png",
+    link: "https://github.com/Kusk24/jtrax-web-app",
+    when: "7/2026",
+    platform: "Web",
+    type: "Team",
+    featured: true,
+    tech: ["Go", "Next.js", "TypeScript", "React Native", "Expo"],
+    repos: [
+      { name: "jtrax-admin", url: "https://github.com/Kusk24/jtrax-admin" },
+      { name: "jtrax-web-app", url: "https://github.com/Kusk24/jtrax-web-app" },
+      { name: "jtrax-backend", url: "https://github.com/Kusk24/jtrax-backend" },
+      {
+        name: "jtrax-mobile-app",
+        url: "https://github.com/Kusk24/jtrax-mobile-app",
+      },
+      { name: "jtrax-docs", url: "https://github.com/Kusk24/jtrax-docs" },
+    ],
+  },
+  {
     key: "augo",
     img: "/content/projects/augo.png",
     imgHint: "projects/augo.png",
@@ -47,7 +117,34 @@ export const projects: ProjectMeta[] = [
     type: "Team",
     featured: true,
     tech: ["SwiftUI", "Firebase", "AR / Core Motion", "Swift Package Manager"],
+    repos: [
+      { name: "AuGo", url: "https://github.com/Kusk24/AuGo" },
+      {
+        name: "augo-admin-dashboard",
+        url: "https://github.com/khinyadanarmoe/augo-admin-dashboard",
+      },
+    ],
   },
+  {
+    key: "springboard",
+    img: "/content/projects/springboard.png",
+    imgHint: "projects/springboard.png",
+    link: "https://github.com/IBM-Bob-Au-Team/SpringBoard",
+    when: "5/2026",
+    platform: "ML/AI",
+    type: "Team",
+    featured: true,
+    tech: ["TypeScript", "Spring Boot", "IBM watsonx.ai"],
+    repos: [
+      {
+        name: "SpringBoard",
+        url: "https://github.com/IBM-Bob-Au-Team/SpringBoard",
+      },
+    ],
+  },
+
+  // ── Not featured — appear in the "All projects" grid. Set featured: true
+  //    to promote any of these into the showcase up top.
   {
     key: "motopedia",
     img: "/content/projects/motopedia.png",
@@ -56,7 +153,7 @@ export const projects: ProjectMeta[] = [
     when: "2/2024",
     platform: "Android",
     type: "Team",
-    featured: true,
+    featured: false,
     tech: ["Kotlin", "Jetpack Compose", "Firebase", "Google Maps"],
   },
   {
@@ -67,7 +164,7 @@ export const projects: ProjectMeta[] = [
     when: "1/2025",
     platform: "Game",
     type: "Personal",
-    featured: true,
+    featured: false,
     tech: ["Java", "Game loop & sprites", "CSV level maps"],
   },
   {
@@ -78,66 +175,8 @@ export const projects: ProjectMeta[] = [
     when: "2/2024",
     platform: "Backend",
     type: "Team",
-    featured: true,
+    featured: false,
     tech: ["Flask", "PostgreSQL", "SQLAlchemy", "REST"],
-  },
-
-  // ── Not featured (yet) — appear in the "All projects" grid. Set featured: true
-  //    to promote any of these into the horizontal showcase up top.
-  {
-    key: "jtrax-admin",
-    img: "/content/projects/jtrax-admin.png",
-    imgHint: "projects/jtrax-admin.png",
-    link: "https://github.com/Kusk24/jtrax-admin",
-    when: "7/2026",
-    platform: "Web",
-    type: "Team",
-    featured: false,
-    tech: ["Next.js", "TypeScript", "Tailwind"],
-  },
-  {
-    key: "jtrax-web-app",
-    img: "/content/projects/jtrax-web-app.png",
-    imgHint: "projects/jtrax-web-app.png",
-    link: "https://github.com/Kusk24/jtrax-web-app",
-    when: "7/2026",
-    platform: "Web",
-    type: "Team",
-    featured: false,
-    tech: ["Next.js", "TypeScript", "Tailwind"],
-  },
-  {
-    key: "jtrax-backend",
-    img: "/content/projects/jtrax-backend.png",
-    imgHint: "projects/jtrax-backend.png",
-    link: "https://github.com/Kusk24/jtrax-backend",
-    when: "7/2026",
-    platform: "Backend",
-    type: "Team",
-    featured: false,
-    tech: ["Go", "REST", "Auth"],
-  },
-  {
-    key: "jtrax-mobile-app",
-    img: "/content/projects/jtrax-mobile-app.png",
-    imgHint: "projects/jtrax-mobile-app.png",
-    link: "https://github.com/Kusk24/jtrax-mobile-app",
-    when: "7/2026",
-    platform: "iOS",
-    type: "Team",
-    featured: false,
-    tech: ["React Native", "TypeScript", "Expo"],
-  },
-  {
-    key: "springboard",
-    img: "/content/projects/springboard.png",
-    imgHint: "projects/springboard.png",
-    link: "https://github.com/IBM-Bob-Au-Team/SpringBoard",
-    when: "5/2026",
-    platform: "ML/AI",
-    type: "Team",
-    featured: false,
-    tech: ["TypeScript", "Spring Boot", "IBM watsonx.ai"],
   },
   {
     key: "ice-breaker",
@@ -340,6 +379,7 @@ export const github = {
     "jtrax-web-app",
     "jtrax-backend",
     "jtrax-mobile-app",
+    "jtrax-docs",
     "springboard",
     "ice-breaker",
     "cpu-scheduling-algorithm",

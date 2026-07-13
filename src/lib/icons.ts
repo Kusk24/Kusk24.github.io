@@ -33,6 +33,16 @@ const TECH_SLUGS: Record<string, string> = {
   Go: "go",
   PHP: "php",
   Ruby: "ruby",
+  "Next.js": "nextdotjs",
+  React: "react",
+  "React Native": "react",
+  Expo: "expo",
+  Tailwind: "tailwindcss",
+  "Express.js": "express",
+  Terraform: "terraform",
+  Unity: "unity",
+  "Spring Boot": "springboot",
+  "LINE Messaging API": "line",
 };
 
 /** Icon URL for a tech/chip/repo-language name; null when there is no logo. */

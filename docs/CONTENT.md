@@ -18,15 +18,13 @@ shown wherever a file is still missing):
 |---|---|
 | `portrait.png` | Hero photo under your name (≈800×960+) |
 | `Win-Yu-Maung-Resume.pdf` | The résumé download buttons (nav + hero) |
-| `projects/augo.png` | AUGO — featured card + case-study modal |
-| `projects/motopedia.png` | MotoPedia — featured card + modal |
-| `projects/space-shooter.png` | Space Shooter — featured card + modal |
-| `projects/gamerental.png` | GameRental — featured card + modal |
-| `projects/jtrax-admin.png` | JTrax Admin — grid card + modal |
-| `projects/jtrax-web-app.png` | JTrax Web App — grid card + modal |
-| `projects/jtrax-backend.png` | JTrax Backend — grid card + modal |
-| `projects/jtrax-mobile-app.png` | JTrax Mobile App — grid card + modal |
-| `projects/springboard.png` | SpringBoard — grid card + modal |
+| `projects/glowops.png` | GlowOps — featured card + case-study modal |
+| `projects/jtrax.png` | JTrax — featured card + modal |
+| `projects/augo.png` | AUGO — featured card + modal |
+| `projects/springboard.png` | SpringBoard — featured card + modal |
+| `projects/motopedia.png` | MotoPedia — grid card + modal |
+| `projects/space-shooter.png` | Space Shooter — grid card + modal |
+| `projects/gamerental.png` | GameRental — grid card + modal |
 | `projects/ice-breaker.png` | IceBreaker — grid card + modal |
 | `projects/cpu-scheduling.png` | CPU Scheduling — grid card + modal |
 | `projects/web-ecommerce.png` | Clothing E-commerce — grid card + modal |

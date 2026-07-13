@@ -42,6 +42,9 @@ const my: Dict = {
   overviewLabel: "အနှစ်ချုပ်",
   roleLabel: "ကျွန်ုပ်၏ တာဝန်",
   ghLabel: "GitHub တွင် source ကြည့်ရန်",
+  reposLabel: "Repository များ",
+  privateLabel: "Private",
+  publicLabel: "Public",
   moreGh: "GitHub တွင် နောက်ထပ်ပရောဂျက်များ",
 
   archTitle: "GitHub ပေါ်မှ နောက်ဆုံး",
@@ -108,10 +111,28 @@ const my: Dict = {
 
   projects: [
     {
+      name: "GlowOps",
+      sub: "အလှပြင်ကလင်နစ်များအတွက် AI copilot — LINE ပေါ်တွင်",
+      desc: "TrueLAB Open Innovation Runway 2026 နောက်ဆုံးအဆင့် — pilot ကလင်နစ်နှင့် ဆက်လက်တည်ဆောက်နေဆဲ: ဖောက်သည်များ LINE တွင် စကားပြောစဉ် multi-module AI pipeline က ဝန်ဆောင်မှုမေးခွန်းများ ဖြေကြား၊ ရက်ချိန်းယူပြီး အထူးကိစ္စများကို ဝန်ထမ်း approval hub သို့ လွှဲပြောင်းသည်။",
+      role: "Project CTO / Technical Lead — repo ၆ ခုလုံး၏ architecture: AI pipeline backend၊ LINE OA integration၊ staff hub၊ operator console နှင့် Terraform ဖြင့် စီမံသော AWS infrastructure။",
+    },
+    {
+      name: "JTrax",
+      sub: "ကျောင်း attendance နှင့် စီမံခန့်ခွဲမှုစနစ် — client အစစ်",
+      desc: "Client အစစ်အတွက် ပေးအပ်သော Senior Project II: ဌာနခွဲစုံ ကျောင်းစီမံခန့်ခွဲမှု — attendance check-in၊ အချိန်ဇယား၊ သင်တန်းများနှင့် ကျောင်းသား၊ ဆရာ၊ မိဘ၊ admin အလိုက် portal များ — web နှင့် mobile နှစ်မျိုးလုံး။",
+      role: "Stack တစ်ခုလုံးကို ဦးဆောင်တည်ဆောက် — multi-role auth ပါ Go REST API၊ Next.js admin/web portal များနှင့် React Native mobile app။",
+    },
+    {
       name: "AUGO",
       sub: "iOS · AR ပါသော ဆိုရှယ်မီဒီယာ",
       desc: "ကျောင်းဝင်းအတွင်း AR collectible များ ဖမ်းယူနိုင်သည့် iOS ဆိုရှယ်အက်ပ် — holographic ကတ်များ၊ တိုက်ရိုက် leaderboard၊ ကျောင်းမြေပုံနှင့် ကြေညာချက်များ (အဖွဲ့ပရောဂျက်)။",
       role: "AR ကင်မရာနှင့် device-motion tracking၊ Keychain authentication နှင့် SPM ဖြင့် modular architecture။",
+    },
+    {
+      name: "SpringBoard",
+      sub: "AI · Spring Boot ခေတ်မီအောင်ပြုပြင်သည့် tool",
+      desc: "IBM Bob IDE နှင့် watsonx.ai ဖြင့် တည်ဆောက်ထားသော AI Spring Boot modernization tool — repo ကို ခွဲခြမ်းစိတ်ဖြာ၊ migration risk များ ရှာဖွေ၊ 2.x မှ 3.x သို့ refactor လုပ်ပေးသည်။",
+      role: "အဖွဲ့ပရောဂျက် — IBM Granite model နှင့် analysis workflow ကို ချိတ်ဆက်ခဲ့သည်။",
     },
     {
       name: "MotoPedia",
@@ -130,36 +151,6 @@ const my: Dict = {
       sub: "Flask · PostgreSQL REST API",
       desc: "ဂိမ်းငှားရမ်းဝန်ဆောင်မှုအတွက် RESTful API — customer၊ staff နှင့် admin တို့အတွက် role-based access control။",
       role: "PostgreSQL schema နှင့် Flask + SQLAlchemy endpoint များ ဒီဇိုင်းရေးဆွဲခဲ့သည်။",
-    },
-    {
-      name: "JTrax Admin",
-      sub: "Next.js · ကျောင်းစီမံ admin portal",
-      desc: "JTrax attendance platform အတွက် super-admin နှင့် branch-admin portal များ — ဌာနခွဲ၊ ဆရာ၊ ကျောင်းသား၊ အတန်းနှင့် credit များ စီမံခန့်ခွဲ။",
-      role: "အဖွဲ့ပရောဂျက် — admin web app ကို Next.js နှင့် Tailwind ဖြင့် တည်ဆောက်ခဲ့သည်။",
-    },
-    {
-      name: "JTrax Web App",
-      sub: "Next.js · ကျောင်းသား/ဆရာ/မိဘ portal",
-      desc: "JTrax အတွက် ကျောင်းသား၊ ဆရာနှင့် မိဘ web app — attendance check-in၊ အချိန်ဇယား၊ မှတ်တမ်းများနှင့် profile များ။",
-      role: "အဖွဲ့ပရောဂျက် — check-in flow နှင့် record view များ တည်ဆောက်ခဲ့သည်။",
-    },
-    {
-      name: "JTrax Backend",
-      sub: "Go · Attendance & management API",
-      desc: "ကျောင်း attendance နှင့် management API — auth၊ multi-role permission၊ course၊ class နှင့် attendance tracking။",
-      role: "အဖွဲ့ပရောဂျက် — API endpoint များနှင့် role-based permission များကို Go ဖြင့် တည်ဆောက်ခဲ့သည်။",
-    },
-    {
-      name: "JTrax Mobile App",
-      sub: "React Native · ကျောင်းသား/ဆရာ/မိဘ app",
-      desc: "JTrax အတွက် ကျောင်းသား၊ ဆရာနှင့် မိဘ mobile app — attendance check-in၊ အချိန်ဇယား၊ မှတ်တမ်းများနှင့် profile များ။",
-      role: "အဖွဲ့ပရောဂျက် — cross-platform mobile client ကို React Native ဖြင့် တည်ဆောက်ခဲ့သည်။",
-    },
-    {
-      name: "SpringBoard",
-      sub: "AI · Spring Boot ခေတ်မီအောင်ပြုပြင်သည့် tool",
-      desc: "IBM Bob IDE နှင့် watsonx.ai ဖြင့် တည်ဆောက်ထားသော AI Spring Boot modernization tool — repo ကို ခွဲခြမ်းစိတ်ဖြာ၊ migration risk များ ရှာဖွေ၊ 2.x မှ 3.x သို့ refactor လုပ်ပေးသည်။",
-      role: "အဖွဲ့ပရောဂျက် — IBM Granite model နှင့် analysis workflow ကို ချိတ်ဆက်ခဲ့သည်။",
     },
     {
       name: "IceBreaker",
