@@ -332,7 +332,7 @@ export const certs: CertMeta[] = [
   {
     name: "IBM Dev Day: Bob Edition — Hackathon",
     org: "IBM Developer",
-    logo: "https://cdn.simpleicons.org/ibm",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
     img: "/content/certs/ibm-dev-day-bob.png",
     date: "May 2026",
     verifyUrl:
