@@ -329,6 +329,15 @@ export const certs: CertMeta[] = [
     verifyUrl:
       "https://drive.google.com/file/d/1QFTSLfrQftHymM4K95YwaJKA6-N3voE3/view",
   },
+  {
+    name: "IBM Dev Day: Bob Edition — Hackathon",
+    org: "IBM Developer",
+    logo: "https://cdn.simpleicons.org/ibm",
+    img: "/content/certs/ibm-dev-day-bob.png",
+    date: "May 2026",
+    verifyUrl:
+      "https://drive.google.com/file/d/1RVpzAdD26bqW2ONcBw6oekfaC_mR8fXu/view",
+  },
 ];
 
 /** Tech-stack tiles (grid order). */

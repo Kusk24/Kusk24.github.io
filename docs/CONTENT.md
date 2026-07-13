@@ -44,6 +44,7 @@ shown wherever a file is still missing):
 | `certs/aws-cloud-developing.png` | Certificate photo in the carousel |
 | `certs/aws-cloud-operations.png` | Certificate photo in the carousel |
 | `certs/huawei-cloud-developer.png` | Certificate photo in the carousel |
+| `certs/ibm-dev-day-bob.png` | Certificate photo in the carousel (IBM Dev Day: Bob Edition) |
 
 Prefer other filenames/formats (e.g. `.jpg`)? Fine — just update the matching
 path in `src/content/site.ts`.
