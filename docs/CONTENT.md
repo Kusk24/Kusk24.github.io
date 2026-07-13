@@ -21,8 +21,12 @@ shown wherever a file is still missing):
 | `projects/glowops.png` | GlowOps — featured card + case-study modal (Staff Hub dashboard shot) |
 | `projects/glowops-console.png` | GlowOps modal gallery — admin console shot |
 | `projects/glowops-line.png` | GlowOps modal gallery — LINE booking chat shot |
-| `projects/jtrax.png` | JTrax — featured card + modal |
-| `projects/augo.png` | AUGO — featured card + modal |
+| `projects/jtrax.png` | JTrax — featured card + modal (admin dashboard EN) |
+| `projects/jtrax-th.png` | JTrax modal gallery — Thai dashboard shot |
+| `projects/jtrax-mobile.png` | JTrax modal gallery — teacher mobile profile |
+| `projects/augo.png` | AUGO — featured card + modal (admin panel shot) |
+| `projects/augo-map.png` | AUGO modal gallery — campus map (light) |
+| `projects/augo-map-dark.png` | AUGO modal gallery — campus map (dark) |
 | `projects/springboard.png` | SpringBoard — featured card + modal |
 | `projects/motopedia.png` | MotoPedia — grid card + modal |
 | `projects/space-shooter.png` | Space Shooter — grid card + modal |

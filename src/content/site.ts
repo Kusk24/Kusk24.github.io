@@ -100,6 +100,10 @@ export const projects: ProjectMeta[] = [
     type: "Team",
     featured: true,
     tech: ["Go", "Next.js", "TypeScript", "React Native", "Expo"],
+    gallery: [
+      "/content/projects/jtrax-th.png",
+      "/content/projects/jtrax-mobile.png",
+    ],
     repos: [
       { name: "jtrax-admin", url: "https://github.com/Kusk24/jtrax-admin" },
       { name: "jtrax-web-app", url: "https://github.com/Kusk24/jtrax-web-app" },
@@ -121,6 +125,10 @@ export const projects: ProjectMeta[] = [
     type: "Team",
     featured: true,
     tech: ["SwiftUI", "Firebase", "AR / Core Motion", "Swift Package Manager"],
+    gallery: [
+      "/content/projects/augo-map.png",
+      "/content/projects/augo-map-dark.png",
+    ],
     repos: [
       { name: "AuGo", url: "https://github.com/Kusk24/AuGo" },
       {
