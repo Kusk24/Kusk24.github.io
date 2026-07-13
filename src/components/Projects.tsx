@@ -9,6 +9,7 @@ import {
   Code,
   Gamepad2,
   Globe,
+  Lock,
   Server,
   Smartphone,
   Sparkles,
@@ -19,7 +20,7 @@ import ContentImage from "./ContentImage";
 import LatestRepos from "./LatestRepos";
 import { useLanguage } from "@/lib/language";
 import { useTheme } from "@/lib/theme";
-import { techIconUrl } from "@/lib/icons";
+import { monoIconUrl, techIconUrl } from "@/lib/icons";
 import { profile, projects as projectMeta } from "@/content/site";
 
 const PLATFORM_ICONS: Record<string, typeof Code> = {
@@ -812,22 +813,75 @@ export default function Projects() {
                 <TechChip key={tag.label} label={tag.label} icon={tag.icon} large />
               ))}
             </div>
-            <a
-              href={active.link}
-              target="_blank"
-              rel="noopener"
-              className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-[14.5px] font-semibold no-underline transition-opacity hover:opacity-85"
-              style={{ background: "var(--text)", color: "var(--bg)" }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`https://cdn.simpleicons.org/github/${theme === "dark" ? "0a0a0a" : "fbfbfd"}`}
-                alt=""
-                style={{ width: 15, height: 15, display: "block" }}
-                onError={(e) => (e.currentTarget.style.display = "none")}
-              />
-              {t.ghLabel} ↗
-            </a>
+            {active.repos && active.repos.length > 0 ? (
+              <div>
+                <p
+                  className="m-0 mb-2.5 text-[11.5px] font-semibold uppercase tracking-[0.12em]"
+                  style={{ color: "var(--text2)" }}
+                >
+                  {t.reposLabel}
+                </p>
+                <div className="flex flex-col gap-2">
+                  {active.repos.map((r) => (
+                    <a
+                      key={r.url}
+                      href={r.url}
+                      target="_blank"
+                      rel="noopener"
+                      className="flex items-center justify-between gap-3 rounded-[14px] border border-[var(--line)] px-4 py-2.5 no-underline transition-colors hover:border-[var(--accent)]"
+                      style={{ background: "var(--bg2)", color: "var(--text)" }}
+                    >
+                      <span className="flex min-w-0 items-center gap-2.5">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={monoIconUrl("github", theme)}
+                          alt=""
+                          style={{ width: 14, height: 14, display: "block", flex: "none" }}
+                          onError={(e) => (e.currentTarget.style.display = "none")}
+                        />
+                        <span className="truncate text-[13.5px] font-semibold">
+                          {r.name}
+                        </span>
+                      </span>
+                      {r.private ? (
+                        <span
+                          className="inline-flex flex-none items-center gap-1.5 rounded-full border border-[var(--line)] px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.06em]"
+                          style={{ color: "var(--text2)" }}
+                        >
+                          <Lock size={10} strokeWidth={2.4} />
+                          {t.privateLabel}
+                        </span>
+                      ) : (
+                        <span
+                          className="inline-flex flex-none items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.06em]"
+                          style={{ color: "var(--accent)", borderColor: "var(--accent)" }}
+                        >
+                          <Globe size={10} strokeWidth={2.4} />
+                          {t.publicLabel}
+                        </span>
+                      )}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a
+                href={active.link}
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-[14.5px] font-semibold no-underline transition-opacity hover:opacity-85"
+                style={{ background: "var(--text)", color: "var(--bg)" }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`https://cdn.simpleicons.org/github/${theme === "dark" ? "0a0a0a" : "fbfbfd"}`}
+                  alt=""
+                  style={{ width: 15, height: 15, display: "block" }}
+                  onError={(e) => (e.currentTarget.style.display = "none")}
+                />
+                {t.ghLabel} ↗
+              </a>
+            )}
           </div>
         </div>
       </div>
