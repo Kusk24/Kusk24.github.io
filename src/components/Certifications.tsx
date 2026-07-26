@@ -248,7 +248,8 @@ export default function Certifications({
                   data-cur={i === cur ? "true" : "false"}
                   onMouseEnter={() => setCur(i)}
                   onClick={() => select(i)}
-                  className="glass flex cursor-pointer items-center gap-3.5 rounded-[16px] px-4 py-3.5"
+                  title={cert.name}
+                  className="glass flex h-[96px] cursor-pointer items-center gap-3.5 rounded-[16px] px-4"
                 >
                   <span
                     className="flex h-[42px] w-[42px] flex-none items-center justify-center overflow-hidden rounded-xl border bg-white"
@@ -269,12 +270,21 @@ export default function Certifications({
                   </span>
                   <span className="flex min-w-0 flex-1 flex-col gap-[2px]">
                     <span
-                      className="text-[14.5px] font-semibold tracking-[-0.01em]"
-                      style={{ color: "var(--text)" }}
+                      className="text-[14.5px] font-semibold leading-[1.3] tracking-[-0.01em]"
+                      style={{
+                        color: "var(--text)",
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        WebkitLineClamp: 2,
+                        overflow: "hidden",
+                      }}
                     >
                       {cert.name}
                     </span>
-                    <span className="text-[12.5px]" style={{ color: "var(--text2)" }}>
+                    <span
+                      className="overflow-hidden text-ellipsis whitespace-nowrap text-[12.5px]"
+                      style={{ color: "var(--text2)" }}
+                    >
                       {cert.org}
                       {cert.date && ` · ${cert.date}`}
                     </span>
