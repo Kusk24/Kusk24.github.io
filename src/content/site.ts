@@ -338,6 +338,24 @@ export const certs: CertMeta[] = [
     verifyUrl:
       "https://drive.google.com/file/d/1RVpzAdD26bqW2ONcBw6oekfaC_mR8fXu/view",
   },
+  {
+    name: "AWS Academy Graduate — Cloud Web Application Builder",
+    org: "Amazon Web Services",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    img: "/content/certs/aws-cloud-web-app-builder.png",
+    date: "Jul 2026",
+    verifyUrl:
+      "https://www.credly.com/badges/169a5130-3dae-4759-b2ce-a71d9e20bf0e/public_url",
+  },
+  {
+    name: "Microsoft Learn — Power Platform & AI",
+    org: "Microsoft",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+    img: "/content/certs/ms-learn.png",
+    date: "18 badges · 5 trophies",
+    verifyUrl:
+      "https://learn.microsoft.com/en-us/users/winyumaung-9659/achievements#trophies-section",
+  },
 ];
 
 /** Tech-stack tiles (grid order). */
