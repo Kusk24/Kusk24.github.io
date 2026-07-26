@@ -166,14 +166,16 @@ export default function Certifications({
                           {t.certVerified}
                         </span>
                       </div>
-                      <div className="relative px-[22px] pb-[22px] pt-4">
+                      {/* Fills whatever height the card has (it stretches to
+                          match the cert list), with 230px as the floor. */}
+                      <div className="relative flex min-h-[230px] flex-1 flex-col px-[22px] pb-[22px] pt-4">
                         <ContentImage
                           src={cert.img}
                           alt={cert.name}
                           hint={cert.img.replace("/content/", "")}
                           radius={14}
                           fit="contain"
-                          style={{ width: "100%", height: 230 }}
+                          style={{ width: "100%", flex: 1, minHeight: 0 }}
                         />
                       </div>
                     </div>
@@ -229,7 +231,15 @@ export default function Certifications({
           <div
             onMouseEnter={() => (hold.current = true)}
             onMouseLeave={() => (hold.current = false)}
-            className="flex min-w-[min(340px,100%)] flex-[1_1_340px] flex-col gap-3"
+            className="grid min-w-[min(340px,100%)] flex-[1.2_1_400px] content-start gap-3"
+            style={{
+              // With many certs the list splits into columns instead of one
+              // ever-taller stack (and back to one column when space is tight).
+              gridTemplateColumns:
+                certs.length > 5
+                  ? "repeat(auto-fill, minmax(min(100%, 250px), 1fr))"
+                  : "1fr",
+            }}
           >
             {certs.map((cert, i) => (
               <Reveal key={cert.name} duration={0.7}>
