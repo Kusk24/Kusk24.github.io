@@ -75,7 +75,7 @@ const my: Dict = {
   certVerify: "စစ်ဆေးရန်",
 
   msLearnLead:
-    "Deploy တိုင်း ကျွန်ုပ်၏ Microsoft Learn ပရိုဖိုင်မှ တိုက်ရိုက်ဆွဲယူထားသည် — ပြီးမြောက်သော Learning Path များအတွက် ဆုဖလားနှင့် Module များအတွက် တံဆိပ်များ။",
+    "ပြီးမြောက်သော Learning Path များအတွက် ဆုဖလားနှင့် Module များအတွက် တံဆိပ်များ — ကျွန်ုပ်၏ Microsoft Learn ပရိုဖိုင်မှ တိုက်ရိုက်။",
   msTrophiesLabel: "Learning Path ဆုဖလားများ",
   msBadgesLabel: "Module တံဆိပ်များ",
   msViewProfile: "Learn ပရိုဖိုင် ကြည့်ရန်",

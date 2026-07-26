@@ -76,7 +76,7 @@ const en: Dict = {
   certVerify: "Verify",
 
   msLearnLead:
-    "Pulled live from my Microsoft Learn profile on every deploy — trophies for completed learning paths, badges for completed modules.",
+    "Trophies for completed learning paths and badges for completed modules, straight from my Microsoft Learn profile.",
   msTrophiesLabel: "Learning-path trophies",
   msBadgesLabel: "Module badges",
   msViewProfile: "View Learn profile",
