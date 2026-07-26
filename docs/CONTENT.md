@@ -46,7 +46,6 @@ shown wherever a file is still missing):
 | `certs/huawei-cloud-developer.png` | Certificate photo in the carousel |
 | `certs/ibm-dev-day-bob.png` | Certificate photo in the carousel (IBM Dev Day: Bob Edition) |
 | `certs/aws-cloud-web-app-builder.png` | Credly badge art (AWS Cloud Web Application Builder) |
-| `certs/ms-learn.png` | Microsoft Learn achievements banner (auto-captured screenshot) |
 
 Prefer other filenames/formats (e.g. `.jpg`)? Fine — just update the matching
 path in `src/content/site.ts`.

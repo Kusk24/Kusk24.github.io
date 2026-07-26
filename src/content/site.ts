@@ -347,15 +347,6 @@ export const certs: CertMeta[] = [
     verifyUrl:
       "https://www.credly.com/badges/169a5130-3dae-4759-b2ce-a71d9e20bf0e/public_url",
   },
-  {
-    name: "Microsoft Learn — Power Platform & AI",
-    org: "Microsoft",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
-    img: "/content/certs/ms-learn.png",
-    date: "18 badges · 5 trophies",
-    verifyUrl:
-      "https://learn.microsoft.com/en-us/users/winyumaung-9659/achievements#trophies-section",
-  },
 ];
 
 /** Tech-stack tiles (grid order). */
