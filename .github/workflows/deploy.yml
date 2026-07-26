@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # Weekly rebuild so build-time data (Microsoft Learn achievements) stays
+    # fresh even without a push.
+    - cron: "0 0 * * 1"
 
 permissions:
   contents: read

@@ -70,6 +70,13 @@ export interface Dict {
   certVerified: string;
   certVerify: string;
 
+  /** Microsoft Learn mini-grid under the certificate carousel. */
+  msLearnLead: string;
+  msTrophiesLabel: string;
+  msBadgesLabel: string;
+  msViewProfile: string;
+  msLevel: string;
+
   aboutOverline: string;
   aboutTitle: string;
   aboutP1: string;

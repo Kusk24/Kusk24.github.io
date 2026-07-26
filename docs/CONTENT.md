@@ -88,6 +88,15 @@ every grid card and in the case-study modal formatted as `Feb 2025`, and it
 drives the **Sort** dropdown next to the filters ("Newest first" — the default —
 and "Oldest first"). Keep the `M/YYYY` format so sorting stays correct.
 
+### Microsoft Learn achievements (auto-fetched)
+
+The mini-grid under the certificate carousel is **not** edited by hand: it's
+pulled from the public Microsoft Learn API at build time (`src/lib/mslearn.ts`)
+and refreshes on every deploy — plus a scheduled weekly rebuild (Mondays UTC)
+in `.github/workflows/deploy.yml`. Earn a new badge, and it shows up on the
+next deploy. `src/content/mslearn-snapshot.json` is only a fallback used when
+the API is unreachable during a build.
+
 ### Adding a certificate
 
 Add an entry to `certs` in `site.ts` and drop the photo into `public/content/certs/`.

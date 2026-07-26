@@ -73,6 +73,13 @@ const th: Dict = {
   certVerified: "ยืนยันแล้ว",
   certVerify: "ตรวจสอบ",
 
+  msLearnLead:
+    "ดึงข้อมูลสดจากโปรไฟล์ Microsoft Learn ของผมทุกครั้งที่ดีพลอย — ถ้วยรางวัลจากเส้นทางการเรียนรู้ที่เรียนจบ และแบดจ์จากโมดูลที่เรียนจบ",
+  msTrophiesLabel: "ถ้วยรางวัลเส้นทางการเรียนรู้",
+  msBadgesLabel: "แบดจ์โมดูล",
+  msViewProfile: "ดูโปรไฟล์ Learn",
+  msLevel: "เลเวล",
+
   aboutOverline: "นอกเหนือจากโค้ด",
   aboutTitle: "เกี่ยวกับผม",
   aboutP1:

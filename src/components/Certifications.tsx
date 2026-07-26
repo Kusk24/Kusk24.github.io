@@ -6,7 +6,12 @@ import ContentImage from "./ContentImage";
 import { useLanguage } from "@/lib/language";
 import { certs } from "@/content/site";
 
-export default function Certifications() {
+export default function Certifications({
+  children,
+}: {
+  /** Extra content shown below the carousel (the Microsoft Learn mini-grid). */
+  children?: React.ReactNode;
+}) {
   const { t } = useLanguage();
   const [cur, setCur] = useState(0);
   const hold = useRef(false);
@@ -274,6 +279,8 @@ export default function Certifications() {
             ))}
           </div>
         </div>
+
+        {children}
       </div>
     </section>
   );

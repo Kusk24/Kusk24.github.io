@@ -1,0 +1,167 @@
+{
+  "totalXp": 23125,
+  "currentLevel": 6,
+  "achievements": [
+    {
+      "category": "modules",
+      "title": "Create AI Builder prompts using your own Dataverse data",
+      "imageUrl": "/learn/achievements/ai-builder-grounded-prompts.svg",
+      "url": "/training/modules/ai-builder-grounded-prompts/",
+      "grantedOn": "2026-07-22T10:11:21.337Z"
+    },
+    {
+      "category": "learningpaths",
+      "title": "Automate and extend your solutions with AI in Microsoft Power Automate",
+      "imageUrl": "/training/achievements/generic-trophy.svg",
+      "url": "/training/paths/automate-business-processes-power-automate/",
+      "grantedOn": "2026-07-22T10:11:21.337Z"
+    },
+    {
+      "category": "modules",
+      "title": "Build approval flows with Power Automate",
+      "imageUrl": "/training/achievements/build-approval-flows.svg",
+      "url": "/training/modules/build-approval-flows/",
+      "grantedOn": "2026-07-22T10:11:20.927Z"
+    },
+    {
+      "category": "modules",
+      "title": "Use Dataverse triggers and actions in Power Automate",
+      "imageUrl": "/learn/achievements/use-dataverse-triggers-actions.svg",
+      "url": "/training/modules/use-dataverse-triggers-actions/",
+      "grantedOn": "2026-07-22T10:11:20.398Z"
+    },
+    {
+      "category": "learningpaths",
+      "title": "Learn the basics of Power BI Desktop, Power Automate, and PowerApps",
+      "imageUrl": "/training/achievements/power-platform-introduction.svg",
+      "url": "/training/paths/power-platform-introduction/",
+      "grantedOn": "2026-07-22T10:11:19.705Z"
+    },
+    {
+      "category": "modules",
+      "title": "Get started with Power Automate",
+      "imageUrl": "/training/achievements/get-started-with-flow.svg",
+      "url": "/training/modules/get-started-flows/",
+      "grantedOn": "2026-07-22T10:11:19.701Z"
+    },
+    {
+      "category": "learningpaths",
+      "title": "Build intelligent apps and portals with Microsoft Power Apps",
+      "imageUrl": "/training/achievements/generic-trophy.svg",
+      "url": "/training/paths/build-apps-portals-power-apps/",
+      "grantedOn": "2026-07-22T10:11:18.758Z"
+    },
+    {
+      "category": "modules",
+      "title": "Explore Power Pages design studio",
+      "imageUrl": "/learn/achievements/power-pages-studio.svg",
+      "url": "/training/modules/power-pages-studio/",
+      "grantedOn": "2026-07-22T10:11:18.754Z"
+    },
+    {
+      "category": "modules",
+      "title": "Core components of Power Pages",
+      "imageUrl": "/learn/achievements/power-pages-intro.svg",
+      "url": "/training/modules/power-pages-intro/",
+      "grantedOn": "2026-07-22T10:11:18.338Z"
+    },
+    {
+      "category": "modules",
+      "title": "Configure forms, charts, and dashboards in model-driven apps",
+      "imageUrl": "/training/achievements/configure-model-driven-apps-customer-engagement.svg",
+      "url": "/training/modules/configure-model-driven-apps-customer-engagement-apps/",
+      "grantedOn": "2026-07-22T10:11:17.905Z"
+    },
+    {
+      "category": "modules",
+      "title": "Get started with model-driven apps in Power Apps",
+      "imageUrl": "/training/achievements/get-started-with-model-driven-apps-in-powerapps.svg",
+      "url": "/training/modules/get-started-with-model-driven-apps-in-powerapps/",
+      "grantedOn": "2026-07-22T10:11:17.434Z"
+    },
+    {
+      "category": "modules",
+      "title": "Publish, share, and maintain a canvas app",
+      "imageUrl": "/training/achievements/publish-share-maintain-app.svg",
+      "url": "/training/modules/publish-share-maintain-app/",
+      "grantedOn": "2026-07-22T10:11:17.046Z"
+    },
+    {
+      "category": "modules",
+      "title": "Customize a canvas app in Power Apps",
+      "imageUrl": "/training/achievements/customize-apps-in-powerapps.svg",
+      "url": "/training/modules/customize-apps-in-powerapps/",
+      "grantedOn": "2026-07-22T10:11:16.61Z"
+    },
+    {
+      "category": "modules",
+      "title": "Get started with Power Apps canvas apps",
+      "imageUrl": "/training/achievements/get-started-with-powerapps.svg",
+      "url": "/training/modules/get-started-with-powerapps/",
+      "grantedOn": "2026-07-22T10:11:16.145Z"
+    },
+    {
+      "category": "modules",
+      "title": "Get started with security roles in Dataverse",
+      "imageUrl": "/training/achievements/get-started-security-roles.svg",
+      "url": "/training/modules/get-started-security-roles/",
+      "grantedOn": "2026-07-22T10:11:15.588Z"
+    },
+    {
+      "category": "learningpaths",
+      "title": "Build your data model with Microsoft Dataverse",
+      "imageUrl": "/training/achievements/generic-trophy.svg",
+      "url": "/training/paths/build-data-model-microsoft-dataverse/",
+      "grantedOn": "2026-07-22T10:11:15.585Z"
+    },
+    {
+      "category": "modules",
+      "title": "Create and manage columns within a table in Dataverse",
+      "imageUrl": "/training/achievements/create-manage-fields-within-entity.svg",
+      "url": "/training/modules/create-manage-fields-within-entity/",
+      "grantedOn": "2026-07-22T10:11:15.125Z"
+    },
+    {
+      "category": "modules",
+      "title": "Create tables in Dataverse",
+      "imageUrl": "/training/achievements/get-started-with-powerapps-common-data-service.svg",
+      "url": "/training/modules/get-started-with-powerapps-common-data-service/",
+      "grantedOn": "2026-07-22T10:11:14.656Z"
+    },
+    {
+      "category": "learningpaths",
+      "title": "Get started with AI-first solutions in Microsoft Power Platform",
+      "imageUrl": "/training/achievements/generic-trophy.svg",
+      "url": "/training/paths/design-model-solutions-power-platform/",
+      "grantedOn": "2026-07-22T10:11:14.111Z"
+    },
+    {
+      "category": "modules",
+      "title": "Turn business ideas into Power Platform solutions with Plans",
+      "imageUrl": "/training/achievements/generic-badge.svg",
+      "url": "/training/modules/turn-business-ideas-power-platform-solutions-plans/",
+      "grantedOn": "2026-07-22T10:11:14.107Z"
+    },
+    {
+      "category": "modules",
+      "title": "Create effective prompts for generative AI training tools",
+      "imageUrl": "/training/achievements/create-prompts-for-generative-ai-training-tools.svg",
+      "url": "/training/modules/create-prompts-for-generative-ai-training-tools/",
+      "grantedOn": "2026-07-22T10:11:13.51Z"
+    },
+    {
+      "category": "modules",
+      "title": "Design AI-powered business solutions with Microsoft Power Platform",
+      "imageUrl": "/training/achievements/generic-badge.svg",
+      "url": "/training/modules/design-ai-powered-solutions-power-platform/",
+      "grantedOn": "2026-07-22T10:11:13.022Z"
+    },
+    {
+      "category": "courses",
+      "title": "Build intelligent applications",
+      "imageUrl": "/media/learn/certification/course.svg",
+      "url": "/training/courses/ab-410t00/",
+      "grantedOn": "2026-07-22T10:11:12.706Z"
+    }
+  ]
+}
