@@ -79,7 +79,9 @@ export default function Certifications({
                 boxShadow: "0 40px 90px -50px rgba(0,0,0,.7)",
               }}
             >
-              <div className="min-w-0 flex-1">
+              {/* Fixed stage height so every cert card is the same size —
+                  each photo contain-fits inside, whatever its aspect ratio. */}
+              <div className="h-[min(130vw,540px)] min-w-0">
                 {certs.map((cert, i) => (
                   <div
                     key={cert.name}
