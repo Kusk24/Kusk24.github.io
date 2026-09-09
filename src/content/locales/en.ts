@@ -92,22 +92,28 @@ const en: Dict = {
     { label: "Based in Samut Prakan, Thailand", ic: "map-pin" },
     { label: "Burmese — native", ic: "languages" },
     { label: "English — fluent", ic: "languages" },
-    { label: "TrueLAB Runway 2026 finalist", ic: "trophy" },
+    { label: "TrueLAB Runway 2026 winner", ic: "trophy" },
     { label: "Fluent in AI-assisted development", ic: "sparkles" },
   ],
 
   contactOverline: "Get in touch",
   contactTitle: "Let’s build something.",
   contactLead:
-    "Open to software engineering roles and internships — full-stack web, DevOps, or mobile.",
+    "Open to software engineering roles — full-stack web, backend, DevOps & cloud, or mobile.",
   footNote: "English · ไทย · မြန်မာ — designed & built by Win Yu Maung",
 
   experience: [
     {
       org: "GlowOps — CodeBlue Team",
-      role: "Project CTO / Technical Lead",
+      role: "CTO",
       period: "April 2026 – Present",
-      desc: "TrueLAB Open Innovation Runway 2026 finalist. Leading a LINE-first AI operations copilot for beauty & wellness SMEs — system architecture, integrations, AI workflows, and the staff approval hub.",
+      desc: "Winner of TrueLAB Open Innovation Runway 2026, advanced to the ฿100,000 ScaleX stage. Architecting a LINE-first AI booking platform for beauty & wellness SMEs — channel gateway, rules-first AI orchestrator, availability and deposit engines. Shipped to production on AWS with automated releases and nightly backups; live pilot with two businesses.",
+    },
+    {
+      org: "NNPC Consulting Co., Ltd.",
+      role: "Software Engineering Intern",
+      period: "August 2026 – Present",
+      desc: "Building and testing AI agent workflows that automate internal business and operational processes — integrating AI tooling with existing systems and supporting prototyping, testing, and deployment.",
     },
     {
       org: "Schedjuice Company Limited",
@@ -120,15 +126,15 @@ const en: Dict = {
   projects: [
     {
       name: "GlowOps",
-      sub: "LINE-first AI operations copilot for wellness clinics",
-      desc: "TrueLAB Open Innovation Runway 2026 finalist, in active development with a pilot clinic: customers chat on LINE while a multi-module AI pipeline answers service questions, books appointments, and escalates edge cases to a staff approval hub.",
-      role: "Project CTO / technical lead — architecture across six repos: the AI pipeline backend, LINE OA integration, staff hub, operator console, and Terraform-managed AWS infrastructure.",
+      sub: "LINE-first AI booking platform for beauty & wellness SMEs",
+      desc: "Winner of TrueLAB Open Innovation Runway 2026 and now in production on AWS with a live pilot at two businesses: customers chat on LINE while a rules-first AI orchestrator answers service questions, books appointments, takes deposits, and escalates edge cases to a staff approval hub.",
+      role: "CTO — architecture across six repos: the channel gateway and AI orchestrator backend, LINE OA integration, staff hub, operator console, and Terraform-managed AWS infrastructure with automated releases and nightly backups.",
     },
     {
       name: "JTrax",
-      sub: "School attendance & management platform — real client",
-      desc: "Senior Project II delivered for a real client: multi-branch school management with attendance check-in, schedules, courses, and role-based portals for students, teachers, parents, and admins — on web and mobile.",
-      role: "Led the stack end to end — Go REST API with multi-role auth, Next.js admin and web portals, and the React Native mobile app.",
+      sub: "Chess school management platform — real client",
+      desc: "Delivered end to end for a real chess school: multi-branch management with attendance check-in, schedules, courses, credits and payments, and role-based portals for students, teachers, parents, and admins — on web and mobile — plus a fine-tuned Maia-2 engine that plays like a human opponent matched to each student's level.",
+      role: "Led architecture and delivery across five services — Go REST API with role-scoped SQL authorization, Next.js admin and web portals, the React Native mobile app, and the ML service.",
     },
     {
       name: "AUGO",

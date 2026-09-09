@@ -91,22 +91,28 @@ const my: Dict = {
     { label: "ထိုင်းနိုင်ငံ Samut Prakan တွင် နေထိုင်သည်", ic: "map-pin" },
     { label: "မြန်မာ — မိခင်ဘာသာ", ic: "languages" },
     { label: "အင်္ဂလိပ် — ကျွမ်းကျင်", ic: "languages" },
-    { label: "TrueLAB Runway 2026 နောက်ဆုံးအဆင့်", ic: "trophy" },
+    { label: "TrueLAB Runway 2026 အနိုင်ရ", ic: "trophy" },
     { label: "AI-assisted development ကျွမ်းကျင်", ic: "sparkles" },
   ],
 
   contactOverline: "ဆက်သွယ်ရန်",
   contactTitle: "အတူတကွ တည်ဆောက်ကြရအောင်။",
   contactLead:
-    "ဆော့ဖ်ဝဲအင်ဂျင်နီယာ အလုပ်နှင့် အလုပ်သင် အခွင့်အလမ်းများ — full-stack web၊ DevOps သို့မဟုတ် mobile — ကြိုဆိုပါသည်။",
+    "ဆော့ဖ်ဝဲအင်ဂျင်နီယာ အလုပ်အခွင့်အလမ်းများ — full-stack web၊ backend၊ DevOps နှင့် cloud သို့မဟုတ် mobile — ကြိုဆိုပါသည်။",
   footNote: "English · ไทย · မြန်မာ — Win Yu Maung ဒီဇိုင်းရေးဆွဲ တည်ဆောက်ထားသည်",
 
   experience: [
     {
       org: "GlowOps — CodeBlue Team",
-      role: "Project CTO / Technical Lead",
+      role: "CTO",
       period: "2026 ဧပြီ – ယခုအထိ",
-      desc: "TrueLAB Open Innovation Runway 2026 နောက်ဆုံးအဆင့် — အလှအပနှင့် ကျန်းမာရေး SME များအတွက် LINE-first AI copilot ကို ဦးဆောင်တည်ဆောက်နေသည် — system architecture၊ integration များ၊ AI workflow များနှင့် staff approval hub။",
+      desc: "TrueLAB Open Innovation Runway 2026 အနိုင်ရပြီး ဘတ် ၁၀၀,၀၀၀ ScaleX အဆင့်သို့ တက်လှမ်းခဲ့သည် — အလှအပနှင့် ကျန်းမာရေး SME များအတွက် LINE-first AI booking platform ၏ architecture ကို ဦးဆောင်ရေးဆွဲ: channel gateway၊ rules-first AI orchestrator၊ availability နှင့် deposit engine များ။ AWS ပေါ်တွင် production သို့ တင်ပြီး automated release နှင့် နေ့စဉ်ည backup ဖြင့် လုပ်ငန်း ၂ ခုတွင် live pilot လုပ်နေသည်။",
+    },
+    {
+      org: "NNPC Consulting Co., Ltd.",
+      role: "Software Engineering အလုပ်သင်",
+      period: "2026 ဩဂုတ် – ယခုအထိ",
+      desc: "လုပ်ငန်းတွင်း business နှင့် operation လုပ်ငန်းစဉ်များကို automate လုပ်ရန် AI agent workflow များ တည်ဆောက်၊ စမ်းသပ်ပြီး AI tool များကို ရှိပြီးစနစ်များနှင့် ချိတ်ဆက်ကာ prototyping၊ testing နှင့် deployment ကို ပံ့ပိုးသည်။",
     },
     {
       org: "Schedjuice Company Limited",
@@ -119,15 +125,15 @@ const my: Dict = {
   projects: [
     {
       name: "GlowOps",
-      sub: "အလှပြင်ကလင်နစ်များအတွက် AI copilot — LINE ပေါ်တွင်",
-      desc: "TrueLAB Open Innovation Runway 2026 နောက်ဆုံးအဆင့် — pilot ကလင်နစ်နှင့် ဆက်လက်တည်ဆောက်နေဆဲ: ဖောက်သည်များ LINE တွင် စကားပြောစဉ် multi-module AI pipeline က ဝန်ဆောင်မှုမေးခွန်းများ ဖြေကြား၊ ရက်ချိန်းယူပြီး အထူးကိစ္စများကို ဝန်ထမ်း approval hub သို့ လွှဲပြောင်းသည်။",
-      role: "Project CTO / Technical Lead — repo ၆ ခုလုံး၏ architecture: AI pipeline backend၊ LINE OA integration၊ staff hub၊ operator console နှင့် Terraform ဖြင့် စီမံသော AWS infrastructure။",
+      sub: "အလှအပနှင့် ကျန်းမာရေး SME များအတွက် LINE-first AI booking platform",
+      desc: "TrueLAB Open Innovation Runway 2026 အနိုင်ရပြီး AWS ပေါ်တွင် production အဖြစ် လုပ်ငန်း ၂ ခုနှင့် live pilot လုပ်နေသည် — ဖောက်သည်များ LINE တွင် စကားပြောစဉ် rules-first AI orchestrator က ဝန်ဆောင်မှုမေးခွန်းများ ဖြေကြား၊ ရက်ချိန်းယူ၊ deposit လက်ခံပြီး အထူးကိစ္စများကို ဝန်ထမ်း approval hub သို့ လွှဲပြောင်းသည်။",
+      role: "CTO — repo ၆ ခုလုံး၏ architecture: channel gateway နှင့် AI orchestrator backend၊ LINE OA integration၊ staff hub၊ operator console နှင့် automated release၊ နေ့စဉ်ည backup ပါသော Terraform ဖြင့် စီမံသည့် AWS infrastructure။",
     },
     {
       name: "JTrax",
-      sub: "ကျောင်း attendance နှင့် စီမံခန့်ခွဲမှုစနစ် — client အစစ်",
-      desc: "Client အစစ်အတွက် ပေးအပ်သော Senior Project II: ဌာနခွဲစုံ ကျောင်းစီမံခန့်ခွဲမှု — attendance check-in၊ အချိန်ဇယား၊ သင်တန်းများနှင့် ကျောင်းသား၊ ဆရာ၊ မိဘ၊ admin အလိုက် portal များ — web နှင့် mobile နှစ်မျိုးလုံး။",
-      role: "Stack တစ်ခုလုံးကို ဦးဆောင်တည်ဆောက် — multi-role auth ပါ Go REST API၊ Next.js admin/web portal များနှင့် React Native mobile app။",
+      sub: "စစ်တုရင်ကျောင်း စီမံခန့်ခွဲမှု platform — client အစစ်",
+      desc: "စစ်တုရင်ကျောင်း client အစစ်အတွက် အစအဆုံး ပေးအပ်ခဲ့သည်: ဌာနခွဲစုံ စီမံခန့်ခွဲမှု — attendance check-in၊ အချိန်ဇယား၊ သင်တန်းများ၊ credit နှင့် ငွေပေးချေမှု၊ ကျောင်းသား၊ ဆရာ၊ မိဘ၊ admin အလိုက် portal များ — web နှင့် mobile နှစ်မျိုးလုံး — ထို့အပြင် ကျောင်းသားတစ်ဦးချင်း၏ အဆင့်နှင့် ကိုက်ညီသော လူသားဆန်သည့် ပြိုင်ဘက်အဖြစ် fine-tune လုပ်ထားသော Maia-2 engine။",
+      role: "Service ၅ ခုလုံး၏ architecture နှင့် delivery ကို ဦးဆောင် — role-scoped SQL authorization ပါ Go REST API၊ Next.js admin/web portal များ၊ React Native mobile app နှင့် ML service။",
     },
     {
       name: "AUGO",

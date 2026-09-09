@@ -99,7 +99,7 @@ export const projects: ProjectMeta[] = [
     platform: "Web",
     type: "Team",
     featured: true,
-    tech: ["Go", "Next.js", "TypeScript", "React Native", "Expo"],
+    tech: ["Go", "Next.js", "TypeScript", "React Native", "Expo", "Maia-2"],
     gallery: [
       "/content/projects/jtrax-th.png",
       "/content/projects/jtrax-mobile.png",
@@ -377,20 +377,32 @@ export const techStack: TechItem[] = [
   { name: "Expo", slug: "expo" },
   { name: "Tailwind", slug: "tailwindcss" },
   { name: "Express.js", slug: "express" },
+  { name: "Node.js", slug: "nodedotjs" },
   { name: "Flask", slug: "flask" },
   { name: "Spring Boot", slug: "springboot" },
   { name: "Unity", slug: "unity" },
   // Data, cloud & tooling
   { name: "Firebase", slug: "firebase" },
   { name: "PostgreSQL", slug: "postgresql" },
+  { name: "MongoDB", slug: "mongodb" },
+  { name: "Redis", slug: "redis" },
   {
     name: "AWS",
     slug: "amazonwebservices",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
   },
+  {
+    name: "Azure",
+    slug: "azure",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg",
+  },
+  { name: "Terraform", slug: "terraform" },
+  { name: "Docker", slug: "docker" },
+  { name: "Jenkins", slug: "jenkins" },
+  { name: "GitHub Actions", slug: "githubactions" },
+  { name: "Linux", slug: "linux" },
   { name: "Git", slug: "git" },
   { name: "GitHub", slug: "github" },
-  { name: "Docker", slug: "docker" },
 ];
 
 /** "Latest on GitHub" — fetched live from the GitHub API in the browser. */
