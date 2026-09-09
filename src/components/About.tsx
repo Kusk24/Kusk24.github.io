@@ -1,5 +1,5 @@
 "use client";
-import { Code, Languages, MapPin, Sparkles, Trophy } from "lucide-react";
+import { Code, Languages, MapPin, Rocket, Sparkles, Trophy } from "lucide-react";
 import Reveal from "./Reveal";
 import { useLanguage } from "@/lib/language";
 
@@ -8,6 +8,7 @@ const FACT_ICONS: Record<string, typeof Code> = {
   languages: Languages,
   trophy: Trophy,
   sparkles: Sparkles,
+  rocket: Rocket,
 };
 
 export default function About() {

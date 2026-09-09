@@ -85,14 +85,15 @@ const en: Dict = {
   aboutOverline: "Beyond the code",
   aboutTitle: "About me",
   aboutP1:
-    "I got into software by wanting to build things I could actually hold — an iOS app my friends could open, a game with a boss fight, a backend that didn’t fall over.",
+    "I got into software wanting to build things I could actually hold — an iOS app my friends could open, a game with a boss fight, a backend that didn’t fall over. These days the things I build have real users on them.",
   aboutP2:
-    "Three years into my CS degree at Assumption University, that curiosity has become a habit of picking up whatever stack the problem needs: Swift one semester, Flask and PostgreSQL the next, AWS in between. I also work fluently with AI — pairing with coding agents to build, review, and ship faster without letting quality slip. Outside the terminal I keep a disciplined gym routine — consistency there and consistency in engineering feel like the same muscle.",
+    "I’m in my final year of Computer Science at Assumption University, graduating this October — and somewhere along the way the projects stopped being coursework. I’m CTO of GlowOps, which won TrueLAB Open Innovation Runway 2026 and now runs in production on AWS with two businesses booking on it every day. I delivered JTrax end to end for a chess school client, from the Go API to the mobile app. I’m also interning as a software engineer, building AI agent workflows that automate internal business operations. And I work fluently with AI myself — pairing with coding agents to build, review, and ship faster without letting quality slip. Outside the terminal I keep a disciplined gym routine — consistency there and consistency in engineering feel like the same muscle.",
   aboutFacts: [
     { label: "Based in Samut Prakan, Thailand", ic: "map-pin" },
     { label: "Burmese — native", ic: "languages" },
     { label: "English — fluent", ic: "languages" },
     { label: "TrueLAB Runway 2026 winner", ic: "trophy" },
+    { label: "GlowOps live in production", ic: "rocket" },
     { label: "Fluent in AI-assisted development", ic: "sparkles" },
   ],
 
