@@ -432,6 +432,7 @@ export const github = {
     "jtrax-web-app",
     "jtrax-backend",
     "jtrax-mobile-app",
+    "jtrax-ai",
     "jtrax-docs",
     "springboard",
     "ice-breaker",
