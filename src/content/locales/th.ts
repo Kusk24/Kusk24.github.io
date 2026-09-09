@@ -126,7 +126,7 @@ const th: Dict = {
       name: "GlowOps",
       sub: "แพลตฟอร์มจองคิวด้วย AI บน LINE สำหรับ SME ความงามและสุขภาพ",
       desc: "ผู้ชนะ TrueLAB Open Innovation Runway 2026 และขึ้นระบบจริงบน AWS แล้ว โดยมีผู้ใช้นำร่อง 2 ธุรกิจ — ลูกค้าแชทผ่าน LINE ขณะที่ AI orchestrator แบบ rules-first ตอบคำถามบริการ จองคิว รับมัดจำ และส่งเคสพิเศษให้พนักงานอนุมัติผ่าน staff hub",
-      role: "CTO — ออกแบบสถาปัตยกรรมทั้ง 6 รีโพ: แบ็กเอนด์ channel gateway และ AI orchestrator, การเชื่อมต่อ LINE OA, staff hub, operator console และโครงสร้างพื้นฐาน AWS ที่จัดการด้วย Terraform พร้อมการปล่อยเวอร์ชันอัตโนมัติและสำรองข้อมูลทุกคืน",
+      role: "CTO — ออกแบบสถาปัตยกรรมทั้ง 8 รีโพ: แบ็กเอนด์ channel gateway และ AI orchestrator, การเชื่อมต่อ LINE OA, staff hub, operator console, พอร์ทัลลูกค้า และโครงสร้างพื้นฐาน AWS ที่จัดการด้วย Terraform พร้อมการปล่อยเวอร์ชันอัตโนมัติและสำรองข้อมูลทุกคืน",
     },
     {
       name: "JTrax",

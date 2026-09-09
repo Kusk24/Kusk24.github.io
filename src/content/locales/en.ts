@@ -128,7 +128,7 @@ const en: Dict = {
       name: "GlowOps",
       sub: "LINE-first AI booking platform for beauty & wellness SMEs",
       desc: "Winner of TrueLAB Open Innovation Runway 2026 and now in production on AWS with a live pilot at two businesses: customers chat on LINE while a rules-first AI orchestrator answers service questions, books appointments, takes deposits, and escalates edge cases to a staff approval hub.",
-      role: "CTO — architecture across six repos: the channel gateway and AI orchestrator backend, LINE OA integration, staff hub, operator console, and Terraform-managed AWS infrastructure with automated releases and nightly backups.",
+      role: "CTO — architecture across eight repos: the channel gateway and AI orchestrator backend, LINE OA integration, staff hub, operator console, customer portal, and Terraform-managed AWS infrastructure with automated releases and nightly backups.",
     },
     {
       name: "JTrax",

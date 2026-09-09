@@ -74,8 +74,18 @@ export const projects: ProjectMeta[] = [
         private: true,
       },
       {
-        name: "glowops-line-bot",
-        url: "https://github.com/CodeBlueTeam/glowops-line-bot",
+        name: "glowops-customer",
+        url: "https://github.com/CodeBlueTeam/glowops-customer",
+        private: true,
+      },
+      {
+        name: "glowops-bot",
+        url: "https://github.com/CodeBlueTeam/glowops-bot",
+        private: true,
+      },
+      {
+        name: "glowops",
+        url: "https://github.com/CodeBlueTeam/glowops",
         private: true,
       },
       {
@@ -99,7 +109,7 @@ export const projects: ProjectMeta[] = [
     platform: "Web",
     type: "Team",
     featured: true,
-    tech: ["Go", "Next.js", "TypeScript", "React Native", "Expo", "Maia-2"],
+    tech: ["Go", "Next.js", "TypeScript", "React Native", "Expo", "Python", "Maia-2"],
     gallery: [
       "/content/projects/jtrax-th.png",
       "/content/projects/jtrax-mobile.png",
@@ -112,6 +122,7 @@ export const projects: ProjectMeta[] = [
         name: "jtrax-mobile-app",
         url: "https://github.com/Kusk24/jtrax-mobile-app",
       },
+      { name: "jtrax-ai", url: "https://github.com/Kusk24/jtrax-ai" },
       { name: "jtrax-docs", url: "https://github.com/Kusk24/jtrax-docs" },
     ],
   },

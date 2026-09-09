@@ -127,7 +127,7 @@ const my: Dict = {
       name: "GlowOps",
       sub: "အလှအပနှင့် ကျန်းမာရေး SME များအတွက် LINE-first AI booking platform",
       desc: "TrueLAB Open Innovation Runway 2026 အနိုင်ရပြီး AWS ပေါ်တွင် production အဖြစ် လုပ်ငန်း ၂ ခုနှင့် live pilot လုပ်နေသည် — ဖောက်သည်များ LINE တွင် စကားပြောစဉ် rules-first AI orchestrator က ဝန်ဆောင်မှုမေးခွန်းများ ဖြေကြား၊ ရက်ချိန်းယူ၊ deposit လက်ခံပြီး အထူးကိစ္စများကို ဝန်ထမ်း approval hub သို့ လွှဲပြောင်းသည်။",
-      role: "CTO — repo ၆ ခုလုံး၏ architecture: channel gateway နှင့် AI orchestrator backend၊ LINE OA integration၊ staff hub၊ operator console နှင့် automated release၊ နေ့စဉ်ည backup ပါသော Terraform ဖြင့် စီမံသည့် AWS infrastructure။",
+      role: "CTO — repo ၈ ခုလုံး၏ architecture: channel gateway နှင့် AI orchestrator backend၊ LINE OA integration၊ staff hub၊ operator console၊ customer portal နှင့် automated release၊ နေ့စဉ်ည backup ပါသော Terraform ဖြင့် စီမံသည့် AWS infrastructure။",
     },
     {
       name: "JTrax",
