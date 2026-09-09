@@ -16,14 +16,14 @@ shown wherever a file is still missing):
 
 | File | Shows up as |
 |---|---|
-| `portrait.png` | Hero photo under your name (≈800×960+) |
+| `portrait.jpg` | Hero photo under your name (≈800×960+) |
 | `Win-Yu-Maung-Resume.pdf` | The résumé download buttons (nav + hero) |
 | `projects/glowops.png` | GlowOps — featured card + case-study modal (Staff Hub dashboard shot) |
-| `projects/glowops-console.png` | GlowOps modal gallery — admin console shot |
-| `projects/glowops-line.png` | GlowOps modal gallery — LINE booking chat shot |
+| `projects/glowops-console.png` | GlowOps modal gallery — CodeBlue admin console (Clinic Accounts) |
+| `projects/glowops-line.png` | GlowOps modal gallery — LINE booking chat with rich menu |
 | `projects/jtrax.png` | JTrax — featured card + modal (admin dashboard EN) |
-| `projects/jtrax-th.png` | JTrax modal gallery — Thai dashboard shot |
-| `projects/jtrax-mobile.png` | JTrax modal gallery — teacher mobile profile |
+| `projects/jtrax-th.png` | JTrax modal gallery — teacher schedule (Thai UI) |
+| `projects/jtrax-mobile.png` | JTrax modal gallery — student "play the computer" mobile screen |
 | `projects/augo.png` | AUGO — featured card + modal (admin panel shot) |
 | `projects/augo-map.png` | AUGO modal gallery — campus map (light) |
 | `projects/augo-map-dark.png` | AUGO modal gallery — campus map (dark) |
