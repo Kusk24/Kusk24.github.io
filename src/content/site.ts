@@ -115,13 +115,13 @@ export const projects: ProjectMeta[] = [
       "/content/projects/jtrax-mobile.png",
     ],
     repos: [
-      { name: "jtrax-admin", url: "https://github.com/Kusk24/jtrax-admin" },
       { name: "jtrax-web-app", url: "https://github.com/Kusk24/jtrax-web-app" },
-      { name: "jtrax-backend", url: "https://github.com/Kusk24/jtrax-backend" },
+      { name: "jtrax-admin", url: "https://github.com/Kusk24/jtrax-admin" },
       {
         name: "jtrax-mobile-app",
         url: "https://github.com/Kusk24/jtrax-mobile-app",
       },
+      { name: "jtrax-backend", url: "https://github.com/Kusk24/jtrax-backend" },
       { name: "jtrax-ai", url: "https://github.com/Kusk24/jtrax-ai" },
       { name: "jtrax-docs", url: "https://github.com/Kusk24/jtrax-docs" },
     ],
