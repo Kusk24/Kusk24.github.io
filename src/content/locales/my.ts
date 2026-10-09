@@ -86,7 +86,7 @@ const my: Dict = {
   aboutP1:
     "ကိုယ်တိုင်ကိုင်တွယ်နိုင်သည့်အရာများ တည်ဆောက်ချင်စိတ်ဖြင့် coding ကို စတင်ခဲ့သည် — သူငယ်ချင်းများ ဖွင့်ကြည့်နိုင်သည့် iOS အက်ပ်၊ boss fight ပါသည့် ဂိမ်း၊ မပျက်သည့် backend။ ယခုအခါ တည်ဆောက်သည့်အရာများပေါ်တွင် အသုံးပြုသူအစစ်များ ရှိနေပြီ။",
   aboutP2:
-    "Assumption University တွင် Computer Science နောက်ဆုံးနှစ်၌ ရှိပြီး ဤအောက်တိုဘာတွင် ဘွဲ့ရမည် — လမ်းတစ်လျှောက်တွင် ပရောဂျက်များသည် ကျောင်းစာမျှသာ မဟုတ်တော့ပေ။ TrueLAB Open Innovation Runway 2026 အနိုင်ရပြီး ယခု AWS ပေါ်တွင် production အဖြစ် လုပ်ငန်း ၂ ခုက နေ့စဉ် ရက်ချိန်းယူနေသည့် GlowOps ၏ CTO ဖြစ်သည်။ စစ်တုရင်ကျောင်း client အတွက် JTrax ကို Go API မှ mobile app အထိ အစအဆုံး ပေးအပ်ခဲ့သည်။ ထို့အပြင် software engineer အလုပ်သင်အဖြစ် လုပ်ငန်းတွင်း business လုပ်ငန်းစဉ်များကို automate လုပ်သည့် AI agent workflow များ တည်ဆောက်နေသည်။ AI ကိုလည်း ကျွမ်းကျင်စွာ အသုံးပြုသည် — coding agent များနှင့် တွဲလုပ်၍ အရည်အသွေး မကျဆင်းစေဘဲ ပိုမြန်ဆန်စွာ တည်ဆောက် စစ်ဆေး ပို့ဆောင်နိုင်သည်။ ကွန်ပျူတာရှေ့မှ မဟုတ်သည့်အချိန်တွင် ပုံမှန် ကိုယ်ကာယလေ့ကျင့်သည် — ထိုစည်းကမ်းနှင့် အင်ဂျင်နီယာစည်းကမ်းသည် တူညီသော ကြွက်သားပင်ဖြစ်သည်။",
+    "Assumption University တွင် Computer Science နောက်ဆုံးနှစ်၌ ရှိပြီး ဤအောက်တိုဘာတွင် ဘွဲ့ရမည် — လမ်းတစ်လျှောက်တွင် ပရောဂျက်များသည် ကျောင်းစာမျှသာ မဟုတ်တော့ပေ။ TrueLAB Open Innovation Runway 2026 အနိုင်ရပြီး ယခု AWS ပေါ်တွင် production အဖြစ် လုပ်ငန်း ၂ ခုက နေ့စဉ် ရက်ချိန်းယူနေသည့် GlowOps ၏ CTO ဖြစ်သည်။ စစ်တုရင်ကျောင်း client အတွက် JTrax ကို Go API မှ mobile app အထိ အစအဆုံး ပေးအပ်ခဲ့သည်။ ထို့အပြင် နေရာနှစ်ခုတွင် အလုပ်သင်နေသည် — RaasPal တွင် on-site ဖြင့် robotics-as-a-service ကုမ္ပဏီအတွက် dashboard နှင့် internal tool များ တည်ဆောက်ပြီး NNPC Consulting တွင် remote ဖြင့် business လုပ်ငန်းစဉ်များကို automate လုပ်သည့် AI agent workflow များ တည်ဆောက်နေသည်။ AI ကိုလည်း ကျွမ်းကျင်စွာ အသုံးပြုသည် — coding agent များနှင့် တွဲလုပ်၍ အရည်အသွေး မကျဆင်းစေဘဲ ပိုမြန်ဆန်စွာ တည်ဆောက် စစ်ဆေး ပို့ဆောင်နိုင်သည်။ ကွန်ပျူတာရှေ့မှ မဟုတ်သည့်အချိန်တွင် ပုံမှန် ကိုယ်ကာယလေ့ကျင့်သည် — ထိုစည်းကမ်းနှင့် အင်ဂျင်နီယာစည်းကမ်းသည် တူညီသော ကြွက်သားပင်ဖြစ်သည်။",
   aboutFacts: [
     { label: "ထိုင်းနိုင်ငံ Samut Prakan တွင် နေထိုင်သည်", ic: "map-pin" },
     { label: "မြန်မာ — မိခင်ဘာသာ", ic: "languages" },
@@ -110,8 +110,14 @@ const my: Dict = {
       desc: "TrueLAB Open Innovation Runway 2026 အနိုင်ရပြီး ဘတ် ၁၀၀,၀၀၀ ScaleX အဆင့်သို့ တက်လှမ်းခဲ့သည် — အလှအပနှင့် ကျန်းမာရေး SME များအတွက် LINE-first AI booking platform ၏ architecture ကို ဦးဆောင်ရေးဆွဲ: channel gateway၊ rules-first AI orchestrator၊ availability နှင့် deposit engine များ။ AWS ပေါ်တွင် production သို့ တင်ပြီး automated release နှင့် နေ့စဉ်ည backup ဖြင့် လုပ်ငန်း ၂ ခုတွင် live pilot လုပ်နေသည်။",
     },
     {
+      org: "RaasPal",
+      role: "Software Engineer အလုပ်သင်",
+      period: "2026 စက်တင်ဘာ – ယခုအထိ",
+      desc: "Robotics-as-a-service ကုမ္ပဏီတွင် အချိန်ပြည့် on-site အလုပ်သင်။ စက်ရုပ်အုပ်စုနှင့် ဝန်ဆောင်မှုဒေတာများကို report နှင့် dashboard များအဖြစ် ပြောင်းပေးသည့် full-stack web app နှင့် internal tool များကို ဒီဇိုင်းဆွဲ၊ တည်ဆောက်၊ ထိန်းသိမ်းသည် — monday.com live ticket များအပေါ် KPI နှင့် ဖောက်သည်ကျေနပ်မှု dashboard၊ monday သို့ ပြင်ဆင်ချက်များ ပြန်သိမ်းပေးသည့် ၅၂ ပတ် maintenance planner နှင့် Excel export၊ share link ပါသော pending-case tracker။ Next.js နှင့် Spring Boot ဖြင့် UI ဒီဇိုင်းမှ AWS deployment အထိ။",
+    },
+    {
       org: "NNPC Consulting Co., Ltd.",
-      role: "Software Engineering အလုပ်သင်",
+      role: "Software Engineering အလုပ်သင် — AI နှင့် Automation",
       period: "2026 ဩဂုတ် – ယခုအထိ",
       desc: "လုပ်ငန်းတွင်း business နှင့် operation လုပ်ငန်းစဉ်များကို automate လုပ်ရန် AI agent workflow များ တည်ဆောက်၊ စမ်းသပ်ပြီး AI tool များကို ရှိပြီးစနစ်များနှင့် ချိတ်ဆက်ကာ prototyping၊ testing နှင့် deployment ကို ပံ့ပိုးသည်။",
     },

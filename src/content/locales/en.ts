@@ -87,7 +87,7 @@ const en: Dict = {
   aboutP1:
     "I got into software wanting to build things I could actually hold — an iOS app my friends could open, a game with a boss fight, a backend that didn’t fall over. These days the things I build have real users on them.",
   aboutP2:
-    "I’m in my final year of Computer Science at Assumption University, graduating this October — and somewhere along the way the projects stopped being coursework. I’m CTO of GlowOps, which won TrueLAB Open Innovation Runway 2026 and now runs in production on AWS with two businesses booking on it every day. I delivered JTrax end to end for a chess school client, from the Go API to the mobile app. I’m also interning as a software engineer, building AI agent workflows that automate internal business operations. And I work fluently with AI myself — pairing with coding agents to build, review, and ship faster without letting quality slip. Outside the terminal I keep a disciplined gym routine — consistency there and consistency in engineering feel like the same muscle.",
+    "I’m in my final year of Computer Science at Assumption University, graduating this October — and somewhere along the way the projects stopped being coursework. I’m CTO of GlowOps, which won TrueLAB Open Innovation Runway 2026 and now runs in production on AWS with two businesses booking on it every day. I delivered JTrax end to end for a chess school client, from the Go API to the mobile app. I’m also interning in two places: on-site at RaasPal, building the dashboards and internal tools a robotics-as-a-service company runs on, and remotely at NNPC Consulting, building AI agent workflows that automate business operations. And I work fluently with AI myself — pairing with coding agents to build, review, and ship faster without letting quality slip. Outside the terminal I keep a disciplined gym routine — consistency there and consistency in engineering feel like the same muscle.",
   aboutFacts: [
     { label: "Based in Samut Prakan, Thailand", ic: "map-pin" },
     { label: "Burmese — native", ic: "languages" },
@@ -111,8 +111,14 @@ const en: Dict = {
       desc: "Winner of TrueLAB Open Innovation Runway 2026, advanced to the ฿100,000 ScaleX stage. Architecting a LINE-first AI booking platform for beauty & wellness SMEs — channel gateway, rules-first AI orchestrator, availability and deposit engines. Shipped to production on AWS with automated releases and nightly backups; live pilot with two businesses.",
     },
     {
+      org: "RaasPal",
+      role: "Software Engineer Intern",
+      period: "September 2026 – Present",
+      desc: "Full-time, on-site at a robotics-as-a-service company. Designing, building and maintaining full-stack web apps and internal tools that turn robot fleet and service data into reports and dashboards — a KPI and customer-satisfaction dashboard on live monday.com tickets, a 52-week maintenance planner that writes changes back to monday, and a pending-case tracker with Excel export and shareable links. Next.js and Spring Boot, from UI design through to deployment on AWS.",
+    },
+    {
       org: "NNPC Consulting Co., Ltd.",
-      role: "Software Engineering Intern",
+      role: "Software Engineering Intern — AI & Automation",
       period: "August 2026 – Present",
       desc: "Building and testing AI agent workflows that automate internal business and operational processes — integrating AI tooling with existing systems and supporting prototyping, testing, and deployment.",
     },
