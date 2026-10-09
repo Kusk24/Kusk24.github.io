@@ -62,7 +62,7 @@ const en: Dict = {
   gpaLabel: "GPA",
   eduSchool: "Assumption University of Thailand",
   eduDegree: "B.Sc. Computer Science — Software Engineering concentration",
-  eduPeriod: "June 2023 – October 2026 (expected)",
+  eduPeriod: "June 2023 – October 2026",
 
   stackOverline: "Tools of the trade",
   stackTitle: "Tech stack & languages",
@@ -87,9 +87,9 @@ const en: Dict = {
   aboutP1:
     "I got into software wanting to build things I could actually hold — an iOS app my friends could open, a game with a boss fight, a backend that didn’t fall over. These days the things I build have real users on them.",
   aboutP2:
-    "I’m in my final year of Computer Science at Assumption University, graduating this October — and somewhere along the way the projects stopped being coursework. I’m CTO of GlowOps, which won TrueLAB Open Innovation Runway 2026 and now runs in production on AWS with two businesses booking on it every day. I delivered JTrax end to end for a chess school client, from the Go API to the mobile app. I’m also interning in two places: on-site at RaasPal, building the dashboards and internal tools a robotics-as-a-service company runs on, and remotely at NNPC Consulting, building AI agent workflows that automate business operations. And I work fluently with AI myself — pairing with coding agents to build, review, and ship faster without letting quality slip. Outside the terminal I keep a disciplined gym routine — consistency there and consistency in engineering feel like the same muscle.",
+    "I graduated in Computer Science from Assumption University in October 2026 — and well before that, the projects had stopped being coursework. I’m CTO of GlowOps, which won TrueLAB Open Innovation Runway 2026 and now runs in production on AWS with two businesses booking on it every day. I delivered JTrax end to end for a chess school client, from the Go API to the mobile app. I’m also interning in two places: on-site at RaasPal, building the dashboards and internal tools a robotics-as-a-service company runs on, and remotely at NNPC Consulting, building AI agent workflows that automate business operations. And I work fluently with AI myself — pairing with coding agents to build, review, and ship faster without letting quality slip. Outside the terminal I keep a disciplined gym routine — consistency there and consistency in engineering feel like the same muscle.",
   aboutFacts: [
-    { label: "Based in Samut Prakan, Thailand", ic: "map-pin" },
+    { label: "Based in Pak Kret, Nonthaburi, Thailand", ic: "map-pin" },
     { label: "Burmese — native", ic: "languages" },
     { label: "English — fluent", ic: "languages" },
     { label: "TrueLAB Runway 2026 winner", ic: "trophy" },
@@ -100,7 +100,7 @@ const en: Dict = {
   contactOverline: "Get in touch",
   contactTitle: "Let’s build something.",
   contactLead:
-    "Open to software engineering roles — full-stack web, backend, DevOps & cloud, or mobile.",
+    "Fresh Computer Science graduate, open to software engineering roles — full-stack web, backend, DevOps & cloud, or mobile.",
   footNote: "English · ไทย · မြန်မာ — designed & built by Win Yu Maung",
 
   experience: [

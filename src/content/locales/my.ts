@@ -61,7 +61,7 @@ const my: Dict = {
   gpaLabel: "GPA",
   eduSchool: "Assumption University of Thailand",
   eduDegree: "B.Sc. ကွန်ပျူတာသိပ္ပံ — Software Engineering အထူးပြု",
-  eduPeriod: "2023 ဇွန် – 2026 အောက်တိုဘာ (မျှော်မှန်း)",
+  eduPeriod: "2023 ဇွန် – 2026 အောက်တိုဘာ",
 
   stackOverline: "အသုံးပြုသည့် ကိရိယာများ",
   stackTitle: "နည်းပညာနှင့် ဘာသာစကားများ",
@@ -86,9 +86,9 @@ const my: Dict = {
   aboutP1:
     "ကိုယ်တိုင်ကိုင်တွယ်နိုင်သည့်အရာများ တည်ဆောက်ချင်စိတ်ဖြင့် coding ကို စတင်ခဲ့သည် — သူငယ်ချင်းများ ဖွင့်ကြည့်နိုင်သည့် iOS အက်ပ်၊ boss fight ပါသည့် ဂိမ်း၊ မပျက်သည့် backend။ ယခုအခါ တည်ဆောက်သည့်အရာများပေါ်တွင် အသုံးပြုသူအစစ်များ ရှိနေပြီ။",
   aboutP2:
-    "Assumption University တွင် Computer Science နောက်ဆုံးနှစ်၌ ရှိပြီး ဤအောက်တိုဘာတွင် ဘွဲ့ရမည် — လမ်းတစ်လျှောက်တွင် ပရောဂျက်များသည် ကျောင်းစာမျှသာ မဟုတ်တော့ပေ။ TrueLAB Open Innovation Runway 2026 အနိုင်ရပြီး ယခု AWS ပေါ်တွင် production အဖြစ် လုပ်ငန်း ၂ ခုက နေ့စဉ် ရက်ချိန်းယူနေသည့် GlowOps ၏ CTO ဖြစ်သည်။ စစ်တုရင်ကျောင်း client အတွက် JTrax ကို Go API မှ mobile app အထိ အစအဆုံး ပေးအပ်ခဲ့သည်။ ထို့အပြင် နေရာနှစ်ခုတွင် အလုပ်သင်နေသည် — RaasPal တွင် on-site ဖြင့် robotics-as-a-service ကုမ္ပဏီအတွက် dashboard နှင့် internal tool များ တည်ဆောက်ပြီး NNPC Consulting တွင် remote ဖြင့် business လုပ်ငန်းစဉ်များကို automate လုပ်သည့် AI agent workflow များ တည်ဆောက်နေသည်။ AI ကိုလည်း ကျွမ်းကျင်စွာ အသုံးပြုသည် — coding agent များနှင့် တွဲလုပ်၍ အရည်အသွေး မကျဆင်းစေဘဲ ပိုမြန်ဆန်စွာ တည်ဆောက် စစ်ဆေး ပို့ဆောင်နိုင်သည်။ ကွန်ပျူတာရှေ့မှ မဟုတ်သည့်အချိန်တွင် ပုံမှန် ကိုယ်ကာယလေ့ကျင့်သည် — ထိုစည်းကမ်းနှင့် အင်ဂျင်နီယာစည်းကမ်းသည် တူညီသော ကြွက်သားပင်ဖြစ်သည်။",
+    "Assumption University မှ Computer Science ဘွဲ့ကို 2026 အောက်တိုဘာတွင် ရရှိခဲ့သည် — ထိုမတိုင်မီကတည်းက ပရောဂျက်များသည် ကျောင်းစာမျှသာ မဟုတ်တော့ပေ။ TrueLAB Open Innovation Runway 2026 အနိုင်ရပြီး ယခု AWS ပေါ်တွင် production အဖြစ် လုပ်ငန်း ၂ ခုက နေ့စဉ် ရက်ချိန်းယူနေသည့် GlowOps ၏ CTO ဖြစ်သည်။ စစ်တုရင်ကျောင်း client အတွက် JTrax ကို Go API မှ mobile app အထိ အစအဆုံး ပေးအပ်ခဲ့သည်။ ထို့အပြင် နေရာနှစ်ခုတွင် အလုပ်သင်နေသည် — RaasPal တွင် on-site ဖြင့် robotics-as-a-service ကုမ္ပဏီအတွက် dashboard နှင့် internal tool များ တည်ဆောက်ပြီး NNPC Consulting တွင် remote ဖြင့် business လုပ်ငန်းစဉ်များကို automate လုပ်သည့် AI agent workflow များ တည်ဆောက်နေသည်။ AI ကိုလည်း ကျွမ်းကျင်စွာ အသုံးပြုသည် — coding agent များနှင့် တွဲလုပ်၍ အရည်အသွေး မကျဆင်းစေဘဲ ပိုမြန်ဆန်စွာ တည်ဆောက် စစ်ဆေး ပို့ဆောင်နိုင်သည်။ ကွန်ပျူတာရှေ့မှ မဟုတ်သည့်အချိန်တွင် ပုံမှန် ကိုယ်ကာယလေ့ကျင့်သည် — ထိုစည်းကမ်းနှင့် အင်ဂျင်နီယာစည်းကမ်းသည် တူညီသော ကြွက်သားပင်ဖြစ်သည်။",
   aboutFacts: [
-    { label: "ထိုင်းနိုင်ငံ Samut Prakan တွင် နေထိုင်သည်", ic: "map-pin" },
+    { label: "ထိုင်းနိုင်ငံ Pak Kret, Nonthaburi တွင် နေထိုင်သည်", ic: "map-pin" },
     { label: "မြန်မာ — မိခင်ဘာသာ", ic: "languages" },
     { label: "အင်္ဂလိပ် — ကျွမ်းကျင်", ic: "languages" },
     { label: "TrueLAB Runway 2026 အနိုင်ရ", ic: "trophy" },
@@ -99,7 +99,7 @@ const my: Dict = {
   contactOverline: "ဆက်သွယ်ရန်",
   contactTitle: "အတူတကွ တည်ဆောက်ကြရအောင်။",
   contactLead:
-    "ဆော့ဖ်ဝဲအင်ဂျင်နီယာ အလုပ်အခွင့်အလမ်းများ — full-stack web၊ backend၊ DevOps နှင့် cloud သို့မဟုတ် mobile — ကြိုဆိုပါသည်။",
+    "Computer Science ဘွဲ့ရ အသစ်ဖြစ်ပြီး ဆော့ဖ်ဝဲအင်ဂျင်နီယာ အလုပ်အခွင့်အလမ်းများ — full-stack web၊ backend၊ DevOps နှင့် cloud သို့မဟုတ် mobile — ကြိုဆိုပါသည်။",
   footNote: "English · ไทย · မြန်မာ — Win Yu Maung ဒီဇိုင်းရေးဆွဲ တည်ဆောက်ထားသည်",
 
   experience: [
