@@ -8,6 +8,7 @@ import {
 import "./globals.css";
 import { ThemeProvider } from "@/lib/theme";
 import { LanguageProvider } from "@/lib/language";
+import { profile } from "@/content/site";
 
 const sans = Instrument_Sans({
   subsets: ["latin"],
@@ -30,21 +31,26 @@ const myanmar = Noto_Sans_Myanmar({
   variable: "--font-mm",
 });
 
-const SITE_URL = "https://kusk24.github.io";
-const TITLE = "Win Yu Maung — Software Engineer";
+const TITLE = "Win Yu Maung — Software Engineer | Full-Stack, Cloud & AI";
 const DESCRIPTION =
-  "Software engineer focused on full-stack web and DevOps — from Next.js frontends to cloud infrastructure on AWS — plus mobile apps in SwiftUI, Jetpack Compose, and React Native.";
+  "Win Yu Maung is a software engineer in Thailand and CTO of GlowOps, building full-stack web, cloud and AI products with Next.js, TypeScript, Go and AWS.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(profile.siteUrl),
   title: TITLE,
   description: DESCRIPTION,
+  authors: [{ name: profile.name, url: profile.siteUrl }],
+  alternates: { canonical: "/" },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: SITE_URL,
-    siteName: "Win Yu Maung",
-    type: "website",
+    url: "/",
+    siteName: profile.name,
+    locale: "en_US",
+    type: "profile",
+    firstName: "Win Yu",
+    lastName: "Maung",
+    username: profile.githubUser,
     images: [{ url: "/og.png", width: 1200, height: 630, alt: TITLE }],
   },
   twitter: {
@@ -72,6 +78,10 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+        {/* Scroll-reveal content starts hidden and needs JS to appear. */}
+        <noscript>
+          <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
       </head>
       <body>
         <ThemeProvider>

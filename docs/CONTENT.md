@@ -54,7 +54,7 @@ path in `src/content/site.ts`.
 
 One file holds every link and language-independent fact:
 
-- `profile` — email, phone, GitHub/LinkedIn URLs, resume path, name, copyright year
+- `profile` — site address (`siteUrl`, used for the canonical tag, sitemap, and structured data), email, phone, GitHub/LinkedIn URLs, resume path, name, copyright year
 - `projects` — each project's GitHub link, image, date, platform/type tags, tech chips, featured flag
 - `certs` — certificate names, orgs, logos, photo paths
 - `techStack` — the tiles in the tech grid

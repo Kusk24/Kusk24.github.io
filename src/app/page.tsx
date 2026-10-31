@@ -8,6 +8,7 @@ import Certifications from "@/components/Certifications";
 import MsLearnGrid from "@/components/MsLearnGrid";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
+import StructuredData from "@/components/StructuredData";
 import { fetchMsLearn } from "@/lib/mslearn";
 
 export default async function Home() {
@@ -16,6 +17,7 @@ export default async function Home() {
 
   return (
     <>
+      <StructuredData />
       <BgCanvas />
       <Nav />
       <main>

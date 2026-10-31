@@ -3,7 +3,7 @@
 Personal portfolio of **Win Yu Maung** — Next.js 15 (App Router), TypeScript,
 Tailwind CSS v4, statically exported and deployed to GitHub Pages.
 
-Live at **https://kusk24.github.io**
+Live at **https://www.winyumaung.tech**
 
 Implements the Claude Design prototype in [docs/design/Portfolio.dc.html](docs/design/Portfolio.dc.html):
 single-page portfolio with EN / ไทย / မြန်မာ language switching, dark/light

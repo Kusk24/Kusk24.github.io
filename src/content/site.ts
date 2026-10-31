@@ -7,6 +7,11 @@ import type { CertMeta, ProjectMeta, TechItem } from "./types";
 
 export const profile = {
   name: "Win Yu Maung",
+  /**
+   * The one address search engines should treat as this site. Used for the
+   * canonical tag, Open Graph URL, sitemap, robots.txt, and structured data.
+   */
+  siteUrl: "https://www.winyumaung.tech",
   email: "winyumg2003a@gmail.com",
   phoneDisplay: "(+66) 96 101 6972",
   phoneHref: "tel:+66961016972",
