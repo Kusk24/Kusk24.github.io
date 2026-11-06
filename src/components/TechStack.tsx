@@ -77,7 +77,11 @@ export default function TechStack() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={tech.icon ?? monoIconUrl(tech.slug, theme)}
+                  src={
+                    (theme === "dark" && tech.iconDark) ||
+                    tech.icon ||
+                    monoIconUrl(tech.slug, theme)
+                  }
                   alt={tech.name}
                   style={{
                     width: 42,

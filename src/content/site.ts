@@ -5,6 +5,9 @@
 // ─────────────────────────────────────────────────────────────────────────────
 import type { CertMeta, ProjectMeta, TechItem } from "./types";
 
+// Hosted here because the wordmark was removed from newer devicon releases.
+const AWS_LOGO = "/content/logos/aws.svg";
+
 export const profile = {
   name: "Win Yu Maung",
   /**
@@ -312,7 +315,7 @@ export const certs: CertMeta[] = [
   {
     name: "AWS Academy Cloud Foundations",
     org: "Amazon Web Services",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    logo: AWS_LOGO,
     img: "/content/certs/aws-cloud-foundations.png",
     date: "Feb 2025",
     verifyUrl:
@@ -321,7 +324,7 @@ export const certs: CertMeta[] = [
   {
     name: "AWS Academy Cloud Developing",
     org: "Amazon Web Services",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    logo: AWS_LOGO,
     img: "/content/certs/aws-cloud-developing.png",
     date: "Feb 2025",
     verifyUrl:
@@ -330,7 +333,7 @@ export const certs: CertMeta[] = [
   {
     name: "AWS Academy Cloud Operations",
     org: "Amazon Web Services",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    logo: AWS_LOGO,
     img: "/content/certs/aws-cloud-operations.png",
     date: "Feb 2026",
     verifyUrl:
@@ -357,7 +360,7 @@ export const certs: CertMeta[] = [
   {
     name: "AWS Academy Graduate — Cloud Web Application Builder",
     org: "Amazon Web Services",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    logo: AWS_LOGO,
     img: "/content/certs/aws-cloud-web-app-builder.png",
     date: "Jul 2026",
     verifyUrl:
@@ -379,7 +382,7 @@ export const techStack: TechItem[] = [
   {
     name: "C#",
     slug: "csharp",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/csharp/csharp-original.svg",
   },
   { name: "Dart", slug: "dart" },
   { name: "HTML5", slug: "html5" },
@@ -405,12 +408,13 @@ export const techStack: TechItem[] = [
   {
     name: "AWS",
     slug: "amazonwebservices",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    icon: AWS_LOGO,
+    iconDark: "/content/logos/aws-on-dark.svg",
   },
   {
     name: "Azure",
     slug: "azure",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/azure/azure-original.svg",
   },
   { name: "Terraform", slug: "terraform" },
   { name: "Docker", slug: "docker" },

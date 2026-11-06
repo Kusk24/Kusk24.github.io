@@ -1,7 +1,8 @@
 // Brand-logo URLs (simpleicons / devicon CDNs), matching the design prototype.
 // Mono icons are tinted per theme via the color path segment.
 
-const DEV = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/";
+// Pinned: jsDelivr refuses devicon@latest because the package is over its size limit.
+const DEV = "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/";
 
 /** simpleicons logo in the current theme's text color. */
 export function monoIconUrl(slug: string, theme: "dark" | "light"): string {

@@ -9,6 +9,7 @@ import MsLearnGrid from "@/components/MsLearnGrid";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import StructuredData from "@/components/StructuredData";
+import KeepHashInView from "@/components/KeepHashInView";
 import { fetchMsLearn } from "@/lib/mslearn";
 
 export default async function Home() {
@@ -18,6 +19,7 @@ export default async function Home() {
   return (
     <>
       <StructuredData />
+      <KeepHashInView />
       <BgCanvas />
       <Nav />
       <main>

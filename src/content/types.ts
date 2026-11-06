@@ -158,4 +158,6 @@ export interface TechItem {
   slug: string;
   /** Optional explicit icon URL that overrides the slug. */
   icon?: string;
+  /** Optional version of `icon` for the dark theme. */
+  iconDark?: string;
 }

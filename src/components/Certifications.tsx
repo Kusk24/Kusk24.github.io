@@ -42,7 +42,11 @@ export default function Certifications({
   };
 
   return (
-    <section id="certifications" className="relative z-[1] px-6 py-[150px]">
+    <section
+      id="certifications"
+      // Land on the heading, not on the section's empty top padding.
+      className="relative z-[1] -scroll-mt-16 px-6 py-[150px]"
+    >
       <div className="mx-auto max-w-[1140px]">
         <Reveal className="mb-14">
           <p
