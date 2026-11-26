@@ -62,7 +62,7 @@ const en: Dict = {
   gpaLabel: "GPA",
   eduSchool: "Assumption University of Thailand",
   eduDegree: "B.Sc. Computer Science — Software Engineering concentration",
-  eduPeriod: "June 2023 – October 2026",
+  eduPeriod: "June 2023 – November 2026",
 
   stackOverline: "Tools of the trade",
   stackTitle: "Tech stack & languages",
@@ -87,7 +87,7 @@ const en: Dict = {
   aboutP1:
     "I got into software wanting to build things I could actually hold — an iOS app my friends could open, a game with a boss fight, a backend that didn’t fall over. These days the things I build have real users on them.",
   aboutP2:
-    "I graduated in Computer Science from Assumption University in October 2026 — and well before that, the projects had stopped being coursework. I’m CTO of GlowOps, which won TrueLAB Open Innovation Runway 2026 and now runs in production on AWS with two businesses booking on it every day. I delivered JTrax end to end for a chess school client, from the Go API to the mobile app. I’m also interning in two places: on-site at RaasPal, building the dashboards and internal tools a robotics-as-a-service company runs on, and remotely at NNPC Consulting, building AI agent workflows that automate business operations. And I work fluently with AI myself — pairing with coding agents to build, review, and ship faster without letting quality slip. Outside the terminal I keep a disciplined gym routine — consistency there and consistency in engineering feel like the same muscle.",
+    "I graduated in Computer Science from Assumption University in November 2026 — and well before that, the projects had stopped being coursework. I’m CTO of GlowOps, which won TrueLAB Open Innovation Runway 2026 and now runs in production on AWS with two businesses booking on it every day. I delivered JTrax end to end for a chess school client, from the Go API to the mobile app. I also interned in two places: on-site at RaasPal, building the dashboards and internal tools a robotics-as-a-service company runs on, and remotely at NNPC Consulting, building AI agent workflows that automate business operations. And I work fluently with AI myself — pairing with coding agents to build, review, and ship faster without letting quality slip. Outside the terminal I keep a disciplined gym routine — consistency there and consistency in engineering feel like the same muscle.",
   aboutFacts: [
     { label: "Based in Pak Kret, Nonthaburi, Thailand", ic: "map-pin" },
     { label: "Burmese — native", ic: "languages" },
@@ -113,14 +113,14 @@ const en: Dict = {
     {
       org: "RaasPal",
       role: "Software Engineer Intern",
-      period: "September 2026 – Present",
-      desc: "Full-time, on-site at a robotics-as-a-service company. Designing, building and maintaining full-stack web apps and internal tools that turn robot fleet and service data into reports and dashboards — a KPI and customer-satisfaction dashboard on live monday.com tickets, a 52-week maintenance planner that writes changes back to monday, and a pending-case tracker with Excel export and shareable links. Next.js and Spring Boot, from UI design through to deployment on AWS.",
+      period: "September – November 2026",
+      desc: "Full-time, on-site at a robotics-as-a-service company. Designed, built and maintained full-stack web apps and internal tools that turn robot fleet and service data into reports and dashboards — a KPI and customer-satisfaction dashboard on live monday.com tickets, a 52-week maintenance planner that writes changes back to monday, and a pending-case tracker with Excel export and shareable links. Next.js and Spring Boot, from UI design through to deployment on AWS.",
     },
     {
       org: "NNPC Consulting Co., Ltd.",
       role: "Software Engineering Intern — AI & Automation",
-      period: "August 2026 – Present",
-      desc: "Building and testing AI agent workflows that automate internal business and operational processes — integrating AI tooling with existing systems and supporting prototyping, testing, and deployment.",
+      period: "August – November 2026",
+      desc: "Built and tested AI agent workflows that automate internal business and operational processes — integrated AI tooling with existing systems and supported prototyping, testing, and deployment.",
     },
     {
       org: "Schedjuice Company Limited",

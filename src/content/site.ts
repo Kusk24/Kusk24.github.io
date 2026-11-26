@@ -36,7 +36,7 @@ export const profile = {
 };
 
 export const education = {
-  gpa: "3.72",
+  gpa: "3.74",
   gpaOutOf: "4.0",
 };
 
@@ -344,7 +344,7 @@ export const certs: CertMeta[] = [
     org: "Huawei Cloud",
     logo: "https://cdn.simpleicons.org/huawei",
     img: "/content/certs/huawei-cloud-developer.png",
-    date: "Valid until Oct 2028",
+    date: "Oct 2025 – Oct 2028",
     verifyUrl:
       "https://drive.google.com/file/d/1QFTSLfrQftHymM4K95YwaJKA6-N3voE3/view",
   },
